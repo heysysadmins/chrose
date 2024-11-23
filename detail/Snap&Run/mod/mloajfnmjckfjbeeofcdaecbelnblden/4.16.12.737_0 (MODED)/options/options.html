@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Snap&amp;Read Extension</title>
+
+        <link
+            rel="stylesheet"
+            href="options.css" />
+        <link
+            rel="stylesheet"
+            href="djiSwitch.css" />
+        <link
+            rel="stylesheet"
+            href="djiToast.css" />
+        <link
+            rel="stylesheet"
+            href="/resources/sprite/sprite-common.css" />
+        <link
+            rel="stylesheet"
+            href="/resources/sprite/sr/sprite.css" />
+
+        <script src="../thirdParty/jquery/jquery-2.1.4.min.js"></script>
+        <script
+            src="../libs/core-lib-utils.umd.js"
+            type="text/javascript"></script>
+        <script
+            src="../common/core-lib-utils-adapter.js"
+            type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="dji-sru-options-layout">
+            <div class="dji-sru-options-view">
+                <div class="dji-sru-2-columns-layout">
+                    <div class="dji-sru-column">
+                        <div class="dji-sru-main-logo"></div>
+                    </div>
+                    <div class="dji-sru-column dji-sru-align-top-right">
+                        <div
+                            id="dji-sru-user-name"
+                            class="dji-sru-dropdown"
+                            dji-sru-dropdown-id="dji-sru-user-context-menu">
+                            <span></span>
+                            <div class="dji-sru-option-dropdown-items"></div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="dji-sru-2-columns-layout"
+                    dji-sru-options>
+                    <div class="dji-sru-column dji-sru-have-overlay">
+                        <div class="dji-sru-column-overlay"></div>
+                        <div class="dji-sru-options-group">
+                            <div class="dji-sru-option-color-picker-item">
+                                <div
+                                    class="dji-sru-option-item-label"
+                                    dji-i18n="sru_text_color">
+                                    Highlight Text color
+                                </div>
+                                <div class="dji-sru-option-color-picker-value">
+                                    <div
+                                        id="dji-sru-text-color"
+                                        class="dji-sru-color-picker-value">
+                                        <div
+                                            class="dji-sru-option-dropdown-items"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dji-sru-option-color-picker-item">
+                                <div
+                                    class="dji-sru-option-item-label"
+                                    dji-i18n="sru_word_highlight_color">
+                                    Highlight Background color
+                                </div>
+                                <div class="dji-sru-option-color-picker-value">
+                                    <div
+                                        id="dji-sru-word-highlight-color"
+                                        class="dji-sru-color-picker-value">
+                                        <div
+                                            class="dji-sru-option-dropdown-items"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                id="dji-sru-voices"
+                                class="dji-sru-option-dropdown-item"
+                                dji-sru-dropdown-id="dji-sru-voices">
+                                <div
+                                    class="dji-sru-option-item-label"
+                                    dji-i18n="sru_voices">
+                                    Voice
+                                </div>
+                                <div class="dji-sru-option-item-value">
+                                    Voice value
+                                </div>
+                                <div
+                                    class="dji-sru-option-dropdown-items"></div>
+                            </div>
+
+                            <div class="dji-sru-option-slider-item">
+                                <div class="dji-sru-slider-icon">
+                                    <i class="dji-svg-icon svg-volume_up"></i>
+                                </div>
+                                <div class="dji-sru-slider-input">
+                                    <input
+                                        id="dji-sru-speak-volume"
+                                        type="range"
+                                        min="0"
+                                        max="100"
+                                        step="10"
+                                        value="100"
+                                        dji-i18n-title="sru_speak_volume" />
+                                </div>
+                                <div
+                                    class="dji-sru-slider-label"
+                                    dji-i18n="sru_speak_volume">
+                                    Volume
+                                </div>
+                                <div class="dji-sru-slider-value">
+                                    Volume Value
+                                </div>
+                            </div>
+
+                            <div class="dji-sru-option-slider-item">
+                                <div class="dji-sru-slider-icon">
+                                    <i
+                                        class="dji-svg-icon svg-directions_run"></i>
+                                </div>
+                                <div class="dji-sru-slider-input">
+                                    <input
+                                        id="dji-sru-speak-rate"
+                                        type="range"
+                                        min="50"
+                                        max="150"
+                                        step="10"
+                                        value="120"
+                                        dji-i18n-title="sru_speak_speed" />
+                                </div>
+                                <div
+                                    class="dji-sru-slider-label"
+                                    dji-i18n="sru_speak_speed">
+                                    Speed
+                                </div>
+                                <div class="dji-sru-slider-value">
+                                    Speed Value
+                                </div>
+                            </div>
+
+                            <div class="dji-sru-option-slider-item">
+                                <div class="dji-sru-slider-icon">
+                                    <i class="dji-svg-icon svg-music_note"></i>
+                                </div>
+                                <div class="dji-sru-slider-input">
+                                    <input
+                                        id="dji-sru-speak-pitch"
+                                        type="range"
+                                        min="50"
+                                        max="150"
+                                        step="10"
+                                        value="120"
+                                        dji-i18n-title="sru_speak_pitch" />
+                                </div>
+                                <div
+                                    class="dji-sru-slider-label"
+                                    dji-i18n="sru_speak_pitch">
+                                    Pitch
+                                </div>
+                                <div class="dji-sru-slider-value">
+                                    Pitch Value
+                                </div>
+                            </div>
+
+                            <div class="dji-sru-option-switch-item">
+                                <div
+                                    class="dji-sru-option-item-label"
+                                    dji-i18n="sru_load_pdfs_in_sru">
+                                    Rewordify
+                                </div>
+                                <div class="dji-sru-option-switch-item-status">
+                                    <div
+                                        id="dji-sru-enable-simplify"
+                                        class="dji-sru-switch-container">
+                                        <div
+                                            class="dji-sru-switch-track-bar"></div>
+                                        <div
+                                            class="dji-sru-switch-button"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dji-sru-option-slider-item">
+                                <div class="dji-sru-slider-icon">
+                                    <i class="dji-svg-icon svg-simplify"></i>
+                                </div>
+                                <div class="dji-sru-slider-input">
+                                    <input
+                                        id="dji-sru-simplify-fluency"
+                                        type="range"
+                                        min="0"
+                                        max="2"
+                                        step="1"
+                                        value="1"
+                                        dji-i18n-title="sru_simplify_visibility" />
+                                </div>
+                                <div
+                                    class="dji-sru-slider-label"
+                                    dji-i18n="sru_speak_pitch">
+                                    Simplify
+                                </div>
+                                <div class="dji-sru-slider-value">default</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dji-sru-column dji-sru-have-overlay">
+                        <div class="dji-sru-column-overlay"></div>
+
+                        <div class="dji-sru-option-switch-item">
+                            <div
+                                class="dji-sru-option-item-label"
+                                dji-i18n="sru_show_readability_in_icon">
+                                Show reading level in icon
+                            </div>
+                            <div class="dji-sru-option-switch-item-status">
+                                <div
+                                    id="dji-sru-show-readability-in-icon"
+                                    class="dji-sru-switch-container">
+                                    <div class="dji-sru-switch-track-bar"></div>
+                                    <div class="dji-sru-switch-button"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dji-sru-option-switch-item">
+                            <div
+                                class="dji-sru-option-item-label"
+                                dji-i18n="sru_auto_speak">
+                                Screenshot Reader - Autospeak
+                            </div>
+                            <div class="dji-sru-option-switch-item-status">
+                                <div
+                                    id="dji-sru-auto-speak"
+                                    class="dji-sru-switch-container">
+                                    <div class="dji-sru-switch-track-bar"></div>
+                                    <div class="dji-sru-switch-button"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dji-sru-option-switch-item">
+                            <div
+                                class="dji-sru-option-item-label"
+                                dji-i18n="sru_load_pdfs_in_sru">
+                                Load PDFs with OrbitNote automatically
+                            </div>
+                            <div class="dji-sru-option-switch-item-status">
+                                <div
+                                    id="dji-sru-load-pdfs-in-sru"
+                                    class="dji-sru-switch-container">
+                                    <div class="dji-sru-switch-track-bar"></div>
+                                    <div class="dji-sru-switch-button"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dji-sru-option-switch-item">
+                            <div
+                                class="dji-sru-option-item-label"
+                                dji-i18n="sru_load_pdfs_in_sru">
+                                Dictionary - double click definition
+                            </div>
+                            <div class="dji-sru-option-switch-item-status">
+                                <div
+                                    id="dji-sru-open-on-doubleclick"
+                                    class="dji-sru-switch-container">
+                                    <div class="dji-sru-switch-track-bar"></div>
+                                    <div class="dji-sru-switch-button"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dji-sru-option-item-container">
+                            <div
+                                id="dji-sru-translate"
+                                class="dji-sru-option-dropdown-item"
+                                dji-sru-dropdown-id="dji-sru-translation-language">
+                                <div
+                                    class="dji-sru-option-item-label"
+                                    dji-i18n="sru_translate">
+                                    Translate into...
+                                </div>
+                                <div class="dji-sru-option-item-value">
+                                    Translate value
+                                </div>
+                                <div
+                                    class="dji-sru-option-dropdown-items"></div>
+                            </div>
+                            <div class="dji-sru-option-switch-item-status">
+                                <div
+                                    id="dji-sru-enable-translation"
+                                    class="dji-sru-switch-container">
+                                    <div class="dji-sru-switch-track-bar"></div>
+                                    <div class="dji-sru-switch-button"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            id="dji-sru-translate-voice"
+                            class="dji-sru-option-dropdown-item"
+                            dji-sru-dropdown-id="dji-sru-translation-voices">
+                            <div
+                                class="dji-sru-option-item-label"
+                                dji-i18n="sru_translate-voice">
+                                Translate voice
+                            </div>
+                            <div class="dji-sru-option-item-value">
+                                Translate voice value
+                            </div>
+                            <div class="dji-sru-option-dropdown-items"></div>
+                        </div>
+
+                        <div class="dji-sru-option-color-picker-item">
+                            <div
+                                class="dji-sru-option-item-label"
+                                dji-i18n="sru_text_color">
+                                Color overlay
+                            </div>
+                            <div class="dji-sru-option-color-picker-value">
+                                <div
+                                    id="dji-sru-overlay-color"
+                                    class="dji-sru-color-picker-value dji-sru-reading-overlay">
+                                    <div class="dji-sru-no-color-icon">
+                                        <i
+                                            class="dji-svg-icon svg-invert_colors_off"></i>
+                                    </div>
+                                    <div
+                                        class="dji-sru-option-dropdown-items"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dji-sru-option-color-picker-item">
+                            <div
+                                class="dji-sru-option-item-label"
+                                dji-i18n="sru_word_highlight_color">
+                                Reading line guide
+                            </div>
+                            <div class="dji-sru-option-color-picker-value">
+                                <div
+                                    id="dji-sru-line-color"
+                                    class="dji-sru-color-picker-value dji-sru-reading-overlay">
+                                    <div class="dji-sru-no-color-icon">
+                                        <i
+                                            class="dji-svg-icon svg-invert_colors_off"></i>
+                                    </div>
+                                    <div
+                                        class="dji-sru-option-dropdown-items"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dji-sru-footer-layout">
+                <div class="dji-sru-first-column">
+                    <div class="dji-sru-company-logo"></div>
+                    <div
+                        class="dji-sru-info"
+                        dji-i18n-html="sru_cowriter_product_info">
+                        Snap&amp;Read&trade; is a product of Don Johnston
+                        Incorporated
+                    </div>
+                    <div
+                        class="dji-sru-info"
+                        dji-i18n-html="sru_cowriter_developer_info_1">
+                        Don Johnston Inc. was founded in 1980 to develop
+                        technologies<br />that help people read and write
+                    </div>
+                    <div
+                        class="dji-sru-info"
+                        dji-i18n-html="sru_cowriter_developer_info_2">
+                        &copy; Copyright 2020 Don Johnston Incorporated
+                    </div>
+                </div>
+                <div class="dji-sru-second-column">
+                    <a
+                        href="#"
+                        target="_blank"
+                        dji-sru-url>
+                        <div class="dji-sru-info">snapandread.com</div>
+                    </a>
+                    <a href="mailto:info@donjohnston.com?Subject=Information">
+                        <div class="dji-sru-info">info@donjohnston.com</div>
+                    </a>
+                    <a
+                        href="https://academy.texthelp.com/snap-and-read"
+                        target="_blank">
+                        <div
+                            class="dji-sru-info"
+                            dji-i18n="sru_help_link">
+                            Help
+                        </div>
+                    </a>
+                    <a
+                        href="#"
+                        target="_blank"
+                        dji-sru-privacy-policy-url>
+                        <div
+                            class="dji-sru-info"
+                            dji-i18n="sru_privacy_policy_link">
+                            Privacy Policy
+                        </div>
+                    </a>
+                    <a
+                        href="#"
+                        target="_blank"
+                        dji-sru-tos-url>
+                        <div
+                            class="dji-sru-info"
+                            dji-i18n="sru_terms_of_service_link">
+                            Terms of Service
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div
+            id="dji-sru-toast"
+            class="dji-sru-layout-horizontal">
+            <div class="dji-sru-toast-message"></div>
+            <div class="dji-sru-toast-close-button">
+                <i class="dji-svg-icon svg-close"></i>
+            </div>
+        </div>
+
+        <div id="dji-sru-busy-overlay"></div>
+
+        <div id="dji-sru-main-overlay"></div>
+        <div id="dji-sru-modal-dlg-overlay"></div>
+
+        <div template>
+            <div
+                dji-sru-template-id="dji-sru-user-context-menu"
+                class="dji-sru-popup"
+                style="width: 235px">
+                <div
+                    id="dji-sru-connect-with-educator"
+                    class="dji-sru-menu-item dji-sru-layout-horizontal">
+                    <div class="dji-sru-icon">
+                        <i class="dji-svg-icon svg-group_add"></i>
+                    </div>
+                    <div
+                        class="dji-sru-menu-item-text"
+                        dji-i18n="sru_connect_with_educator">
+                        Connect with Educator
+                    </div>
+                </div>
+                <div
+                    id="dji-sru-change-user-password"
+                    class="dji-sru-menu-item dji-sru-layout-horizontal">
+                    <div class="dji-sru-icon">
+                        <i class="dji-svg-icon svg-lock"></i>
+                    </div>
+                    <div
+                        class="dji-sru-menu-item-text"
+                        dji-i18n="sru_change_password">
+                        Change password
+                    </div>
+                </div>
+                <div
+                    id="dji-sru-sign-out"
+                    class="dji-sru-menu-item dji-sru-layout-horizontal">
+                    <div class="dji-sru-icon">
+                        <i class="dji-svg-icon svg-exit_to_app"></i>
+                    </div>
+                    <div
+                        class="dji-sru-menu-item-text"
+                        dji-i18n="sru_sign_out">
+                        Sign out
+                    </div>
+                </div>
+            </div>
+
+            <div
+                dji-sru-template-id="dji-sru-color-popup"
+                class="dji-sru-popup dji-sru-color-popup"
+                dji-sru-view-mode="dji-sru-colors">
+                <div class="dji-sru-colors-tab-items dji-sru-layout-horizontal">
+                    <div
+                        class="dji-sru-tab-button dji-sru-selected"
+                        dji-sru-item="dji-sru-colors"
+                        dji-i18n="sru_colors">
+                        Colors
+                    </div>
+                    <div
+                        class="dji-sru-tab-button"
+                        dji-sru-item="dji-sru-color-template"
+                        dji-i18n="sru_templates">
+                        Templates
+                    </div>
+                </div>
+                <div dji-sru-colors>
+                    <div class="dji-sru-layout-horizontal">
+                        <div
+                            style="background-color: #ffffff"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_white_color">
+                            <div class="dji-sru-no-color-icon">
+                                <i
+                                    class="dji-svg-icon svg-invert_colors_off"></i>
+                            </div>
+                        </div>
+
+                        <div
+                            style="background-color: #ffffcc"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_yellow_20_color"></div>
+                        <div
+                            style="background-color: #ffff66"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_yellow_60_color"></div>
+                        <div
+                            style="background-color: #ffcc00"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_golden_red_color"></div>
+                    </div>
+                    <div class="dji-sru-layout-horizontal">
+                        <div
+                            style="background-color: #ffa500"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_orange_color"></div>
+                        <div
+                            style="background-color: #ffcccc"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_red_20_color"></div>
+                        <div
+                            style="background-color: #ff3333"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_red_80_color"></div>
+                        <div
+                            style="background-color: #ff0000"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_red_100_color"></div>
+                    </div>
+                    <div class="dji-sru-layout-horizontal">
+                        <div
+                            style="background-color: #ccffff"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_cyan_20_color"></div>
+                        <div
+                            style="background-color: #ccffcc"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_green_20_color"></div>
+                        <div
+                            style="background-color: #ccccff"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_blue_20_color"></div>
+                        <div
+                            style="background-color: #999999"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_green_40_color"></div>
+                    </div>
+                    <div class="dji-sru-layout-horizontal">
+                        <div
+                            style="background-color: #99cccc"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_gray_green_color"></div>
+                        <div
+                            style="background-color: #66ccff"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_light_blue_color"></div>
+                        <div
+                            style="background-color: #33cc99"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_medium_green_color"></div>
+                        <div
+                            style="background-color: #333399"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_dark_blue_color"></div>
+                    </div>
+                    <div class="dji-sru-layout-horizontal">
+                        <div
+                            style="background-color: #333366"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_cobalt_color"></div>
+                        <div
+                            style="background-color: #009999"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_blue_green_color"></div>
+                        <div
+                            style="background-color: #009966"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_dark_green_color"></div>
+                        <div
+                            style="background-color: #000000"
+                            class="dji-sru-color-item"
+                            dji-i18n-title="sru_black_color"></div>
+                    </div>
+                </div>
+                <div dji-sru-color-template>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #ffffff; color: #000000"
+                        dji-i18n="sru_black_on_white_template"
+                        dji-i18n-title="sru_black_on_white_template">
+                        Black on White
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #ffffce; color: #000000"
+                        dji-i18n="sru_black_on_yellow_template"
+                        dji-i18n-title="sru_black_on_yellow_template">
+                        Black on Yellow
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #99ffff; color: #000000"
+                        dji-i18n="sru_black_on_blue_template"
+                        dji-i18n-title="sru_black_on_blue_template">
+                        Black on Blue
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #fcfce2; color: #000000"
+                        dji-i18n="sru_black_on_light_yellow_template"
+                        dji-i18n-title="sru_black_on_light_yellow_template">
+                        Black on Light Yellow
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #cfffff; color: #000000"
+                        dji-i18n="sru_black_on_light_blue"
+                        dji-i18n-title="sru_black_on_light_blue_template">
+                        Black on Light Blue
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #ffd0ff; color: #000000"
+                        dji-i18n="sru_black_on_magenta_template"
+                        dji-i18n-title="sru_black_on_magenta_template">
+                        Black on Magenta
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #fde3fd; color: #000000"
+                        dji-i18n="sru_black_on_light_magenta_template"
+                        dji-i18n-title="sru_black_on_light_magenta_template">
+                        Black on Light Magenta
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #cecfce; color: #000000"
+                        dji-i18n="sru_black_on_gray_template"
+                        dji-i18n-title="sru_black_on_gray_template">
+                        Black on Gray
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #e5e5e5; color: #000000"
+                        dji-i18n="sru_black_on_light_gray_template"
+                        dji-i18n-title="sru_black_on_light_gray_template">
+                        Black on Light Gray
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #cff799; color: #000000"
+                        dji-i18n="sru_black_on_green_template"
+                        dji-i18n-title="sru_black_on_green_template">
+                        Black on Green
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #e0f6c1; color: #000000"
+                        dji-i18n="sru_black_on_light_green_template"
+                        dji-i18n-title="sru_black_on_light_green_template">
+                        Black on Light Green
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #003399; color: #ffcc00"
+                        dji-i18n="sru_yellow_on_blue_template"
+                        dji-i18n-title="sru_yellow_on_blue_template">
+                        Yellow on Blue
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #000000; color: #ffffff"
+                        dji-i18n="sru_reverse_contrast_template"
+                        dji-i18n-title="sru_reverse_contrast_template">
+                        Reverse Contrast
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #003366; color: #ffffff"
+                        dji-i18n="sru_white_on_navy_template"
+                        dji-i18n-title="sru_white_on_navy_template">
+                        White on Navy
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #e5e5e5; color: #666666"
+                        dji-i18n="sru_medium_gray_on_light_gray_template"
+                        dji-i18n-title="sru_medium_gray_on_light_gray_template">
+                        Medium Gray on Light Gray
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #fffacd; color: #000000"
+                        dji-i18n="sru_black_on_cream_template"
+                        dji-i18n-title="sru_black_on_cream_template">
+                        Black on Cream
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #add8e6; color: #000000"
+                        dji-i18n="sru_black_on_light_blue_template"
+                        dji-i18n-title="sru_black_on_light_blue_template">
+                        Black on Light Blue
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #ee82ee; color: #000000"
+                        dji-i18n="sru_black_on_light_magenta_template"
+                        dji-i18n-title="sru_black_on_light_magenta_template">
+                        Black on Light Magenta
+                    </div>
+                    <div
+                        class="dji-sru-color-template"
+                        style="background-color: #0000a0; color: #add8e6"
+                        dji-i18n="sru_light_blue_on_dark_blue_template"
+                        dji-i18n-title="sru_light_blue_on_dark_blue_template">
+                        Light Blue on Dark Blue
+                    </div>
+                </div>
+            </div>
+
+            <div
+                dji-sru-template-id="dji-sru-voices"
+                class="dji-sru-popup"
+                style="max-height: 400px; overflow-y: auto"></div>
+
+            <div
+                dji-sru-template-id="dji-sru-voice-group"
+                class="dji-sru-menu-item-label">
+                <div
+                    class="dji-sru-menu-item-text"
+                    dji-prediction-voice-group>
+                    Prediction Voice Group
+                </div>
+            </div>
+
+            <div
+                dji-sru-template-id="dji-sru-voice"
+                class="dji-sru-menu-item dji-sru-check-icon"
+                dji-sru-value="">
+                <div class="dji-sru-menu-item-text">Prediction Voice</div>
+            </div>
+
+            <div
+                dji-sru-template-id="dji-sru-translation-language"
+                class="dji-sru-popup"></div>
+
+            <div
+                dji-sru-template-id="dji-sru-translation-language-item"
+                class="dji-sru-menu-item dji-sru-check-icon"
+                dji-sru-value="">
+                <div class="dji-sru-menu-item-text">Translation language</div>
+            </div>
+
+            <div
+                dji-sru-template-id="dji-sru-translation-voices"
+                class="dji-sru-popup"></div>
+
+            <div
+                dji-sru-template-id="dji-sru-simplify"
+                class="dji-sru-popup">
+                <div
+                    class="dji-sru-menu-item dji-sru-check-icon"
+                    dji-sru-rewordify
+                    dji-sru-value="1">
+                    <div class="dji-sru-menu-item-text">
+                        Moderate to Advanced
+                    </div>
+                </div>
+                <div
+                    class="dji-sru-menu-item dji-sru-check-icon"
+                    dji-sru-rewordify
+                    dji-sru-value="2">
+                    <div class="dji-sru-menu-item-text">
+                        Low Intermediate to Advanced
+                    </div>
+                </div>
+                <div
+                    class="dji-sru-menu-item dji-sru-check-icon"
+                    dji-sru-rewordify
+                    dji-sru-value="3">
+                    <div class="dji-sru-menu-item-text">
+                        High Intermediate to Advanced
+                    </div>
+                </div>
+                <div
+                    class="dji-sru-menu-item dji-sru-check-icon"
+                    dji-sru-rewordify
+                    dji-sru-value="4">
+                    <div class="dji-sru-menu-item-text">
+                        Low Advanced to Advanced
+                    </div>
+                </div>
+                <div
+                    class="dji-sru-menu-item dji-sru-check-icon"
+                    dji-sru-rewordify
+                    dji-sru-value="H">
+                    <div class="dji-sru-menu-item-text">Only Advanced</div>
+                </div>
+            </div>
+
+            <div
+                dji-sru-template-id="dji-sru-connect-with-educator"
+                class="dji-sru-modal-dlg dji-sru-dialog"
+                style="width: 300px">
+                <div
+                    class="dji-sru-dlg-title"
+                    dji-i18n="sru_connect_with_educator">
+                    Connect with educator
+                </div>
+                <div class="dji-sru-dlg-row">
+                    <input
+                        type="text"
+                        id="dji-sru-activation-code"
+                        placeholder="Activation Code (8 characters)"
+                        dji-i18n-placeholder="sru_8_digit_activation_code" />
+                </div>
+                <div class="dji-sru-dlg-buttons">
+                    <div
+                        class="dji-sru-dlg-button"
+                        dji-sru-cancel
+                        dji-i18n="sru_cancel_button">
+                        CANCEL
+                    </div>
+                    <div
+                        class="dji-sru-dlg-button"
+                        dji-sru-done
+                        dji-i18n="sru_connect_button">
+                        CONNECT
+                    </div>
+                </div>
+            </div>
+
+            <div
+                dji-sru-template-id="dji-sru-loading-message"
+                class="dji-sru-modal-dlg dji-sru-single-line">
+                <div
+                    class="dji-sru-dlg-message dji-sru-large-message"
+                    dji-i18n="sru_loading_with_dots">
+                    Loading ...
+                </div>
+            </div>
+
+            <div
+                dji-sru-template-id="dji-sru-wait-message"
+                class="dji-sru-modal-dlg dji-sru-single-line">
+                <div
+                    class="dji-sru-dlg-message dji-sru-large-message"
+                    dji-i18n="sru_please_wait">
+                    Please wait ...
+                </div>
+            </div>
+
+            <div
+                dji-sru-template-id="dji-sru-please-sign-in-message"
+                class="dji-sru-modal-dlg dji-sru-single-line">
+                <div
+                    class="dji-sru-dlg-message dji-sru-large-message"
+                    dji-i18n-html="sru_please_sign_in_message">
+                    Please Sign In to Snap&amp;Read<br />
+                    by clicking on the Snap&amp;Read<br />
+                    extension icon&nbsp;&nbsp;<img
+                        src="../resources/graphics/sruNotLoggedIn_38.png"
+                        width="24px"
+                        height="24px" />
+                </div>
+            </div>
+
+            <div
+                dji-sru-template-id="dji-sru-signing-out-message"
+                class="dji-sru-modal-dlg dji-sru-single-line">
+                <div
+                    class="dji-sru-dlg-message dji-sru-large-message"
+                    dji-i18n="sru_signing_out">
+                    Signing Out
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="djiTemplates.js"
+            type="text/javascript"></script>
+        <script
+            src="djiDropdown.js"
+            type="text/javascript"></script>
+        <script
+            src="djiColorPicker.js"
+            type="text/javascript"></script>
+        <script
+            src="djiModalDlg.js"
+            type="text/javascript"></script>
+        <script
+            src="djiToast.js"
+            type="text/javascript"></script>
+
+        <script
+            src="account.js"
+            type="text/javascript"></script>
+        <script
+            src="color.js"
+            type="text/javascript"></script>
+        <script
+            src="speech.js"
+            type="text/javascript"></script>
+        <script
+            src="rewordify.js"
+            type="text/javascript"></script>
+        <script
+            src="translation.js"
+            type="text/javascript"></script>
+        <script
+            src="pdf.js"
+            type="text/javascript"></script>
+        <script
+            src="defineWord.js"
+            type="text/javascript"></script>
+        <script
+            src="overlay.js"
+            type="text/javascript"></script>
+        <script
+            src="options.js"
+            type="text/javascript"></script>
+    </body>
+</html>

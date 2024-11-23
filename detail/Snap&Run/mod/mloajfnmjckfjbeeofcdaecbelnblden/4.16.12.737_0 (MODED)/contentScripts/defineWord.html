@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <link
+            rel="stylesheet"
+            href="/resources/sprite/sprite-common.css" />
+        <link
+            rel="stylesheet"
+            href="/resources/sprite/sr/sprite.css" />
+        <link
+            rel="stylesheet"
+            href="defineWord.css" />
+    </head>
+    <body>
+        <dji-sru-define-container>
+            <div id="dji-sru-define-popup-overlay">
+                <div id="dji-sru-define-popup">
+                    <div class="dji-sru-define-popup-arrow"></div>
+                    <div class="dji-sru-no-result">No Results Found</div>
+                    <div class="dji-sru-define-word-title"></div>
+                    <div class="dji-sru-define-word-container">
+                        <div class="dji-sru-define-word-content"></div>
+                    </div>
+                    <div class="dji-sru-images-container">
+                        <div class="dji-sru-image-loading"></div>
+                    </div>
+                    <div class="dji-sru-define-word-toolbar">
+                        <button
+                            id="dji-sru-more-definition"
+                            class="dji-sru-toolbar-button">
+                            <i class="dji-svg-icon svg-expand_more"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dji-sru-popup-info"></div>
+
+                <!-- define on double click choice popup -->
+                <div id="dji-sru-doubleclick-choice-popup">
+                    <dji-sru-div class="dji-sru-title"
+                        >Define word on Double Click?</dji-sru-div
+                    >
+                    <dji-sru-div class="dji-sru-message"
+                        >When you double click a word, Snap&Read will show you
+                        the definition of that word. This can be turned on or
+                        off in Snap&Read’s Options.</dji-sru-div
+                    >
+                    <dji-sru-div class="dji-sru-popup-buttons">
+                        <dji-sru-div
+                            id="dji-sru-open-on-doubleclick"
+                            class="dji-sru-popup-button"
+                            >DEFINE ON DOUBLE CLICK</dji-sru-div
+                        >
+                    </dji-sru-div>
+                    <dji-sru-div class="dji-sru-popup-buttons">
+                        <dji-sru-div
+                            id="dji-sru-open-on-doubleclick-dismiss"
+                            class="dji-sru-popup-button"
+                            >NO THANKS</dji-sru-div
+                        >
+                    </dji-sru-div>
+                </div>
+            </div>
+
+            <dji-sru-templates>
+                <div
+                    dji-sru-template-id="dji-sru-word-definition"
+                    class="dji-sru-word-definition">
+                    <div class="dji-sru-word-definition-text-content"></div>
+                    <i
+                        class="dji-svg-icon svg-content_copy"
+                        dji-copy></i>
+                </div>
+                <div
+                    dji-sru-template-id="dji-sru-define-popup-selection"
+                    class="dji-sru-define-popup-selection"></div>
+
+                <div
+                    dji-sru-temple-id="dji-sru-icon"
+                    class="dji-sru-icon">
+                    <p class="dji-sru-icon-tooltip"></p>
+                    <img />
+                    <i
+                        class="dji-svg-icon svg-content_copy dji-sru-copy-icon"
+                        dji-copy></i>
+                </div>
+            </dji-sru-templates>
+        </dji-sru-define-container>
+    </body>
+</html>

@@ -1,0 +1,1078 @@
+<!doctype html>
+<!-- saved from url=(0040)https://wiki.mrchromebox.tech/Unbricking -->
+<html>
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=windows-1252" />
+        <title>Unbricking - MrChromebox Wiki</title>
+    </head>
+    <body cz-shortcut-listen="true">
+        <p>
+            <br />
+            If you've found your way here, it's likely because you updated your
+            firmware and, despite best efforts to minimize the
+            possibility,something went wrong. Thankfully, most Chromebooks can
+            be easily unbricked using cheap, readily available hardware: older
+            Chromebooks using a ch341a USB programmer from Amazon/eBay/Alibaba
+            (and many other sources), and newer (2017+) Chromebooks using a
+            USB-C debug cable (aka Suzy-Q cable).
+        </p>
+        <div
+            id="toc"
+            class="toc">
+            <div id="toctitle"><h2>Contents</h2></div>
+            <ul>
+                <li class="toclevel-1 tocsection-1">
+                    <a
+                        href="https://wiki.mrchromebox.tech/Unbricking#Unbricking.2FFlashing_with_a_CH341a_USB_programmer"
+                        ><span class="tocnumber">1</span>
+                        <span class="toctext"
+                            >Unbricking/Flashing with a CH341a USB
+                            programmer</span
+                        ></a
+                    >
+                    <ul>
+                        <li class="toclevel-2 tocsection-2">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Requirements"
+                                ><span class="tocnumber">1.1</span>
+                                <span class="toctext">Requirements</span></a
+                            >
+                        </li>
+                        <li class="toclevel-2 tocsection-3">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Hardware_Disassembly"
+                                ><span class="tocnumber">1.2</span>
+                                <span class="toctext"
+                                    >Hardware Disassembly</span
+                                ></a
+                            >
+                        </li>
+                        <li class="toclevel-2 tocsection-4">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Prepping_to_flash"
+                                ><span class="tocnumber">1.3</span>
+                                <span class="toctext"
+                                    >Prepping to flash</span
+                                ></a
+                            >
+                        </li>
+                        <li class="toclevel-2 tocsection-5">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Persisting_the_board.27s_Vital_Product_Data_.28VPD.29"
+                                ><span class="tocnumber">1.4</span>
+                                <span class="toctext"
+                                    >Persisting the board's Vital Product Data
+                                    (VPD)</span
+                                ></a
+                            >
+                        </li>
+                        <li class="toclevel-2 tocsection-6">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Flashing_Your_Device"
+                                ><span class="tocnumber">1.5</span>
+                                <span class="toctext"
+                                    >Flashing Your Device</span
+                                ></a
+                            >
+                        </li>
+                        <li class="toclevel-2 tocsection-7">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Clean_Up"
+                                ><span class="tocnumber">1.6</span>
+                                <span class="toctext">Clean Up</span></a
+                            >
+                        </li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-8">
+                    <a
+                        href="https://wiki.mrchromebox.tech/Unbricking#Unbricking.2FFlashing_with_a_Suzy-Q_cable"
+                        ><span class="tocnumber">2</span>
+                        <span class="toctext"
+                            >Unbricking/Flashing with a Suzy-Q cable</span
+                        ></a
+                    >
+                    <ul>
+                        <li class="toclevel-2 tocsection-9">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Requirements_2"
+                                ><span class="tocnumber">2.1</span>
+                                <span class="toctext">Requirements</span></a
+                            >
+                        </li>
+                        <li class="toclevel-2 tocsection-10">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Hardware_Disassembly_2"
+                                ><span class="tocnumber">2.2</span>
+                                <span class="toctext"
+                                    >Hardware Disassembly</span
+                                ></a
+                            >
+                        </li>
+                        <li class="toclevel-2 tocsection-11">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Prepping_to_flash_2"
+                                ><span class="tocnumber">2.3</span>
+                                <span class="toctext"
+                                    >Prepping to flash</span
+                                ></a
+                            >
+                        </li>
+                        <li class="toclevel-2 tocsection-12">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Persisting_the_board.27s_Vital_Product_Data_.28VPD.29_2"
+                                ><span class="tocnumber">2.4</span>
+                                <span class="toctext"
+                                    >Persisting the board's Vital Product Data
+                                    (VPD)</span
+                                ></a
+                            >
+                        </li>
+                        <li class="toclevel-2 tocsection-13">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Flashing_Your_Device_2"
+                                ><span class="tocnumber">2.5</span>
+                                <span class="toctext"
+                                    >Flashing Your Device</span
+                                ></a
+                            >
+                        </li>
+                        <li class="toclevel-2 tocsection-14">
+                            <a
+                                href="https://wiki.mrchromebox.tech/Unbricking#Clean_Up_2"
+                                ><span class="tocnumber">2.6</span>
+                                <span class="toctext">Clean Up</span></a
+                            >
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h3>
+            <span
+                class="mw-headline"
+                id="Unbricking.2FFlashing_with_a_CH341a_USB_programmer"
+                >Unbricking/Flashing with a CH341a USB programmer</span
+            >
+        </h3>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Requirements"
+                >Requirements</span
+            >
+        </h4>
+        <ul>
+            <li>
+                A ChromeOS device with a SOIC-8 type SPI flash chip. Most
+                Chromebooks released before 2018 use this type of chip, but
+                there are a few notable exceptions:
+                <dl>
+                    <dd>- Google Chromebook Pixel 2013</dd>
+                    <dd>- Google Chromebook Pixel 2015</dd>
+                    <dd>- HP Chromebook 13 G1</dd>
+                    <dd>- Asus Chromebook C302SA</dd>
+                </dl>
+            </li>
+        </ul>
+        <dl>
+            <dd>
+                These devices all use a WSON-8 flash chip, which does not expose
+                the pins of the chip, so they cannot easily be "clipped" like a
+                SOIC-8 chip. While it is usually possible to modify a SOIC-8
+                chip clip to attach to a WSON-8 chip, it's less than ideal. Both
+                Chromebook Pixels feature a Google debug header, which can
+                connect to a debug servo with a special cable and be flashed
+                that way, but not an option for most users (I however do have
+                access to one, and can unbrick Chromebook Pixels for any users
+                upon request).
+            </dd>
+        </dl>
+        <ul>
+            <li>
+                A device running Linux from which to run flashrom. For this
+                guide, I will use a Ubuntu 23.04 live USB.
+            </li>
+            <li>
+                A CH341a USB flash programmer (<a
+                    rel="nofollow"
+                    class="external text"
+                    href="https://www.amazon.com/gp/product/B01I1EU9LG/"
+                    >Amazon link</a
+                >)
+            </li>
+            <li>
+                A 1.8v adapter (<a
+                    rel="nofollow"
+                    class="external text"
+                    href="https://www.amazon.com/dp/B072KYK2DR/"
+                    >Amazon link</a
+                >) (needed for devices which use 1.8v flash chips. Some/Most
+                Baytrail, Braswell, Skylake and many newer devices use a 1.8v
+                flash chip)
+            </li>
+            <li>
+                An SOIC-8 chip clip (<a
+                    rel="nofollow"
+                    class="external text"
+                    href="https://www.amazon.com/gp/product/B00V9QNAC4/"
+                    >Amazon Link</a
+                >)
+            </li>
+        </ul>
+        <p>
+            These 3 components are often bundled together at a lower cost (<a
+                rel="nofollow"
+                class="external text"
+                href="https://www.amazon.com/dp/B07YFPJQ5W/"
+                >Amazon link</a
+            >), and if you're unsure if your device uses a 1.8v flash chip or a
+            3.3v one, it makes sense to have the adapter on hand if needed.
+        </p>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Hardware_Disassembly"
+                >Hardware Disassembly</span
+            >
+        </h4>
+        <p>
+            While this is somewhat device-specific, the main points are the
+            same:
+        </p>
+        <ul>
+            <li>Disconnect all external power</li>
+            <li>
+                Remove bottom cover (screws are often located under rubber feet
+                or strips)
+            </li>
+            <li>
+                Disconnect the internal battery (for Chromeboxes, disconnect the
+                small CMOS battery)
+            </li>
+            <li>Locate the SPI flash chip</li>
+        </ul>
+        <dl>
+            <dd>
+                Most ChromeOS devices use a Winbond flash chip, though some use
+                a compatible chip from another manufacturer, eg Gigadevices. It
+                will be either an 8MB or 16MB chip, with the identifier
+                W25Q64[xx] (8MB) or W25Q128[xx] (16MB) where [xx] is usually FV
+                or DV. We do <b>not</b> want to touch the EC firmware chip,
+                which is identified by W25X40[xx].
+            </dd>
+            <dd>
+                Unfortunately, many devices have the flash chip located on the
+                top side of the main board, and require fully removing the main
+                board in order to flash. This is true for most Baytrail and
+                Braswell models.
+            </dd>
+        </dl>
+        <p>
+            Pin 1 of the flash chip will be notated by a dot/depression on the
+            chip; be sure to align this with pin 1 on the chip clip wiring (a
+            red strip on the example linked above).
+        </p>
+        <p>
+            Googling should locate a disassembly guide for most models. If you
+            can't find one for your exact model, try to find one for another
+            model of the same manufacturer as the bottom cover removal tends to
+            be very similar.
+        </p>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Prepping_to_flash"
+                >Prepping to flash</span
+            >
+        </h4>
+        <p>
+            Once you have your device disassembled and flash chip located, time
+            to boot up the flashing environment. Most any Linux setup should do
+            as long as either flashrom is available from the distro's software
+            repositories, or it's 64-bit x86 (in which case you can download a
+            statically compiled build of flashrom from my site). This guide will
+            use a Ubuntu 23.04 live session booted from USB.
+        </p>
+        <p>So let's get to it:</p>
+        <ul>
+            <li>
+                Boot your Linux environment (Ubuntu 2304 live USB or later
+                recommended)
+            </li>
+            <li>Connect to WiFi/internet</li>
+            <li>
+                Open a (non-root) terminal/shell window, change to home
+                directory
+            </li>
+        </ul>
+        <dl>
+            <dd>
+                <dl>
+                    <dd><pre>cd;</pre></dd>
+                </dl>
+            </dd>
+        </dl>
+        <ul>
+            <li>Install flashrom via apt:</li>
+        </ul>
+        <dl>
+            <dd>
+                <dl>
+                    <dd><pre>sudo apt update</pre></dd>
+                    <dd><pre>sudo apt install flashrom</pre></dd>
+                </dl>
+            </dd>
+        </dl>
+        <ul>
+            <li>
+                Assemble CH341a programmer, 1.8v adapter (if needed), and chip
+                clip/wiring. Ensure that pin 1 is correct and consistent.
+            </li>
+        </ul>
+        <dl>
+            <dd>
+                <img
+                    alt="Ch341a annotated.png"
+                    src="./Unbricking - MrChromebox Wiki_files/Ch341a_annotated.png"
+                    width="500"
+                    height="205" />
+            </dd>
+        </dl>
+        <ul>
+            <li>
+                Connect the chip clip to the SPI flash chip, then connect the
+                CH341a to the Linux host machine. Note the dot/depression
+                indicating pin 1.
+            </li>
+        </ul>
+        <dl>
+            <dd>
+                &nbsp;:
+                <img
+                    alt="SOIC-8 chip.jpg"
+                    src="./Unbricking - MrChromebox Wiki_files/SOIC-8_chip.jpg"
+                    width="500"
+                    height="444" />
+            </dd>
+        </dl>
+        <ul>
+            <li>
+                Test connectivity and ensure the flash chip is properly
+                identified:
+            </li>
+        </ul>
+        <dl>
+            <dd>
+                <dl>
+                    <dd><pre>sudo flashrom -p ch341a_spi</pre></dd>
+                </dl>
+            </dd>
+            <dd>
+                Flashrom will produce output identifying the flash chip. If it
+                doesn't, double check your connections to the programmer and the
+                chip clip and retry.
+            </dd>
+            <dd>
+                <img
+                    alt="Flashrom chip detect.png"
+                    src="./Unbricking - MrChromebox Wiki_files/Flashrom_chip_detect.png"
+                    width="500"
+                    height="271" />
+            </dd>
+        </dl>
+        <ul>
+            <li>Determine file to be flashed</li>
+        </ul>
+        <dl>
+            <dd>
+                Depending on your desired use for the device, you have 3 options
+                for flashing:
+                <dl>
+                    <dd>
+                        - The backup file of the stock firmware created by my
+                        Firmware Utility Script
+                        <dl>
+                            <dd>
+                                If using this, simply copy the file from USB
+                                into the home directory of the live USB user
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dd>
+                        - The custom UEFI firmware for the device
+                        <dl>
+                            <dd>
+                                If you were flashing the UEFI firmware when
+                                things went sideways, then that's the easiest
+                                way to proceed. You can download the UEFI
+                                firmware for your device by examining
+                                <a
+                                    rel="nofollow"
+                                    class="external text"
+                                    href="https://github.com/MrChromebox/scripts/blob/master/sources.sh"
+                                    >the sources.sh file from the Firmware
+                                    Utility Script github repo</a
+                                >. Simply concatenate the device-specific
+                                filename to the Full ROM base path:
+                                <dl>
+                                    <dd>
+                                        <pre>
+ wget &lt;Full ROM base path&gt;&lt;device specific filename&gt;</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                            <dd>
+                                eg for the Acer Chromebook 14 CB3-431 (EDGAR)
+                                <dl>
+                                    <dd>
+                                        <pre>
+wget https://mrchromebox.tech/files/firmware/full_rom/coreboot_tiano-edgar-mrchromebox_20180827.rom</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                            <dd>
+                                Don't forget to get the sha1 file for
+                                verification:
+                                <dl>
+                                    <dd>
+                                        <pre>
+wget https://mrchromebox.tech/files/firmware/full_rom/coreboot_tiano-edgar-mrchromebox_20180827.rom.sha1</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                            <dd>
+                                Then verify the download:
+                                <dl>
+                                    <dd>
+                                        <pre>
+sha1sum -c coreboot_tiano-edgar-mrchromebox_20180827.rom.sha1</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dd>
+                        - The shellball firmware for the device
+                        <dl>
+                            <dd>
+                                As with the UEFI firmware above, the shellball
+                                rom can be downloaded by concatenating the
+                                shellball base path with the device-specific
+                                filename:
+                                <dl>
+                                    <dd>
+                                        <pre>
+wget &lt;shellball base path&gt;/shellball.&lt;device name&gt;.bin</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                            <dd>
+                                eg for the Acer Chromebook 14 CB3-431 (EDGAR):
+                                <dl>
+                                    <dd>
+                                        <pre>
+wget https://mrchromebox.tech/files/firmware/shellball/shellball.edgar.bin</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
+        <p>
+            If you're not sure which file to use for your device / don't know
+            your device's board name, you can reference:<br />
+            <a
+                rel="nofollow"
+                class="external free"
+                href="https://mrchromebox.tech/#devices"
+                >https://mrchromebox.tech/#devices</a
+            >
+            and/or
+            <a
+                rel="nofollow"
+                class="external free"
+                href="http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices"
+                >http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices</a
+            >
+        </p>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Persisting_the_board.27s_Vital_Product_Data_.28VPD.29"
+                >Persisting the board's Vital Product Data (VPD)</span
+            >
+        </h4>
+        <p>
+            The firmware in all ChromeOS devices contains a section (RO_VPD)
+            which stores board-specific data, like the serial number,
+            localization settings, and on many devices which have an Ethernet
+            port, the LAN MAC address as well. When flashing via the Firmware
+            Utility Script, the script will automatically extract this from the
+            running firmware and inject it into the firmware to be flashed, so
+            the device serial, LAN MAC address, etc are all maintained. Without
+            this, the device will use a default/generic LAN MAC address set by
+            coreboot. While not ideal, this is only really an issue if two or
+            more of the same device are on the same LAN segment (or you're
+            statically assigning IP addresses based on MAC). But for
+            completeness, if flashing the UEFI firmware or shellball ROM, we'll
+            extract the VPD (either from the board itself or a backup made by
+            the script) and inject it into the firmware to be flashed.
+        </p>
+        <p>
+            <b>NOTE:</b> you don't need to do this if flashing a stock firmware
+            backup created by the Firmware Utility Script; that image already
+            contains the VPD.
+        </p>
+        <p>
+            <br />
+            For both the options below, we'll need to use the cbfstool (coreboot
+            filesystem) binary, so let's download/extract that:
+        </p>
+        <dl>
+            <dd>
+                <pre>
+wget https://mrchromebox.tech/files/util/cbfstool.tar.gz &amp;&amp; tar -zxf cbfstool.tar.gz</pre
+                >
+            </dd>
+        </dl>
+        <p>Option 1: extract VPD from the firmware on device</p>
+        <dl>
+            <dd><pre>sudo flashrom -p ch341a_spi -r badflash.rom</pre></dd>
+            <dd>
+                <pre>./cbfstool badflash.rom read -r RO_VPD -f vpd.bin</pre>
+            </dd>
+        </dl>
+        <p>
+            Option 2: extract VPD from stock firmware backup created by Firmware
+            Utility Script (this assumes the file has been copied into working
+            directory)
+        </p>
+        <dl>
+            <dd>
+                <pre>
+./cbfstool stock-firmware-&lt;devicename&gt;-&lt;date&gt;.rom read -r RO_VPD -f vpd.bin</pre
+                >
+            </dd>
+        </dl>
+        <p>Then we inject the VPD into the firmware image to be flashed.</p>
+        <dl>
+            <dd>
+                <pre>
+./cbfstool &lt;Shellball ROM/UEFI Full ROM filename&gt; write -r RO_VPD -f vpd.bin</pre
+                >
+            </dd>
+        </dl>
+        <p>
+            Now the firmware image is ready to be flashed, and will maintain the
+            device's unique serial, LAN MAC address, etc.
+        </p>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Flashing_Your_Device"
+                >Flashing Your Device</span
+            >
+        </h4>
+        <p>
+            Now that everything is prepped, time to flash the device. To be
+            thorough, we'll perform a 2nd verification after flashing to ensure
+            the integrity of the flashed firmware.
+        </p>
+        <ul>
+            <li>Flash the firmware:</li>
+        </ul>
+        <dl>
+            <dd>
+                If flashing your own backup created by the Firmware Utility
+                Script (or any backup made from a live system), use
+                <dl>
+                    <dd>
+                        <pre>
+sudo flashrom -p ch341a_spi --ifd -i bios -w &lt;filename&gt;</pre
+                        >
+                    </dd>
+                </dl>
+            </dd>
+            <dd>
+                otherwise use
+                <dl>
+                    <dd>
+                        <pre>
+sudo flashrom -p ch341a_spi -w &lt;filename&gt;</pre
+                        >
+                    </dd>
+                </dl>
+            </dd>
+            <dd>
+                Where &lt;filename&gt; is the name of your backup file, UEFI
+                firmware file, or shellball firmware file. This will usually
+                take 30s-90s to complete; flashrom will first read the flash
+                chip, determine which sectors differ, erase those sectors, write
+                the new data, then verify the data written.
+            </dd>
+        </dl>
+        <ul>
+            <li>Verify the firmware</li>
+        </ul>
+        <dl>
+            <dd>
+                Even though flashrom does this as part of the write process,
+                verifying the entire flash chip is quick and an easy way to
+                ensure everything went as it should:
+            </dd>
+            <dd>
+                As before, if flashing your own backup created by the Firmware
+                Utility Script (or any backup made from a live system), use
+                <dl>
+                    <dd>
+                        <pre>
+sudo flashrom -p ch341a_spi --ifd -i bios -v &lt;filename&gt;</pre
+                        >
+                    </dd>
+                </dl>
+            </dd>
+            <dd>
+                otherwise use
+                <dl>
+                    <dd>
+                        <pre>
+sudo flashrom -p ch341a_spi -v &lt;filename&gt;</pre
+                        >
+                    </dd>
+                </dl>
+            </dd>
+            <dd>
+                using the same filename as before. If the verification passes,
+                then disconnect the CH341a from the host machine, and then
+                remove the chip clip.
+            </dd>
+        </dl>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Clean_Up"
+                >Clean Up</span
+            >
+        </h4>
+        <p>
+            Reassembly is the reverse of disassembly. Reconnect the internal
+            battery and replace the bottom cover. Flip over the device, connect
+            external power, press the power button, and cross your
+            fingers&nbsp;:)
+        </p>
+        <h3>
+            <span
+                class="mw-headline"
+                id="Unbricking.2FFlashing_with_a_Suzy-Q_cable"
+                >Unbricking/Flashing with a Suzy-Q cable</span
+            >
+        </h3>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Requirements_2"
+                >Requirements</span
+            >
+        </h4>
+        <ul>
+            <li>
+                A ChromeOS device with CCD (closed-case debugging) enabled on
+                one of the USB-C ports. If your device uses CR50 for the
+                firmware write protection, then it has CCD capability.
+                <dl>
+                    <dd>
+                        <b>IMPORTANT</b>: These instructions do not apply to any
+                        device which is locked/managed -- enterprise/edu
+                        enrollment locks out CCD functionality completely
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                A USB-C debug cable (<a
+                    rel="nofollow"
+                    class="external text"
+                    href="https://www.sparkfun.com/products/14746"
+                    >aka Suzy-Q cable</a
+                >)
+            </li>
+            <li>
+                The device must have the CCD flags factory reset (as per my
+                instructions to disable firmware write protection), or the
+                battery must be unplugged/disconnected from the mainboard.
+            </li>
+            <li>
+                Another device running Linux, preferably a current
+                Debian/Ubuntu-based distro
+            </li>
+        </ul>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Hardware_Disassembly_2"
+                >Hardware Disassembly</span
+            >
+        </h4>
+        <p>
+            As above, this is only needed if you failed to factory reset the CCD
+            flags as part of disabling the device's firmware write-protection.
+            While this is somewhat device-specific, the main points are the
+            same:
+        </p>
+        <ul>
+            <li>Disconnect all external power</li>
+            <li>
+                Remove bottom cover (screws are often located under rubber feet
+                or strips)
+            </li>
+            <li>Disconnect the internal battery</li>
+        </ul>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Prepping_to_flash_2"
+                >Prepping to flash</span
+            >
+        </h4>
+        <p>
+            Most any 64-bit Debian/Ubuntu based distro should work here, but
+            this guide will use a Ubuntu 2304 live session booted from USB
+            (since its version of flashrom supports Suzy-Q flashing).
+        </p>
+        <p>Let's get to it:</p>
+        <ul>
+            <li>
+                Boot your Linux environment (Ubuntu 2304 live USB or later
+                recommended)
+            </li>
+            <li>Connect to WiFi/internet</li>
+            <li>
+                Open a (non-root) terminal/shell window, change to home
+                directory
+            </li>
+        </ul>
+        <dl>
+            <dd>
+                <dl>
+                    <dd><pre>cd;</pre></dd>
+                </dl>
+            </dd>
+        </dl>
+        <ul>
+            <li>Install flashrom via apt:</li>
+        </ul>
+        <dl>
+            <dd>
+                <dl>
+                    <dd><pre>sudo apt update</pre></dd>
+                    <dd><pre>sudo apt install flashrom</pre></dd>
+                </dl>
+            </dd>
+        </dl>
+        <ul>
+            <li>
+                Connect the USB-C end of the Suzy-Q cable to the CCD port on
+                your ChromeOS device (usually left USB-C port) and the USB-A end
+                to your Linux device
+            </li>
+            <li>Verify the cable is properly connected:</li>
+        </ul>
+        <dl>
+            <dd>
+                <dl>
+                    <dd><pre>ls /dev/ttyUSB*</pre></dd>
+                    <dd>
+                        This command should return 3 items: ttyUSB0, ttyUSB1,
+                        and ttyUSB2
+                    </dd>
+                    <dd>
+                        If not, then your cable is connected to the wrong port
+                        or is upside down; adjust and repeat comment until
+                        output is as expected
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
+        <ul>
+            <li>Set the CCD state to open:</li>
+        </ul>
+        <dl>
+            <dd>
+                <dl>
+                    <dd>
+                        <pre>
+echo "ccd open" | sudo tee -a /dev/ttyUSB0 &gt; /dev/null</pre
+                        >
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
+        <ul>
+            <li>Determine file to be flashed</li>
+        </ul>
+        <dl>
+            <dd>
+                Depending on your desired use for the device, you have 3 options
+                for flashing:
+                <dl>
+                    <dd>
+                        - The backup file of the stock firmware created by my
+                        Firmware Utility Script
+                        <dl>
+                            <dd>
+                                If using this, simply copy the file from USB
+                                into the home directory of the live USB user
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dd>
+                        - The custom UEFI firmware for the device
+                        <dl>
+                            <dd>
+                                If you were flashing the UEFI firmware when
+                                things went sideways, then that's the easiest
+                                way to proceed. You can download the UEFI
+                                firmware for your device by examining
+                                <a
+                                    rel="nofollow"
+                                    class="external text"
+                                    href="https://github.com/MrChromebox/scripts/blob/master/sources.sh"
+                                    >the sources.sh file from the Firmware
+                                    Utility Script github repo</a
+                                >. Simply concatenate the device-specific
+                                filename to the Full ROM base path:
+                                <dl>
+                                    <dd>
+                                        <pre>
+ wget &lt;Full ROM base path&gt;&lt;device specific filename&gt;</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                            <dd>
+                                eg for the Acer Chromebook 14 CB3-431 (EDGAR)
+                                <dl>
+                                    <dd>
+                                        <pre>
+wget https://mrchromebox.tech/files/firmware/full_rom/coreboot_tiano-edgar-mrchromebox_20180827.rom</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                            <dd>
+                                Don't forget to get the sha1 file for
+                                verification:
+                                <dl>
+                                    <dd>
+                                        <pre>
+wget https://mrchromebox.tech/files/firmware/full_rom/coreboot_tiano-edgar-mrchromebox_20180827.rom.sha1</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                            <dd>
+                                Then verify the download:
+                                <dl>
+                                    <dd>
+                                        <pre>
+sha1sum -c coreboot_tiano-edgar-mrchromebox_20180827.rom.sha1</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dd>
+                        - The shellball firmware for the device
+                        <dl>
+                            <dd>
+                                As with the UEFI firmware above, the shellball
+                                rom can be downloaded by concatenating the
+                                shellball base path with the device-specific
+                                filename:
+                                <dl>
+                                    <dd>
+                                        <pre>
+wget &lt;shellball base path&gt;/shellball.&lt;device name&gt;.bin</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                            <dd>
+                                eg for the Acer Chromebook 14 CB3-431 (EDGAR):
+                                <dl>
+                                    <dd>
+                                        <pre>
+wget https://mrchromebox.tech/files/firmware/shellball/shellball.edgar.bin</pre
+                                        >
+                                    </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
+        <p>
+            If you're not sure which file to use for your device / don't know
+            your device's board name, you can reference:<br />
+            <a
+                rel="nofollow"
+                class="external free"
+                href="https://mrchromebox.tech/#devices"
+                >https://mrchromebox.tech/#devices</a
+            >
+            and/or
+            <a
+                rel="nofollow"
+                class="external free"
+                href="http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices"
+                >http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices</a
+            >
+        </p>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Persisting_the_board.27s_Vital_Product_Data_.28VPD.29_2"
+                >Persisting the board's Vital Product Data (VPD)</span
+            >
+        </h4>
+        <p>
+            The firmware in all ChromeOS devices contains a section (RO_VPD)
+            which stores board-specific data, like the serial number,
+            localization settings, and on many devices which have an Ethernet
+            port, the LAN MAC address as well. When flashing via the Firmware
+            Utility Script, the script will automatically extract this from the
+            running firmware and inject it into the firmware to be flashed, so
+            the device serial, LAN MAC address, etc are all maintained. Without
+            this, the device will use a default/generic LAN MAC address set by
+            coreboot. While not ideal, this is only really an issue if two or
+            more of the same device are on the same LAN segment (or you're
+            statically assigning IP addresses based on MAC). But for
+            completeness, if flashing the UEFI firmware or shellball ROM, we'll
+            extract the VPD (either from the board itself or a backup made by
+            the script) and inject it into the firmware to be flashed.
+        </p>
+        <p>
+            <b>NOTE:</b> you don't need to do this if flashing a stock firmware
+            backup created by the Firmware Utility Script; that image already
+            contains the VPD.
+        </p>
+        <p>
+            <br />
+            For both the options below, we'll need to use the cbfstool (coreboot
+            filesystem) binary, so let's download/extract that:
+        </p>
+        <dl>
+            <dd>
+                <pre>
+wget https://mrchromebox.tech/files/util/cbfstool.tar.gz &amp;&amp; tar -zxf cbfstool.tar.gz</pre
+                >
+            </dd>
+        </dl>
+        <p>Option 1: extract VPD from the firmware on device</p>
+        <dl>
+            <dd>
+                <pre>
+sudo flashrom -p raiden_debug_spi:target=AP -r badflash.rom</pre
+                >
+            </dd>
+            <dd>
+                <pre>./cbfstool badflash.rom read -r RO_VPD -f vpd.bin</pre>
+            </dd>
+        </dl>
+        <p>
+            Option 2: extract VPD from stock firmware backup created by Firmware
+            Utility Script (this assumes the file has been copied into working
+            directory)
+        </p>
+        <dl>
+            <dd>
+                <pre>
+./cbfstool stock-firmware-&lt;devicename&gt;-&lt;date&gt;.rom read -r RO_VPD -f vpd.bin</pre
+                >
+            </dd>
+        </dl>
+        <p>Then we inject the VPD into the firmware image to be flashed.</p>
+        <dl>
+            <dd>
+                <pre>
+./cbfstool &lt;Shellball ROM/UEFI Full ROM filename&gt; write -r RO_VPD -f vpd.bin</pre
+                >
+            </dd>
+        </dl>
+        <p>
+            Now the firmware image is ready to be flashed, and will maintain the
+            device's unique serial, LAN MAC address, etc.
+        </p>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Flashing_Your_Device_2"
+                >Flashing Your Device</span
+            >
+        </h4>
+        <p>Now that everything is prepped, time to flash the device.</p>
+        <ul>
+            <li>Flash the firmware:</li>
+        </ul>
+        <dl>
+            <dd>
+                If flashing your own backup created by the Firmware Utility
+                Script (or any backup made from a live system), use
+                <dl>
+                    <dd>
+                        <pre>
+sudo flashrom -p raiden_debug_spi:target=AP -i SI_BIOS -w &lt;filename&gt;</pre
+                        >
+                    </dd>
+                </dl>
+            </dd>
+            <dd>
+                otherwise, if using a UEFI Full ROM image or
+                shellball/recovery-extracted image, use
+                <dl>
+                    <dd>
+                        <pre>
+sudo flashrom -p raiden_debug_spi:target=AP -w &lt;filename&gt;</pre
+                        >
+                    </dd>
+                </dl>
+            </dd>
+            <dd>
+                Where &lt;filename&gt; is the name of your backup file, UEFI
+                firmware file, or shellball firmware file. This will usually
+                take 3-5 mins to complete; flashrom will first read the flash
+                chip, determine which sectors differ, erase those sectors, write
+                the new data, then verify the data written. The initial CCD
+                setup make take a minute or so and not show any progress.
+            </dd>
+        </dl>
+        <h4>
+            <span
+                class="mw-headline"
+                id="Clean_Up_2"
+                >Clean Up</span
+            >
+        </h4>
+        <p>
+            Once flashing is complete, disconnect the Suzy-Q cable. If the
+            internal battery was not disconnected, the device will likely reboot
+            as soon as flashing has completed. If the internal battery was
+            disconnected, reconnect it and replace the bottom cover. Flip over
+            the device, connect external power, press the power button, and
+            cross your fingers&nbsp;:)
+        </p>
+    </body>
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Halcyon - Chrome OS Exploits</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="google-site-verification"
+            content="GO1Hg4RaaWS5e6glGz85VfK_r_UflKBPw8aXRIG22WA" />
+        <link
+            rel="icon"
+            href="../../assets/icon.png" />
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Google+Sans" />
+        <link
+            rel="stylesheet"
+            href="../../main.css" />
+        <link
+            rel="stylesheet"
+            href="../detail.css" />
+        <script src="../addheader.js"></script>
+        <script>
+            window.ga =
+                window.ga ||
+                function () {
+                    (ga.q = ga.q || []).push(arguments);
+                };
+            ga.l = +new Date();
+            ga("create", "UA-XXXXX-Y", "auto");
+            ga("send", "pageview");
+        </script>
+    </head>
+    <body>
+        <div id="main-content">
+            <h3>
+                <image
+                    height="20px"
+                    src="assets/icon.ico"></image>
+                <span class="title">E-Halcyon</span>
+                <br />
+                <small>Mercury Workshop</small>
+                <p>
+                    <a
+                        href="https://fog.gay"
+                        target="_blank">
+                        <svg
+                            aria-hidden="true"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            version="1.1"
+                            width="16"
+                            data-view-component="true"
+                            class="octicon octicon-link flex-shrink-0 mr-2">
+                            <path
+                                d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
+                        </svg>
+                        Website
+                    </a>
+                    <a
+                        href="https://github.com/MercuryWorkshop/RecoMod"
+                        target="_blank">
+                        <svg
+                            width="16"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a
+                        href="https://raw.githubusercontent.com/MercuryWorkshop/RecoMod/refs/heads/main/recomod.sh"
+                        target="_blank">
+                        <svg
+                            aria-hidden="true"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            version="1.1"
+                            width="16"
+                            data-view-component="true"
+                            class="octicon octicon-code UnderlineNav-octicon d-none d-sm-inline">
+                            <path
+                                d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path>
+                        </svg>
+                        Source
+                    </a>
+                </p>
+            </h3>
+            Bypass for "The Fog," which is Google's mitigation for the
+            unenrollment and downgrading of Chrome OS devices. It allows you to
+            downgrade and bypass enterprise enrollment on Chromebooks, even if
+            it's received the update that patched downgrading and enrollment
+            escape.
+            <p>
+                E-Halcyon is developed by Mercury Workshop, the same developers
+                behind SH1MMER.
+            </p>
+
+            <p></p>
+            <h3>Instructions</h3>
+            <p>
+                First of all, you'll need a linux PC or VM. WSL is not
+                guaranteed to work
+            </p>
+
+            <p>
+                Now, you'll need to boot into SH1MMER, and press the Un-Enroll
+                option. It won't truly unenroll you if you've received the 112
+                update patching unenrollment and downgrading, but it is still a
+                necessary step for the rest of this. If you've never used
+                SH1MMER before or don't have an image lying around, make sure to
+                follow all the instructions on
+                <a
+                    href="https://sh1mmer.me"
+                    target="_blank"
+                    >sh1mmer.me</a
+                >
+                for unenrollment before proceeding with the rest of the tutorial
+                here.
+            </p>
+
+            <p>
+                Next, you need a version 107 recovery image corresponding to
+                your board, which you can pick up from chrome100.dev. Once
+                you've downloaded the right image for your board and have
+                confirmed it's for version 107, unzip it and save it to a safe
+                place. Now open up a terminal and type in the following commands
+                (make sure to replace "<i>/path/to/recovery/image.bin</i>" with
+                the actual path)
+            </p>
+
+            <p>&nbsp git clone https://github.com/MercuryWorkshop/RecoMod</p>
+            <p>&nbsp cd RecoMod chmod +x recomod.sh</p>
+            <p>
+                &nbsp sudo ./recomod.sh -i /path/to/recovery/image.bin --halcyon
+                --rw_legacy
+            </p>
+
+            <p>
+                The script will modify the image in place, and it can now be
+                flashed with a standard recovery tool onto a USB of your choice.
+            </p>
+
+            <p>
+                Enable developer mode and get to the dev mode block screen
+                similarly to how you would with SH1MMER, then plug in the USB.
+                The recovery screen will show up, and at this point you need to
+                start spamming the E key on your keyboard. It will begin a 5
+                minute wait sequence, and near the end of the 5 minutes start
+                spamming E again. You will only have to wait 5 minutes once,
+                subsequent boots will have the 5 minute wait omitted
+            </p>
+
+            <p>
+                The boot splash will show, and you will enter a special menu.
+                Use arrow keys to navigate the cursor down to "activate halcyon
+                environment" and press enter. Then navigate down to "Install
+                halcyon semi-tethered" and wait for it to finish. Once it's
+                finished, go back to "activate halcyon environment" and press
+                "Boot halcyon semi-tethered". and you will be booted into a
+                downgraded and unenrolled ChromeOS environment.
+            </p>
+
+            <p></p>
+            <ol>
+                <h3>FAQ</h3>
+                <p>
+                    <b>How does this work?</b> See the writeup for more
+                    information
+                </p>
+
+                <p><b>Can the admins see that I'm doing this?</b> No.</p>
+
+                <p>
+                    <b>Why don't my history/cookies/etc save after a reboot?</b>
+                    Unfixable restriction of cryptohome. See the writeup for
+                    more information
+                </p>
+
+                <p>
+                    <b>Why is my Chromebook "Missing or damaged?"</b> After
+                    installing E-Halcyon, you won't be able to boot Chrome OS
+                    normally. You'll have to keep the usb around to jumpstart
+                    the booting process
+                </p>
+
+                <p><b>Where do I report bugs?</b> The RecoMod GitHub</p>
+
+                <p>
+                    <b
+                        >Why does it say "E mode not activated" when I try to
+                        boot halcyon?</b
+                    >
+                    You spammed the E key when starting at the wrong time, or
+                    not at all
+                </p>
+
+                <p>
+                    <b>Credits:</b> CoolElectronics - RecoMod, working
+                    switch_root, and everything else OlyB - Insight and
+                    contributions to the RecoMod script vk6 - Created the
+                    website
+                </p>
+            </ol>
+        </div>
+    </body>
+</html>

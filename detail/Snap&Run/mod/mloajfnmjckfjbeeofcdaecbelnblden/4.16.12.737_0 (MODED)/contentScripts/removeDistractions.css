@@ -1,0 +1,349 @@
+@font-face {
+    font-family: "Quattrocento Sans";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../resources/fonts/Quattrocento_Sans/QuattrocentoSans-Regular.ttf)
+        format("truetype");
+}
+
+@font-face {
+    font-family: "Quattrocento";
+    font-style: normal;
+    font-weight: normal;
+    src: url(../resources/fonts/Quattrocento/Quattrocento-Regular.ttf)
+        format("truetype");
+}
+
+@font-face {
+    font-family: "Alegreya Italic";
+    font-style: italic;
+    font-weight: normal;
+    src: url(../resources/fonts/Alegreya/Alegreya-Italic.ttf) format("truetype");
+}
+
+/* ----------------------------------------------------------------------
+   light/dark theme
+   ---------------------------------------------------------------------- */
+
+html.dji-sru-distractions-active,
+html[dji-theme="light"] {
+    --dji-sru-distraction-background-color: #ffffff;
+    --dji-sru-distraction-main-color: rgba(0, 0, 0, 0.87);
+    --dji-sru-distraction-title-color: rgba(0, 0, 0, 1);
+    --dji-sru-distraction-author-color: rgba(0, 0, 0, 0.5);
+    --dji-sru-distraction-header-color: rgba(0, 0, 0, 1);
+    --dji-sru-distraction-a-color: #607d8b;
+    --dji-sru-distraction-a-hover-color: #55a64;
+    --dji-sru-distraction-a-hover-underline-border-color: #78909c;
+    --dji-sru-distraction-pre-background-color: rgba(0, 0, 0, 0.05);
+    --dji-sru-distraction-blockquote-color: rgba(0, 0, 0, 0.5);
+    --dji-sru-distraction-blockquote-border-color: rgba(0, 0, 0, 0.5);
+    --dji-sru-distraction-caption-color: rgba(0, 0, 0, 0.5);
+    --dji-sru-distraction-table-color: rgba(0, 0, 0, 0.87);
+}
+
+html[dji-theme="dark"] {
+    --dji-sru-distraction-background-color: #000000;
+    --dji-sru-distraction-main-color: #ffffff;
+    --dji-sru-distraction-title-color: rgba(255, 255, 255, 1);
+    --dji-sru-distraction-author-color: rgba(255, 255, 255, 0.5);
+    --dji-sru-distraction-header-color: rgba(255, 255, 255, 1);
+    --dji-sru-distraction-a-color: #607d8b;
+    --dji-sru-distraction-a-hover-color: #55a64;
+    --dji-sru-distraction-a-hover-underline-border-color: #78909c;
+    --dji-sru-distraction-pre-background-color: rgba(255, 255, 255, 0.05);
+    --dji-sru-distraction-blockquote-color: rgba(255, 255, 255, 0.5);
+    --dji-sru-distraction-blockquote-border-color: rgba(255, 255, 255, 0.5);
+    --dji-sru-distraction-caption-color: rgba(255, 255, 255, 0.5);
+    --dji-sru-distraction-table-color: rgba(255, 255, 255, 0.87);
+}
+
+/* ----------------------------------------------------------------------
+   distraction
+   ---------------------------------------------------------------------- */
+
+.dji-sru-distractions-active body {
+    background-color: var(--dji-sru-distraction-background-color);
+}
+
+html[dji-sru-distractions-active] {
+    width: 100% !important;
+}
+
+.dji-sru-remove-distractions-iframe {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    overflow: auto;
+    border: none;
+    box-shadow:
+        0 -8px 24px 2px rgba(0, 0, 0, 0.14),
+        0 -3px 30px 5px rgba(0, 0, 0, 0.12),
+        0 -4px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+html.dji-no-scroll {
+    overflow: hidden !important;
+}
+
+.dji-sru-distractions-main {
+    color: var(--dji-sru-distraction-main-color);
+    font-family: "Quattrocento Sans", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0.25px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    max-width: 600px;
+    padding: 0 56px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.dji-sru-distractions-header {
+    display: none;
+    margin: 0 auto 10px;
+}
+
+.dji-sru-distractions-header.dji-visible {
+    display: block;
+}
+
+.dji-sru-distractions-author {
+    font-family: "Quattrocento";
+    font-size: 16px;
+    line-height: 1.3;
+    color: var(--dji-sru-distraction-author-color);
+}
+
+.dji-sru-distractions-title {
+    font-size: 36px;
+    font-family: "Quattrocento";
+    line-height: 1.3;
+    color: var(--dji-sru-distraction-title-color);
+    text-align: left;
+    margin: 72px 0 24px 0;
+}
+
+.dji-sru-distractions-content {
+    margin-bottom: 100px;
+}
+
+.dji-sru-distractions-content a {
+    color: var(--dji-sru-distraction-a-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.dji-sru-distractions-content a:hover {
+    color: var(--dji-sru-distraction-a-hover-color);
+    border-bottom: 1px var(--dji-sru-distraction-a-hover-underline-border-color)
+        solid;
+}
+
+.dji-sru-distractions-content img,
+.dji-sru-distractions-content video {
+    width: 100%;
+    height: auto;
+    margin: 24px 0;
+    box-shadow:
+        0 4px 5px 0 rgba(0, 0, 0, 0.14),
+        0 1px 10px 0 rgba(0, 0, 0, 0.12),
+        0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dji-sru-distractions-content figure {
+    margin-inline-start: 0;
+}
+
+.dji-sru-distractions-content h1,
+.dji-sru-distractions-content .h1 {
+    font-family: "Quattrocento";
+    color: var(--dji-sru-distraction-header-color);
+    font-size: 36px;
+    line-height: 1.5;
+    margin: 32px 0 64px 0;
+    font-weight: normal;
+}
+
+.dji-sru-distractions-content h2,
+.dji-sru-distractions-content .h2 {
+    font-family: "Quattrocento";
+    color: var(--dji-sru-distraction-header-color);
+    font-size: 32px;
+    line-height: 1.4;
+    margin: 32px 0;
+    font-weight: normal;
+}
+
+.dji-sru-distractions-content h3,
+.dji-sru-distractions-content .h3 {
+    font-family: "Quattrocento";
+    color: var(--dji-sru-distraction-header-color);
+    font-size: 30px;
+    line-height: 1.4;
+    margin: 32px 0;
+    font-weight: normal;
+}
+
+.dji-sru-distractions-content h4,
+.dji-sru-distractions-content .h4 {
+    font-family: "Quattrocento";
+    color: var(--dji-sru-distraction-header-color);
+    font-size: 28px;
+    line-height: 1.4;
+    margin: 32px 0;
+    font-weight: normal;
+}
+
+.dji-sru-distractions-content h5,
+.dji-sru-distractions-content .h5 {
+    font-family: "Quattrocento";
+    color: var(--dji-sru-distraction-header-color);
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 32px 0;
+    font-weight: normal;
+}
+
+.dji-sru-distractions-content p,
+.dji-sru-distractions-content ul,
+.dji-sru-distractions-content ol,
+.dji-sru-distractions-content pre,
+.dji-sru-distractions-content table,
+.dji-sru-distractions-content blockquote {
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+.dji-sru-distractions-content pre {
+    font-family: Monaco, monospace;
+    font-size: 16px;
+    padding: 0 20px;
+    white-space: pre;
+    margin: 0;
+    background-color: var(--dji-sru-distraction-pre-background-color);
+    overflow: auto;
+    direction: ltr !important;
+}
+
+.dji-sru-distractions-content pre * {
+    font-family: Monaco, monospace;
+}
+
+.dji-sru-distractions-content blockquote {
+    font-family: "Alegreya Italic";
+    font-size: 24px;
+    color: var(--dji-sru-distraction-blockquote-color);
+    margin: 0 0 20px 0;
+    padding: 1em;
+    border-left: 2px solid var(--dji-sru-distraction-blockquote-border-color);
+}
+
+.dji-sru-distractions-content .caption,
+.dji-sru-distractions-content .pb-caption,
+.dji-sru-distractions-content .wp-caption-text,
+.dji-sru-distractions-content figcaption,
+.dji-sru-distractions-content cite {
+    font-size: 16px;
+    line-height: 1.3;
+    color: var(--dji-sru-distraction-caption-color);
+}
+
+.dji-sru-distractions-content table {
+    color: var(--dji-sru-distraction-table-color);
+}
+
+@media only screen and (max-width: 1098px) {
+    .dji-sru-outline-active .dji-sru-distractions-main {
+        font-size: 18px;
+        letter-spacing: 0;
+        padding: 0 20px;
+    }
+
+    .dji-sru-outline-active .dji-sru-distractions-title,
+    .dji-sru-outline-active .dji-sru-distractions-content h1,
+    .dji-sru-outline-active .dji-sru-distractions-content .h1 {
+        font-size: 28px;
+    }
+
+    .dji-sru-outline-active .dji-sru-distractions-content h2,
+    .dji-sru-outline-active .dji-sru-distractions-content .h2 {
+        font-size: 22px;
+        font-weight: bolder;
+    }
+
+    .dji-sru-outline-active .dji-sru-distractions-content h3,
+    .dji-sru-outline-active .dji-sru-distractions-content .h3 {
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+    .dji-sru-outline-active .dji-sru-distractions-content h4,
+    .dji-sru-outline-active .dji-sru-distractions-content .h4 {
+        font-size: 19px;
+        font-weight: bolder;
+    }
+
+    .dji-sru-outline-active .dji-sru-distractions-content h5,
+    .dji-sru-outline-active .dji-sru-distractions-content .h5 {
+        font-size: 18px;
+        font-weight: bolder;
+    }
+
+    .dji-sru-outline-active .dji-sru-distractions-content pre {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 656px) {
+    .dji-sru-distractions-main {
+        font-size: 18px;
+        letter-spacing: 0;
+        padding: 0 20px;
+    }
+
+    .dji-sru-distractions-title,
+    .dji-sru-distractions-content h1,
+    .dji-sru-distractions-content .h1 {
+        font-size: 28px;
+    }
+
+    .dji-sru-distractions-content h2,
+    .dji-sru-distractions-content .h2 {
+        font-size: 22px;
+        font-weight: bolder;
+    }
+
+    .dji-sru-distractions-content h3,
+    .dji-sru-distractions-content .h3 {
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+    .dji-sru-distractions-content h4,
+    .dji-sru-distractions-content .h4 {
+        font-size: 19px;
+        font-weight: bolder;
+    }
+
+    .dji-sru-distractions-content h5,
+    .dji-sru-distractions-content .h5 {
+        font-size: 18px;
+        font-weight: bolder;
+    }
+
+    .dji-sru-distractions-content pre {
+        font-size: 14px;
+    }
+}
+
+@media print {
+    #dji-sru-remove-distractions-iframe {
+        display: none;
+    }
+}

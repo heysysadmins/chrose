@@ -1,0 +1,38 @@
+{
+    "name": "ext-remover",
+    "version": "0.0.1",
+    "description": "EXT-REMOVER contains a collection of exploits discovered by various users to expand the capability of managed Chromebooks, making it easy to find the information and tools needed.",
+    "main": "main.js",
+    "scripts": {
+        "format": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/3kh0/ext-remover.git"
+    },
+    "author": {
+        "name": "Ashton Davies",
+        "email": "ashtondavies292@gmail.com",
+        "url": "https://github.com/AshtonDavies"
+    },
+    "contributors": [
+        {
+            "name": "Kanav Gupta",
+            "email": "email.kanavg@gmail.com",
+            "url": "https://github.com/s0urce-c0de"
+        },
+        {
+            "name": "Caen Kole Jones",
+            "url": "https://github.com/CaenJones"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/3kh0/ext-remover/issues"
+    },
+    "homepage": "https://ext-remover.net/",
+    "devDependencies": {
+        "prettier": "^3.3.3"
+    },
+    "type": "module"
+}

@@ -1,0 +1,82 @@
+dji-sru-pdf-choice-popup {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 32px;
+    border-radius: 3px;
+    width: 320px;
+    min-width: 320px;
+    max-width: 320px;
+    background-color: #ffffff;
+    padding: 16px;
+    font-family: "Roboto", "Helvetica Neue", "Segoe UI", Helvetica, sans-serif !important;
+    font-size: 100% !important;
+    box-shadow:
+        0 0 8px rgba(0, 0, 0, 0.12),
+        0 8px 16px rgba(0, 0, 0, 0.24);
+}
+
+html.dji-sru-outline-active dji-sru-pdf-choice-popup {
+    right: 445px;
+}
+
+dji-sru-div.dji-sru-title {
+    display: block;
+    margin-bottom: 14px;
+    text-align: left;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+dji-sru-div.dji-sru-message {
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+dji-sru-div.dji-sru-popup-buttons {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+dji-sru-div.dji-sru-popup-button {
+    display: block;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    margin: 8px 0 0 8px;
+    padding: 0 8px;
+    border-radius: 2px;
+    background-color: transparent;
+    color: rgb(66, 133, 244);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    height: 36px;
+    line-height: 36px;
+    min-width: 64px;
+    transition: background-color 0.3s;
+}
+
+dji-sru-div.dji-sru-popup-button:hover {
+    background-color: rgba(66, 133, 244, 0.12);
+}
+
+dji-sru-div.dji-sru-popup-button:active {
+    background-color: rgba(66, 133, 244, 0.24);
+}

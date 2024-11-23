@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1" />
+        <style>
+            body {
+                background-color: black;
+                color: white;
+            }
+
+            div {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border: 2px solid red;
+                width: 400px;
+                padding: 20px;
+                font-family: "Arial", sans-serif;
+            }
+
+            div a {
+                color: cyan;
+            }
+
+            div button {
+                display: block;
+                margin: 20px auto 0px;
+                background-color: yellow;
+                color: black;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                padding: 5px 10px;
+                font-size: 20px;
+            }
+
+            div a:hover,
+            div button:hover {
+                filter: brightness(85%);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main-content">
+            <div>
+                This exploit makes use of a silly mistake recently introduced
+                into ChromeOS. It allows students to bypass extensions and
+                browse in incognito by doing some trickery with obscure types of
+                windows. Your history will not be recorded while you are in
+                incognito.
+                <br />
+                <br />
+                After the incognito window has opened, it is recommended to
+                switch your DNS servers back to manual, then disconnect and
+                reconnect to your Wi-Fi to get faster loading. The incognito
+                window will stay open until your browser or computer restarts,
+                or you close it.
+                <br />
+                <br />
+                Exploit found by NotGamerFromGamerTown; DNS hosted by
+                SpaceSaver2000.
+                <a href="https://google.com">WebView link for tests.</a>
+                <button>Browse incognito</button>
+            </div>
+            <script>
+                document.querySelector("button").onclick = () =>
+                    open("https://google.com");
+
+                /**/
+
+                let version = navigator.appVersion
+                    .match(/.*Chrome\/([0-9\.]+)/)[1]
+                    .split(".")[0];
+                let div = document.querySelector("div");
+
+                if (version < 106) {
+                    div.textContent = `The full incognito exploit will not work on your Chrome version (${version}). You may instead browse within this window.`;
+                    div.innerHTML += ` <a href="https://google.com" target="_blank">Try regular method.</a><button onclick="location='https://google.com'">Browse unblocked in WebView</button>`;
+                }
+            </script>
+        </div>
+    </body>
+</html>

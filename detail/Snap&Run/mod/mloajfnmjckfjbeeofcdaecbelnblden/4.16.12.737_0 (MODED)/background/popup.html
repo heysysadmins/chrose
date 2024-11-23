@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Popup</title>
+        <link
+            rel="stylesheet"
+            href="popup.css" />
+        <link
+            rel="stylesheet"
+            href="../resources/sprite/sprite-common.css" />
+        <link
+            rel="stylesheet"
+            href="../resources/sprite/sr/sprite.css" />
+        <link
+            rel="stylesheet"
+            href="../options/dji-sru-switch.css" />
+
+        <script src="../thirdParty/jquery/jquery-2.1.4.min.js"></script>
+        <script src="popup.js"></script>
+    </head>
+    <body dji-sru-view-mode="dji-sru-main-view">
+        <div id="dji-sru-overlay"></div>
+        <div dji-sru-login>
+            <div dji-sru-view="dji-sru-main-view">
+                <div class="dji-sru-menu-item dji-sru-no-hover">
+                    <div class="dji-sru-menu-item-icon">
+                        <i class="dji-svg-icon svg-power_settings_new"></i>
+                    </div>
+                    <div class="dji-sru-menu-item-text">Snap&amp;Read</div>
+                    <div class="dji-sru-switch-menu-item">
+                        <div
+                            id="dji-sru-on"
+                            class="dji-sru-switch-container">
+                            <div class="dji-sru-switch-track-bar"></div>
+                            <div class="dji-sru-switch-button"></div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    id="dji-sru-toggle-outline"
+                    class="dji-sru-menu-item"
+                    dji-sru-outline-active="true">
+                    <div class="dji-sru-menu-item-icon">
+                        <i class="dji-svg-icon svg-show_outline"></i>
+                    </div>
+                    <div class="dji-sru-menu-item-text">Show outlines</div>
+                </div>
+                <div
+                    id="dji-sru-remove-distractions"
+                    class="dji-sru-menu-item">
+                    <div class="dji-sru-menu-item-icon">
+                        <i class="dji-svg-icon svg-remove_distractions"></i>
+                    </div>
+                    <div class="dji-sru-menu-item-text">
+                        Remove distractions
+                    </div>
+                </div>
+                <div
+                    id="dji-sru-open-pdf-reader"
+                    class="dji-sru-menu-item">
+                    <div class="dji-sru-menu-item-icon">
+                        <i class="dji-svg-icon svg-pdf"></i>
+                    </div>
+                    <div class="dji-sru-menu-item-text">OrbitNote</div>
+                </div>
+                <div
+                    id="dji-sru-open-pdf-in-sru"
+                    class="dji-sru-menu-item">
+                    <div class="dji-sru-menu-item-icon">
+                        <i class="dji-svg-icon svg-pdf"></i>
+                    </div>
+                    <div class="dji-sru-menu-item-text">
+                        Open PDF in OrbitNote
+                    </div>
+                </div>
+                <div
+                    id="dji-sru-create-word-bank"
+                    class="dji-sru-menu-item">
+                    <div class="dji-sru-menu-item-icon">
+                        <i class="dji-svg-icon svg-scanner_black"></i>
+                    </div>
+                    <div class="dji-sru-menu-item-text">Create word bank</div>
+                </div>
+                <div
+                    id="dji-sru-options"
+                    class="dji-sru-menu-item">
+                    <div class="dji-sru-menu-item-icon">
+                        <i class="dji-svg-icon svg-settings"></i>
+                    </div>
+                    <div class="dji-sru-menu-item-text">Options</div>
+                </div>
+                <div
+                    id="dji-sru-sign-out"
+                    class="dji-sru-menu-item">
+                    <div class="dji-sru-menu-item-icon dji-sign-out">
+                        <i
+                            class="dji-svg-icon dji-sign-out svg-dji_sign_out"></i>
+                    </div>
+                    <div class="dji-sru-menu-item-text">Sign out</div>
+                    <div class="dji-sru-menu-item-text dji-sru-saving-only">
+                        Saving
+                    </div>
+                    <div
+                        id="dji-sru-cancel-saving"
+                        class="dji-sru-menu-button dji-sru-saving-only">
+                        Cancel
+                    </div>
+                </div>
+
+                <div class="progressContainer">
+                    <div id="__djiProgressBar"></div>
+                </div>
+
+                <div class="dji-sru-menu-item-separator"></div>
+                <a
+                    href="#"
+                    target="_blank"
+                    tabindex="-1"
+                    dji-sru-url>
+                    <div
+                        id="dji-sru-user-name"
+                        class="dji-sru-menu-item">
+                        <div class="dji-sru-menu-item-icon">
+                            <i class="dji-svg-icon svg-account_face"></i>
+                        </div>
+                        <div class="dji-sru-menu-item-text">[user_name]</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div dji-sru-no-login>
+            <div
+                id="dji-sru-sign-in"
+                class="dji-sru-menu-item">
+                <div class="dji-sru-menu-item-icon">
+                    <i class="dji-svg-icon svg-account_face"></i>
+                </div>
+                <div class="dji-sru-menu-item-text">Sign in</div>
+            </div>
+            <a
+                href="#"
+                target="_blank"
+                tabindex="-1"
+                dji-sru-url>
+                <div
+                    id="dji-sru-create-account"
+                    class="dji-sru-menu-item">
+                    <div class="dji-sru-menu-item-icon">
+                        <i class="dji-svg-icon svg-person_add"></i>
+                    </div>
+                    <div class="dji-sru-menu-item-text">Create account</div>
+                </div>
+            </a>
+        </div>
+    </body>
+</html>

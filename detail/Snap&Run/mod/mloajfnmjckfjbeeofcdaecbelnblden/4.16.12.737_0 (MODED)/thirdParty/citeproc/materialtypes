@@ -1,0 +1,48 @@
+material types for MLA style:
+
+"article-journal"
+"bill book graphic legal_case legislation manuscript motion_picture report song"
+"chapter paper-conference"
+"thesis"
+"manuscript"
+
+"webpage post-weblog"
+"broadcast"
+"map"
+---------------------------------------------------
+medium types?
+"personal_communication interview" ? (sau medium type aici?)
+"motion_picture"
+"broadcast"
+"manuscript"
+"speech"
+"song"
+
+=======================================================================================================
+===========================================================================================
+APA
+
+"chapter paper-conference entry-dictionary entry-encyclopedia"
+"article-journal", "article-magazine","article-newspaper" //same data?
+"report"
+"legal_case"
+"bill book graphic legislation motion_picture song"
+"thesis"
+"webpage"
+"book graphic manuscript motion_picture report song speech thesis"
+"post-weblog"
+
+=======================================================================
+CHICAGO-ad
+review review-book //do not appea elsewhere
+
+srw.mt = new (newspaper, searches for newspapers not articles in newspapers)
+ = com (a computer file, whatever type of resource)
+
+ srw.mt = acp  - any type of article - magazine, newspaper
+      = mot - motion picture
+       = bks (books of any kind, electronic format included)
+       =    cnp (conference paper)
+
+      = mss(manuscript)
+      =deg(thesis)

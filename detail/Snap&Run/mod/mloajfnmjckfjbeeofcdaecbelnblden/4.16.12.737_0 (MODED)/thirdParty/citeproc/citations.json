@@ -1,0 +1,78 @@
+{
+    "Item-1": {
+        "id": "Item-1",
+        "type": "book",
+        "title": "Digital Typography",
+        "publisher": "Center for the Study of Language and Information",
+        "number-of-pages": "685",
+        "source": "Amazon.com",
+        "ISBN": "1575860104",
+        "volume:": "4",
+        "edition": "3",
+        "author": [
+            {
+                "family": "Knuth",
+                "given": "Donald E."
+            }
+        ],
+        "issued": {
+            "date-parts": [["1998", 6, 1]]
+        }
+    },
+
+    "Item-3": {
+        "id": "Item-3",
+        "type": "article-journal",
+        "title": "The Westlaw System: A Different Approach to Computer-Assisted Legal Research",
+        "container-title": "Jurimetrics Journal",
+        "page": "142-78",
+        "volume": "16",
+        "issue": "3",
+        "URL": "http://heinonline.org/HOL/Page?handle=hein.journals/juraba16&id=152&div=&collection=journals",
+        "journalAbbreviation": "Jurimetrics J.",
+        "URL": "http://www.jstor.org/stable/25664481",
+        "DOI": "10.2307/25664481",
+        "author": [
+            {
+                "family": "Sprowl",
+                "given": "James A."
+            }
+        ],
+        "ISSN": "0002-9319",
+        "note": "ArticleType: research-article / Full publication date: JANUARY 2008-2010 / Copyright © 2008 Temple University",
+        "shortTitle": "John B. West",
+        "issued": {
+            "date-parts": [["1975"]],
+            "season": "1976"
+        },
+        "accessed": {
+            "date-parts": [["2013", 4, 7]]
+        },
+        "medium": "online"
+    },
+
+    "Item-3": {
+        "id": "Item-3",
+        "type": "newspaper", //??
+        "title": "Article title",
+        "container-title": "newspaper title",
+        "page": "142-78",
+        "issue": "3",
+        "URL": "http://heinonline.org/HOL/Page?handle=hein.journals/juraba16&id=152&div=&collection=journals",
+        "edition": "edition name or number",
+        "author": [
+            {
+                "family": "Sprowl",
+                "given": "James A."
+            }
+        ],
+
+        "issued": {
+            "date-parts": [["1975"]],
+            "season": "1976"
+        },
+        "accessed": {
+            "date-parts": [["2013", 4, 7]]
+        }
+    }
+}

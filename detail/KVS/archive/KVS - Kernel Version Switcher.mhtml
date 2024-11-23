@@ -1,0 +1,212 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://kvs.kxtz.dev/
+Subject: KVS - Kernel Version Switcher
+Date: Sun, 27 Oct 2024 16:47:16 -0700
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--sPREXmcu1CMZVZnLWEEsvn7T5qP8tJrIRTCa478RB4----"
+
+
+------MultipartBoundary--sPREXmcu1CMZVZnLWEEsvn7T5qP8tJrIRTCa478RB4----
+Content-Type: text/html
+Content-ID: <frame-4DB51B16EEB3041B20FBEE193126E8D8@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://kvs.kxtz.dev/
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"tex=
+t/html; charset=3DUTF-8">
+    <title>KVS - Kernel Version Switcher</title>
+    <link href=3D"https://kvs.kxtz.dev/style.css" rel=3D"stylesheet" type=
+=3D"text/css">
+    <meta name=3D"description" content=3D"KVS is a side project of mine tha=
+t will change your current tpm_kernver to ANY version">
+    <meta property=3D"og:url" content=3D"https://kvs.kxtz.dev">
+    <meta property=3D"og:type" content=3D"website">
+    <meta property=3D"og:title" content=3D"KVS">
+    <meta property=3D"og:description" content=3D"KVS is a side project of m=
+ine that will change your current tpm_kernver to ANY version">
+
+    <meta name=3D"twitter:card" content=3D"summary_large_image">
+    <meta property=3D"twitter:domain" content=3D"kvs.kxtz.dev">
+    <meta property=3D"twitter:url" content=3D"https://kvs.kxtz.dev">
+    <meta name=3D"twitter:title" content=3D"KVS">
+    <meta name=3D"twitter:description" content=3D"KVS is a side project of =
+mine that will change your current tpm_kernver to ANY version">
+  </head>
+  <body style=3D"padding-bottom: 3%;" cz-shortcut-listen=3D"true">
+   =20
+	 =20
+    <div class=3D"header" style=3D"z-index:0;padding:0;margin:0;">
+      <div id=3D"particles-js" style=3D"z-index:-1;"><canvas class=3D"parti=
+cles-js-canvas-el" width=3D"1903" height=3D"403" style=3D"width: 100%; heig=
+ht: 100%;"></canvas></div>
+      <h1>KVS</h1>
+      <p>Kernel Version Switcher<br>writeup: <a href=3D"https://blog.kxtz.d=
+ev/posts/kvs">https://blog.kxtz.dev/posts/kvs</a></p>
+    </div>
+    <div class=3D"main" style=3D"padding-bottom: 3%;">
+      <div class=3D"about">
+        <h3>What is KVS?</h3>
+        <p>KVS is a side project of mine that will change your current tpm_=
+kernver to ANY version</p>
+        <p>This works using the hexdumps of 0x1008 (kernver TPM index) and =
+<code>tpmc</code> to write the hexdumps of your selected kernver to the 0x1=
+008 TPM index.</p>
+      </div>
+      <div class=3D"installation">
+        <h3>How do I use this?</h3>
+        <p>To use KVS, you must download your shim from <a href=3D"https://=
+dl.kxtz.dev/shims/KVS/">kxtz' shim mirror</a></p>
+        <p>After downloading, flash your USB/SD with the file, I recommend =
+Chrome Recovery Utility.</p>
+      </div>
+      <div class=3D"faq">
+        <h3>FAQ</h3>
+        <h4><p><b>Q: </b>Will this brick my device?</p></h4>
+        <p><b>A: </b>No, KVS has no way to permanantly brick / hard brick a=
+ device. At most, it will make ChromeOS stop booting, but you will still be=
+ able to boot shims to recover the kernver index.</p>
+        <h4><b>Q: </b>What kernvers are there?</h4>
+        <p><b>A: </b>There are 4,294,967,296 possible kernel versions (0x00=
+000000 - 0xFFFFFFFF)</p>
+        <h4><b>Q: </b>What versions can I downgrade to with kernver _</h4>
+        <p><b>A: </b>Heres what versions you can downgrade to with each off=
+ical kernver</p>
+        <p>kernver 0: any</p>
+        <p>kernver 1: any</p>
+        <p>kernver 2: 112 - 119</p>
+        <p>kernver 3: 120 - 124</p>
+	<p>kernver 4: 125 - 129</p>
+	<p>kernver 5: 130 - ???</p>
+        <h4><b>Q: </b>What is the difference between kernver 0 and kernver =
+1?</h4>
+        <p><b>A: </b>literally none, its just cool to see :3</p>
+      </div>
+      <div class=3D"credits">
+        <h3>Credits</h3>
+        <p><b>kxtzownsu</b> - Writing KVS</p>
+        <p><b>OlyB</b> - Helping me with the shim builder, most of the shim=
+ builder wouldn't exist without him.</p>
+        <p><b>Google</b> - Writing the <code>tpmc</code> command :3</p>
+      </div>
+      <div style=3D"padding-bottom: 3%;"></div>
+    </div>
+ =20
+
+
+</body></html>
+------MultipartBoundary--sPREXmcu1CMZVZnLWEEsvn7T5qP8tJrIRTCa478RB4----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://kvs.kxtz.dev/style.css
+
+@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=3DSpace+Grotesk&famil=
+y=3DSofia+Sans&family=3DExo:wght@500&display=3Dswap");
+
+body { position: relative; background-color: rgb(27, 27, 41); color: rgb(20=
+3, 166, 247); margin: 0px; padding: 0px; font-family: Exo, sans-serif; text=
+-align: center; justify-content: center; align-items: center; min-height: 1=
+00vh; }
+
+a { color: rgb(247, 166, 232); }
+
+a:visited { color: rgb(176, 166, 247); }
+
+code { background-color: rgb(17, 17, 27); color: rgb(166, 227, 161); paddin=
+g: 0.2%; }
+
+.header { position: relative; margin: 0px; width: 100%; text-align: center;=
+ color: rgb(203, 166, 247); background-color: rgb(30, 30, 46); }
+
+.header h1 { font-size: 10vw; padding-top: 3%; margin: 0px; font-family: "S=
+ofia Sans", sans-serif; }
+
+.header p { padding-bottom: 3%; }
+
+h3 { font-family: "Space Grotesk", monospace; font-size: 50px; }
+
+.main { background-color: rgb(27, 27, 41); height: 100vh; margin-left: 3%; =
+margin-right: 3%; margin-bottom: 3%; }
+
+#particles-js { position: absolute; top: 0px; left: 0px; width: 100%; heigh=
+t: 100%; padding: 0px; z-index: -1; background-color: transparent; }
+------MultipartBoundary--sPREXmcu1CMZVZnLWEEsvn7T5qP8tJrIRTCa478RB4----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css2?family=Space+Grotesk&family=Sofia+Sans&family=Exo:wght@500&display=swap
+
+@charset "utf-8";
+
+@font-face { font-family: Exo; font-style: normal; font-weight: 500; font-d=
+isplay: swap; src: url("https://fonts.gstatic.com/s/exo/v21/4UaZrEtFpBI4f1Z=
+SIK9d4LjJ4mE3OwtmO24p.woff2") format("woff2"); unicode-range: U+102-103, U+=
+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, =
+U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: Exo; font-style: normal; font-weight: 500; font-d=
+isplay: swap; src: url("https://fonts.gstatic.com/s/exo/v21/4UaZrEtFpBI4f1Z=
+SIK9d4LjJ4mE3OwpmO24p.woff2") format("woff2"); unicode-range: U+100-2BA, U+=
+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF,=
+ U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60=
+-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Exo; font-style: normal; font-weight: 500; font-d=
+isplay: swap; src: url("https://fonts.gstatic.com/s/exo/v21/4UaZrEtFpBI4f1Z=
+SIK9d4LjJ4mE3OwRmOw.woff2") format("woff2"); unicode-range: U+0-FF, U+131, =
+U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F=
+, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "Sofia Sans"; font-style: normal; font-weight: 40=
+0; font-display: swap; src: url("https://fonts.gstatic.com/s/sofiasans/v16/=
+Yq6E-LCVXSLy9uPBwlAThu1SY8Cx8rlT69B6sJ3npPOyXg.woff2") format("woff2"); uni=
+code-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2=
+E-FE2F; }
+
+@font-face { font-family: "Sofia Sans"; font-style: normal; font-weight: 40=
+0; font-display: swap; src: url("https://fonts.gstatic.com/s/sofiasans/v16/=
+Yq6E-LCVXSLy9uPBwlAThu1SY8Cx8rlT69B6sJ3upPOyXg.woff2") format("woff2"); uni=
+code-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "Sofia Sans"; font-style: normal; font-weight: 40=
+0; font-display: swap; src: url("https://fonts.gstatic.com/s/sofiasans/v16/=
+Yq6E-LCVXSLy9uPBwlAThu1SY8Cx8rlT69B6sJ3ppPOyXg.woff2") format("woff2"); uni=
+code-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: "Sofia Sans"; font-style: normal; font-weight: 40=
+0; font-display: swap; src: url("https://fonts.gstatic.com/s/sofiasans/v16/=
+Yq6E-LCVXSLy9uPBwlAThu1SY8Cx8rlT69B6sJ3kpPOyXg.woff2") format("woff2"); uni=
+code-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U=
++308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+=
+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Sofia Sans"; font-style: normal; font-weight: 40=
+0; font-display: swap; src: url("https://fonts.gstatic.com/s/sofiasans/v16/=
+Yq6E-LCVXSLy9uPBwlAThu1SY8Cx8rlT69B6sJ3qpPM.woff2") format("woff2"); unicod=
+e-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U=
++308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U=
++FEFF, U+FFFD; }
+
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/spacegrotes=
+k/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUXsrPMBTTA.woff2") format("wo=
+ff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1=
+, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+=
+20AB; }
+
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/spacegrotes=
+k/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUXsqPMBTTA.woff2") format("wo=
+ff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF=
+, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A=
+0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight:=
+ 400; font-display: swap; src: url("https://fonts.gstatic.com/s/spacegrotes=
+k/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUXskPMA.woff2") format("woff2=
+"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC=
+, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,=
+ U+2215, U+FEFF, U+FFFD; }
+------MultipartBoundary--sPREXmcu1CMZVZnLWEEsvn7T5qP8tJrIRTCa478RB4------

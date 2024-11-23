@@ -1,0 +1,10 @@
+{
+    "default_applications": ["assets/pay/pay.json"],
+    "supported_origins": ["https://*"],
+    "link": [
+        {
+            "rel": "payment-method-manifest",
+            "href": "assets/pay/payment-manifest.json"
+        }
+    ]
+}

@@ -1,0 +1,737 @@
+<!doctype html>
+<!-- saved from url=(0044)https://ading.dev/blog/posts/dextensify.html -->
+<html lang="en">
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=UTF-8" />
+
+        <meta
+            name="viewport"
+            content="width=device-width" />
+        <title>
+            Dextensify: Disabling Admin-Installed Chrome Extensions From Any
+            Webpage
+        </title>
+
+        <meta
+            name="description"
+            content="When Chrome OS v115 released, Google formally patched LTMEAT by disabling chrome://kill and chrome://hang. But what if you could find a way to avoid those pesky Chrome URLs?" />
+        <meta
+            property="og:title"
+            content="Dextensify: Disabling Admin-Installed Chrome Extensions From Any Webpage" />
+        <meta
+            property="og:url"
+            content="https://ading.dev/blog/posts/ltmeat_generic.html" />
+        <meta
+            property="og:description"
+            content="When Chrome OS v115 released, Google formally patched LTMEAT by disabling chrome://kill and chrome://hang. But what if you could find a way to avoid those pesky Chrome URLs?" />
+        <meta
+            property="og:image"
+            content="https://ading.dev/assets/img/icon.png" />
+        <meta
+            property="og:type"
+            content="website" />
+        <meta
+            name="theme-color"
+            content="#443e57" />
+
+        <link
+            rel="stylesheet"
+            href="./dextensify_files/main.css" />
+        <link
+            rel="stylesheet"
+            href="./dextensify_files/css2" />
+
+        <link
+            rel="stylesheet"
+            href="chrome-extension://iheobagjkfklnlikgihanlhcddjoihkg/fonts/Metropolis.css" />
+        <style>
+            html[dji-sru-rewordify-active] span.dji-sru-rewordify-chunk {
+                background-color: rgba(200, 0, 0, 0);
+            }
+            html[dji-sru-rewordify-active]
+                span.dji-sru-rewordify-chunk.dji-sru-rewordify-match:not(
+                    [dji-sru-rewordify-ignore]
+                ),
+            html[dji-sru-rewordify-active]
+                span.dji-sru-rewordify-chunk.dji-sru-rewordify-match[dji-sru-rewordify-replace] {
+                cursor: help;
+                font-style: italic;
+            }
+            span.dji-sru-rewordify-chunk.dji-sru-rewordify-translated {
+                cursor: help;
+            }
+            .dji-sru-active a.dji-sru-google-translate-logo {
+                bottom: 0;
+                position: fixed;
+                right: 40px;
+                z-index: 9999999910;
+            }
+            .dji-sru-outline-active a.dji-sru-google-translate-logo {
+                bottom: 0;
+                position: fixed;
+                right: 445px;
+                z-index: 9999999910;
+            }
+            a.dji-sru-google-translate-logo
+                img.dji-sru-google-translate-logo-img {
+                background: url(chrome-extension://mloajfnmjckfjbeeofcdaecbelnblden/resources/images/translatedByGoogle.png)
+                    0 0/130px 48px no-repeat;
+                display: inline-table;
+                height: 0;
+                outline: none;
+                padding-bottom: 60px;
+                padding-right: 145px;
+                width: 0;
+            }
+            div[dji-sru-rewordify-popup] {
+                background-color: #fff;
+                border: 3px solid #4f6175;
+                border-radius: 5px;
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                color: #000 !important;
+                display: none;
+                left: 30px;
+                min-height: 50px;
+                min-width: 300px;
+                opacity: 0;
+                overflow: visible;
+                padding: 0;
+                pointer-events: none;
+                position: fixed;
+                top: 30px;
+                z-index: 2147483647;
+            }
+            html[dji-sru-fullscreen-popup] div[dji-sru-rewordify-popup] {
+                bottom: 10% !important;
+                left: 10% !important;
+                right: 10% !important;
+                top: 10% !important;
+            }
+            div[dji-sru-rewordify-body] {
+                bottom: 10px;
+                font-family: Arial, sans, sans-serif;
+                font-size: 14px;
+                left: 20px;
+                outline: none;
+                overflow-x: hidden;
+                overflow-y: auto;
+                position: absolute;
+                right: 15px;
+                top: 30px;
+                white-space: pre-line;
+            }
+            div[dji-sru-rewordify-body]:focus {
+                outline: none;
+            }
+            div[dji-sru-rewordify-popup] div.dji-sru-close-btn {
+                background-image: url(chrome-extension://mloajfnmjckfjbeeofcdaecbelnblden/resources/images/close.svg);
+                cursor: pointer !important;
+                display: none;
+                height: 25px;
+                position: absolute;
+                right: -14px;
+                top: -14px;
+                width: 25px;
+                z-index: 2147483647;
+            }
+            div[dji-sru-rewordify-popup] div.dji-sru-close-btn:before {
+                content: url(chrome-extension://mloajfnmjckfjbeeofcdaecbelnblden/resources/images/close-hover.svg);
+                height: 0;
+                visibility: hidden;
+                width: 0;
+            }
+            div[dji-sru-rewordify-popup] div.dji-sru-close-btn:hover {
+                background-image: url(chrome-extension://mloajfnmjckfjbeeofcdaecbelnblden/resources/images/close-hover.svg);
+            }
+            @media not print {
+                html[dji-sru-rewordify-active]
+                    div[dji-sru-rewordify-popup].dji-working {
+                    display: block;
+                    left: -10000px;
+                    top: -10000px;
+                }
+                html[dji-sru-rewordify-active]
+                    div[dji-sru-rewordify-popup].dji-visible {
+                    display: block;
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+                html[dji-sru-rewordify-active]
+                    div[dji-sru-rewordify-popup].dji-visible
+                    div.dji-sru-close-btn {
+                    display: block;
+                }
+            }
+            html[dji-sru-rewordify-active] .kix-selection-overlay {
+                opacity: 0 !important;
+            }
+        </style>
+    </head>
+    <body cz-shortcut-listen="true">
+        <header>
+            <nav>
+                <a
+                    href="https://ading.dev/"
+                    id="name_container">
+                    <img
+                        id="site_logo"
+                        srcset="/assets/img/icon_96px.png 2x"
+                        src="./dextensify_files/icon_48px.png"
+                        width="48px"
+                        height="48px"
+                        alt="website logo" />
+                    <h1 id="site_name">ading2210</h1>
+                </a>
+                <div id="links_container">
+                    <a href="https://ading.dev/">About</a>
+                    <a href="https://ading.dev/projects/">Projects</a>
+                    <a href="https://ading.dev/blog/">Blog</a>
+                </div>
+            </nav>
+        </header>
+
+        <div id="content_wrapper">
+            <div id="article_div">
+                <h1>
+                    Dextensify: Disabling Admin-Installed Chrome Extensions From
+                    Any Webpage
+                </h1>
+                <p><i>By ading2210 on 8/20/23</i></p>
+                <h2>Introduction:</h2>
+                <p>
+                    Back in May 2023,
+                    <a href="https://ltmeat.bypassi.com/">LTMEAT</a> was all the
+                    rage, letting you disable admin extensions extremely easily.
+                    All it required was the use of
+                    <code>chrome://kill</code> and <code>chrome://hang</code>.
+                    Unfortunately, when Chrome v115 rolled around, Google
+                    <a
+                        href="https://chromium-review.googlesource.com/c/chromium/src/+/4558108"
+                        >disabled these debug URLs</a
+                    >, putting an end to the exploit's usability. But what if
+                    you could find a way to avoid those pesky Chrome URLs?
+                </p>
+                <h2>A Refresher on LTMEAT:</h2>
+                <p>
+                    All resources that belong to a Chrome extension share the
+                    same process. Thus, if any of the extension's pages were to
+                    freeze, then the entire extension would also be frozen. The
+                    easiest way to achieve this would be to navigate to
+                    <code>chrome://hang</code> in the address bar, which hangs
+                    the current page. However, simply hanging a Chrome extension
+                    has the side effect of also freezing any event listeners,
+                    blocking any other webpages from loading.
+                </p>
+                <p>
+                    To get around this, you can kill the extension's process
+                    right after you hang it (using <code>chrome://kill</code>),
+                    then hang it again to prevent the listeners from being
+                    registered. By preventing the extension from reloading, then
+                    you've functionally disabled it.
+                </p>
+                <h2>Getting Around the Patch:</h2>
+                <p>
+                    The patch that Chrome v115 included simply disabled the use
+                    of <code>chrome://kill</code> and
+                    <code>chrome://hang</code> (as well as a few related URLs),
+                    and the underlying issues were not fixed. So how do we
+                    accomplish the same things without using any Chrome URLs?
+                </p>
+                <p>
+                    Killing an extension is fairly straightforward. On the
+                    details page of an extension in
+                    <code>chrome://extensions</code>, there's a switch which
+                    toggles an extension's access to <code>file://</code> URLs.
+                    Simply flipping that switch will kill the extension's
+                    process and force it to restart.
+                </p>
+                <p>
+                    <img
+                        alt="The file URL access switch"
+                        src="./dextensify_files/file_url_switch.png" />
+                </p>
+                <p>
+                    Hanging an extension is slightly trickier, although just
+                    like with the original LTMEAT, a convenient Chrome feature
+                    makes this possible.
+                </p>
+                <h2>Web Accessible Resources:</h2>
+                <p>
+                    If you've ever viewed an extension's
+                    <code>manifest.json</code>, you may have seen a field called
+                    <a
+                        href="https://developer.chrome.com/docs/extensions/mv3/manifest/web_accessible_resources/"
+                        ><code>web_accessible_resources</code></a
+                    >
+                    somewhere towards the bottom of the file. The purpose of
+                    this is to allow other pages to view some of the extension's
+                    resources. For instance, if an extension contained the
+                    following in its manifest, then any path under
+                    <code>chrome-extension://extensionidhere/public/</code>
+                    would be accessible to any regular webpage.
+                </p>
+                <div
+                    class="codehilite"
+                    style="background: #263238">
+                    <pre
+                        style="
+                            line-height: 125%;
+                        "><span></span><code>"web_accessible_resources": [
+  "public/*"
+]
+</code></pre>
+                </div>
+
+                <p>
+                    Any web accessible resources can also be put inside an
+                    iframe. However, since all extension resources share a
+                    single process, any iframe of an extension resource will be
+                    part of the main extension process. Thus, by constantly
+                    creating new iframes to a web accessible resource, you can
+                    effectively freeze the entire extension. Since you are able
+                    to do this from any webpage, this allows us to bypass the
+                    <code>chrome://hang</code> block.
+                </p>
+                <h2>Implementing the Exploit:</h2>
+                <p>
+                    Obviously, you can't endlessly create iframes without the
+                    browser running out of memory and freezing. Previously
+                    created iframes have to be removed, although it's not as
+                    simple as just calling <code>.remove()</code> on them.
+                    Chrome also doesn't seem to be able to properly garbage
+                    collect removed iframes (and when it does, it happens after
+                    a delay), which leads to a memory leak.
+                </p>
+                <p>
+                    My workaround for this was to gradually decrease the rate
+                    that the iframes were created at so that Chrome's garbage
+                    collection has a chance to catch up, and this seems to work
+                    most of the time. I then wrote some HTML and CSS to wrap it
+                    all up, as well as a small Python script to generate the
+                    data URL.
+                </p>
+                <h2>The Final Result:</h2>
+                <p>Here's what the finished exploit page looks like:</p>
+                <p>
+                    <img
+                        alt="A screenshot of the finished exploit"
+                        src="./dextensify_files/dextensify_screenshot.png" />
+                </p>
+                <p>
+                    It's currently being hosted at
+                    <a href="https://dextensify.ading.dev/"
+                        >dextensify.ading.dev</a
+                    >, and the source code is also available on my
+                    <a href="https://github.com/ading2210/dextensify">Github</a
+                    >.
+                </p>
+                <p>
+                    I'm honestly sort of impressed that the workaround to
+                    Google's patch is as simple as spamming iframes, but that's
+                    just Chrome for you. It happened last time with LTMEAT, and
+                    I'm sure more of these simple bugs will be found in the
+                    future.
+                </p>
+
+                <p><a href="https://ading.dev/blog/">&lt;- Back</a></p>
+            </div>
+        </div>
+
+        <div id="footer">
+            <p>
+                Copyright © 2024 ading2210. All rights reserved. The source
+                code for this website can be found on my
+                <a
+                    href="https://github.com/ading2210/website-rewrite/"
+                    target="_blank"
+                    >Github</a
+                >.
+            </p>
+        </div>
+
+        <div dji-sru-rewordify-popup="true">
+            <div class="dji-sru-close-btn"></div>
+            <div
+                dji-sru-rewordify-body="true"
+                tabindex="0">
+                <div dji-non-draggable="true"></div>
+            </div>
+            <div class="dji-geom-ctrl-resize-top"></div>
+            <div class="dji-geom-ctrl-resize-bottom"></div>
+            <div class="dji-geom-ctrl-resize-left"></div>
+            <div class="dji-geom-ctrl-resize-right"></div>
+            <div class="dji-geom-ctrl-resize-top-left"></div>
+            <div class="dji-geom-ctrl-resize-top-right"></div>
+            <div class="dji-geom-ctrl-resize-bottom-right"></div>
+            <div class="dji-geom-ctrl-resize-bottom-left"></div>
+            <div class="geomCtrlContainerOverlay"></div>
+        </div>
+        <div id="dji-sru-busy-state"></div>
+        <dji-sru-distraction
+            ><template shadowrootmode="open"
+                ><style>
+                    @font-face {
+                        font-family: "Quattrocento Sans";
+                        font-style: normal;
+                        font-weight: normal;
+                        src: url(../resources/fonts/Quattrocento_Sans/QuattrocentoSans-Regular.ttf) format("truetype");
+                    }
+
+                    @font-face {
+                        font-family: "Quattrocento";
+                        font-style: normal;
+                        font-weight: normal;
+                        src: url(../resources/fonts/Quattrocento/Quattrocento-Regular.ttf) format("truetype");
+                    }
+
+                    @font-face {
+                        font-family: "Alegreya Italic";
+                        font-style: italic;
+                        font-weight: normal;
+                        src: url(../resources/fonts/Alegreya/Alegreya-Italic.ttf) format("truetype");
+                    }
+
+                    /* ----------------------------------------------------------------------
+                       light/dark theme
+                       ---------------------------------------------------------------------- */
+
+                    html.dji-sru-distractions-active, html[dji-theme=light] {
+                        --dji-sru-distraction-background-color: #FFFFFF;
+                        --dji-sru-distraction-main-color: rgba(0, 0, 0, .87);
+                        --dji-sru-distraction-title-color: rgba(0, 0, 0, 1);
+                        --dji-sru-distraction-author-color: rgba(0, 0, 0, 0.5);
+                        --dji-sru-distraction-header-color: rgba(0, 0, 0, 1);
+                        --dji-sru-distraction-a-color: #607d8b;
+                        --dji-sru-distraction-a-hover-color: #55a64;
+                        --dji-sru-distraction-a-hover-underline-border-color: #78909c;
+                        --dji-sru-distraction-pre-background-color: rgba(0, 0, 0, 0.05);
+                        --dji-sru-distraction-blockquote-color: rgba(0, 0, 0, 0.5);
+                        --dji-sru-distraction-blockquote-border-color: rgba(0, 0, 0, 0.5);
+                        --dji-sru-distraction-caption-color: rgba(0, 0, 0, 0.5);
+                        --dji-sru-distraction-table-color: rgba(0, 0, 0, .87);
+                    }
+
+                    html[dji-theme=dark] {
+                        --dji-sru-distraction-background-color: #000000;
+                        --dji-sru-distraction-main-color: #FFFFFF;
+                        --dji-sru-distraction-title-color: rgba(255, 255, 255, 1);
+                        --dji-sru-distraction-author-color: rgba(255, 255, 255, 0.5);
+                        --dji-sru-distraction-header-color: rgba(255, 255, 255, 1);
+                        --dji-sru-distraction-a-color: #607d8b;
+                        --dji-sru-distraction-a-hover-color: #55a64;
+                        --dji-sru-distraction-a-hover-underline-border-color: #78909c;
+                        --dji-sru-distraction-pre-background-color: rgba(255, 255, 255, .05);
+                        --dji-sru-distraction-blockquote-color: rgba(255, 255, 255, 0.5);
+                        --dji-sru-distraction-blockquote-border-color: rgba(255, 255, 255, 0.5);
+                        --dji-sru-distraction-caption-color: rgba(255, 255, 255, 0.5);
+                        --dji-sru-distraction-table-color: rgba(255, 255, 255, .87);
+                    }
+
+                    /* ----------------------------------------------------------------------
+                       distraction
+                       ---------------------------------------------------------------------- */
+
+                    .dji-sru-distractions-active body {
+                        background-color: var(--dji-sru-distraction-background-color);
+                    }
+
+                    html[dji-sru-distractions-active] {
+                        width: 100% !important;
+                    }
+
+                    .dji-sru-remove-distractions-iframe {
+                        width: 100%;
+                        min-width: 100%;
+                        max-width: 100%;
+                        height: 100%;
+                        min-height: 100%;
+                        max-height: 100%;
+                        overflow: auto;
+                        border: none;
+                        box-shadow: 0 -8px 24px 2px rgba(0, 0, 0, 0.14), 0 -3px 30px 5px rgba(0, 0, 0, 0.12), 0 -4px 10px 0 rgba(0, 0, 0, 0.20);
+                    }
+
+                    html.dji-no-scroll {
+                        overflow: hidden !important;
+                    }
+
+                    .dji-sru-distractions-main {
+                        color: var(--dji-sru-distraction-main-color);
+                        font-family: "Quattrocento Sans", sans-serif;
+                        font-weight: 400;
+                        font-size: 20px;
+                        letter-spacing: 0.25px;
+                        line-height: 1.6;
+                        -webkit-font-smoothing: antialiased;
+                        text-rendering: optimizeLegibility;
+                        max-width: 600px;
+                        padding: 0 56px;
+                        height: 100%;
+                        margin: 0 auto;
+                    }
+
+                    .dji-sru-distractions-header {
+                        display: none;
+                        margin: 0 auto 10px;
+                    }
+
+                    .dji-sru-distractions-header.dji-visible {
+                        display: block;
+                    }
+
+                    .dji-sru-distractions-author {
+                        font-family: "Quattrocento";
+                        font-size: 16px;
+                        line-height: 1.3;
+                        color: var(--dji-sru-distraction-author-color);
+                    }
+
+                    .dji-sru-distractions-title {
+                        font-size: 36px;
+                        font-family: "Quattrocento";
+                        line-height: 1.3;
+                        color: var(--dji-sru-distraction-title-color);
+                        text-align: left;
+                        margin: 72px 0 24px 0;
+                    }
+
+                    .dji-sru-distractions-content {
+                        margin-bottom: 100px;
+                    }
+
+                    .dji-sru-distractions-content a {
+                        color: var(--dji-sru-distraction-a-color);
+                        text-decoration: none;
+                        transition: color .2s;
+                    }
+
+                    .dji-sru-distractions-content a:hover {
+                        color: var(--dji-sru-distraction-a-hover-color);
+                        border-bottom: 1px var(--dji-sru-distraction-a-hover-underline-border-color) solid;
+                    }
+
+                    .dji-sru-distractions-content img, .dji-sru-distractions-content video {
+                        width: 100%;
+                        height: auto;
+                        margin: 24px 0;
+                        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.20);
+                    }
+
+                    .dji-sru-distractions-content figure {
+                        margin-inline-start: 0;
+                    }
+
+                    .dji-sru-distractions-content h1, .dji-sru-distractions-content .h1 {
+                        font-family: "Quattrocento";
+                        color: var(--dji-sru-distraction-header-color);
+                        font-size: 36px;
+                        line-height: 1.5;
+                        margin: 32px 0 64px 0;
+                        font-weight: normal;
+                    }
+
+                    .dji-sru-distractions-content h2, .dji-sru-distractions-content .h2 {
+                        font-family: "Quattrocento";
+                        color: var(--dji-sru-distraction-header-color);
+                        font-size: 32px;
+                        line-height: 1.4;
+                        margin: 32px 0;
+                        font-weight: normal;
+                    }
+
+                    .dji-sru-distractions-content h3, .dji-sru-distractions-content .h3 {
+                        font-family: "Quattrocento";
+                        color: var(--dji-sru-distraction-header-color);
+                        font-size: 30px;
+                        line-height: 1.4;
+                        margin: 32px 0;
+                        font-weight: normal;
+                    }
+
+                    .dji-sru-distractions-content h4, .dji-sru-distractions-content .h4 {
+                        font-family: "Quattrocento";
+                        color: var(--dji-sru-distraction-header-color);
+                        font-size: 28px;
+                        line-height: 1.4;
+                        margin: 32px 0;
+                        font-weight: normal;
+                    }
+
+                    .dji-sru-distractions-content h5, .dji-sru-distractions-content .h5 {
+                        font-family: "Quattrocento";
+                        color: var(--dji-sru-distraction-header-color);
+                        font-size: 24px;
+                        line-height: 1.3;
+                        margin: 32px 0;
+                        font-weight: normal;
+                    }
+
+                    .dji-sru-distractions-content p, .dji-sru-distractions-content ul, .dji-sru-distractions-content ol, .dji-sru-distractions-content pre, .dji-sru-distractions-content table, .dji-sru-distractions-content blockquote {
+                        margin-top: 0;
+                        margin-bottom: 24px;
+                    }
+
+                    .dji-sru-distractions-content pre {
+                        font-family: Monaco, monospace;
+                        font-size: 16px;
+                        padding: 0 20px;
+                        white-space: pre;
+                        margin: 0;
+                        background-color: var(--dji-sru-distraction-pre-background-color);
+                        overflow: auto;
+                        direction: ltr !important;
+                    }
+
+                    .dji-sru-distractions-content pre * {
+                        font-family: Monaco, monospace;
+                    }
+
+                    .dji-sru-distractions-content blockquote {
+                        font-family: "Alegreya Italic";
+                        font-size: 24px;
+                        color: var(--dji-sru-distraction-blockquote-color);
+                        margin: 0 0 20px 0;
+                        padding: 1em;
+                        border-left: 2px solid var(--dji-sru-distraction-blockquote-border-color);
+                    );
+                    }
+
+                    .dji-sru-distractions-content .caption, .dji-sru-distractions-content .pb-caption, .dji-sru-distractions-content .wp-caption-text, .dji-sru-distractions-content figcaption, .dji-sru-distractions-content cite {
+                        font-size: 16px;
+                        line-height: 1.3;
+                        color: var(--dji-sru-distraction-caption-color);
+                    }
+
+                    .dji-sru-distractions-content table {
+                        color: var(--dji-sru-distraction-table-color);
+                    }
+
+                    @media only screen and (max-width: 1098px) {
+
+                        .dji-sru-outline-active .dji-sru-distractions-main {
+                            font-size: 18px;
+                            letter-spacing: 0;
+                            padding: 0 20px;
+                        }
+
+                        .dji-sru-outline-active .dji-sru-distractions-title, .dji-sru-outline-active .dji-sru-distractions-content h1, .dji-sru-outline-active .dji-sru-distractions-content .h1 {
+                            font-size: 28px;
+                        }
+
+                        .dji-sru-outline-active .dji-sru-distractions-content h2, .dji-sru-outline-active .dji-sru-distractions-content .h2 {
+                            font-size: 22px;
+                            font-weight: bolder;
+                        }
+
+                        .dji-sru-outline-active .dji-sru-distractions-content h3, .dji-sru-outline-active .dji-sru-distractions-content .h3 {
+                            font-size: 20px;
+                            font-weight: bolder;
+                        }
+
+                        .dji-sru-outline-active .dji-sru-distractions-content h4, .dji-sru-outline-active .dji-sru-distractions-content .h4 {
+                            font-size: 19px;
+                            font-weight: bolder;
+                        }
+
+                        .dji-sru-outline-active .dji-sru-distractions-content h5, .dji-sru-outline-active .dji-sru-distractions-content .h5 {
+                            font-size: 18px;
+                            font-weight: bolder;
+                        }
+
+                        .dji-sru-outline-active .dji-sru-distractions-content pre {
+                            font-size: 14px;
+                        }
+                    }
+
+                    @media only screen and (max-width: 656px) {
+                        .dji-sru-distractions-main {
+                            font-size: 18px;
+                            letter-spacing: 0;
+                            padding: 0 20px;
+                        }
+
+                        .dji-sru-distractions-title, .dji-sru-distractions-content h1, .dji-sru-distractions-content .h1 {
+                            font-size: 28px;
+                        }
+
+                        .dji-sru-distractions-content h2, .dji-sru-distractions-content .h2 {
+                            font-size: 22px;
+                            font-weight: bolder;
+                        }
+
+                        .dji-sru-distractions-content h3, .dji-sru-distractions-content .h3 {
+                            font-size: 20px;
+                            font-weight: bolder;
+                        }
+
+                        .dji-sru-distractions-content h4, .dji-sru-distractions-content .h4 {
+                            font-size: 19px;
+                            font-weight: bolder;
+                        }
+
+                        .dji-sru-distractions-content h5, .dji-sru-distractions-content .h5 {
+                            font-size: 18px;
+                            font-weight: bolder;
+                        }
+
+                        .dji-sru-distractions-content pre {
+                            font-size: 14px;
+                        }
+                    }
+
+                    @media print {
+                    	#dji-sru-remove-distractions-iframe {
+                    	display: none;
+                    	}
+                    }</style
+                ><iframe
+                    id="dji-sru-remove-distractions-iframe"
+                    class="dji-sru-remove-distractions-iframe"></iframe></template
+        ></dji-sru-distraction>
+        <div dji-sru-rewordify-popup="true">
+            <div class="dji-sru-close-btn"></div>
+            <div
+                dji-sru-rewordify-body="true"
+                tabindex="0">
+                <div dji-non-draggable="true"></div>
+            </div>
+            <div class="dji-geom-ctrl-resize-top"></div>
+            <div class="dji-geom-ctrl-resize-bottom"></div>
+            <div class="dji-geom-ctrl-resize-left"></div>
+            <div class="dji-geom-ctrl-resize-right"></div>
+            <div class="dji-geom-ctrl-resize-top-left"></div>
+            <div class="dji-geom-ctrl-resize-top-right"></div>
+            <div class="dji-geom-ctrl-resize-bottom-right"></div>
+            <div class="dji-geom-ctrl-resize-bottom-left"></div>
+            <div class="geomCtrlContainerOverlay"></div>
+        </div>
+    </body>
+    <dji-sru id="__dji_sru_components"
+        ><template shadowrootmode="open"
+            ><iframe
+                id="dji_sru_define_word"
+                style="
+                    left: 0px;
+                    top: 0px;
+                    width: 100%;
+                    height: 100%;
+                    position: fixed;
+                "></iframe></template></dji-sru
+    ><dji-sru id="__dji_sru_main_container"
+        ><template shadowrootmode="open"
+            ><iframe
+                dji-template-id="__dji_sru_main_container_iframe"
+                scrolling="no"
+                seamless=""
+                class="dji-sru-initial dji-sru-initial-display dji-sru-no-printable"
+                id="__dji_sru_main_container_iframe"
+                style="
+                    border: none;
+                    width: 100%;
+                    height: 100%;
+                "></iframe></template
+    ></dji-sru>
+</html>

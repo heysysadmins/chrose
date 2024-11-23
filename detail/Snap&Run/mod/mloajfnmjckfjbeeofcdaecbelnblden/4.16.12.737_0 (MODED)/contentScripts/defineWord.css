@@ -1,0 +1,457 @@
+html.dji-sru-define-popup-active #dji-sru-define-popup-overlay {
+    display: block !important;
+}
+
+:root {
+    --dji-sru-define-popup-width: 300px;
+    --dji-sru-define-word-container-height: 150px;
+    --dji-sru-define-word-container-large-height: 250px;
+    --dji-sru-icons-container-height: 55px;
+    --dji-sru-toolbar-height: 45px;
+    user-select: initial !important;
+    -moz-user-select: initial !important;
+    -webkit-user-select: initial !important;
+    -ms-user-select: initial !important;
+}
+
+.dji-svg-icon[dji-copy] {
+    zoom: 0.7;
+    cursor: pointer;
+}
+.dji-sru-word-definition .dji-svg-icon {
+    line-height: 20px;
+    vertical-align: middle;
+}
+
+#dji-sru-define-popup {
+    position: fixed;
+    display: grid;
+    grid-template-rows: auto;
+    top: 500px;
+    left: 100px;
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    width: var(--dji-sru-define-popup-width);
+    background-color: #ffffff;
+    box-shadow:
+        0 0 8px rgba(0, 0, 0, 0.12),
+        0 8px 16px rgba(0, 0, 0, 0.24);
+}
+
+#dji-sru-define-popup.dji-sru-reverse {
+    margin-top: 20px;
+    margin-bottom: 0;
+    box-shadow:
+        0 0 8px rgba(0, 0, 0, 0.12),
+        0 -8px 16px rgba(0, 0, 0, 0.24);
+}
+
+html[dji-sru-rewordify-active] #dji-sru-define-popup {
+    z-index: 2147483647;
+}
+
+#dji-sru-define-popup .dji-sru-define-popup-arrow {
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    margin-left: -10px;
+    border: none;
+    width: 20px;
+    height: 20px;
+    transform: rotate(135deg);
+    box-shadow: 5px -5px 10px 0 rgba(0, 0, 0, 0.24);
+}
+
+#dji-sru-define-popup.dji-sru-reverse .dji-sru-define-popup-arrow {
+    background-color: white;
+    top: -10px;
+    transform: rotate(-45deg);
+    box-shadow: 5px -5px 10px 0 rgba(0, 0, 0, 0.24);
+}
+
+#dji-sru-define-popup-overlay.dji-sru-parent-page-content-scrolled
+    .dji-sru-define-popup-arrow {
+    display: none;
+}
+
+.dji-sru-define-word-container {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    max-height: var(--dji-sru-define-word-container-height);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#dji-sru-define-popup.dji-sru-no-result .dji-sru-define-word-container {
+    display: none;
+}
+
+#dji-sru-define-popup.dji-sru-more-definition .dji-sru-define-word-container {
+    max-height: calc(var(--dji-sru-define-word-container-large-height));
+}
+
+.dji-sru-define-word-container:before {
+    position: sticky;
+    display: inline-block;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(#ffffff, transparent);
+    content: "";
+}
+
+.dji-sru-define-word-container:after {
+    position: sticky;
+    display: inline-block;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(transparent, #ffffff);
+    content: "";
+}
+
+.dji-sru-define-word-content {
+    padding: 0 20px;
+    font-family: "Roboto", "Helvetica Neue", "Segoe UI", Helvetica, sans-serif !important;
+    font-size: 14px;
+}
+
+.dji-sru-define-word-content .dji-sru-word-definition {
+    margin-bottom: 7px;
+    padding: 5px 0 0 0;
+    text-align: left;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+}
+
+.dji-sru-word-definition-text-content {
+    display: inline;
+}
+
+.dji-sru-define-word-title {
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+}
+
+#dji-sru-define-popup.dji-sru-no-result .dji-sru-define-word-title {
+    display: none;
+}
+
+.dji-sru-no-result {
+    display: none;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 70px;
+    color: #808080;
+}
+
+#dji-sru-define-popup.dji-sru-no-result .dji-sru-no-result {
+    display: block;
+}
+
+.dji-sru-images-container {
+    position: relative;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 0px 5px 0px 15px;
+    height: var(--dji-sru-icons-container-height);
+}
+
+.dji-sru-images-container .dji-sru-image-loading {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.75);
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("chrome-extension://__MSG_@@extension_id__/resources/images/loading.gif");
+}
+
+.dji-sru-images-container.dji-sru-icons-loading .dji-sru-image-loading {
+    display: block;
+}
+
+.dji-sru-images-container .dji-sru-icon {
+    position: relative;
+    margin: 0 0px;
+    width: 52px;
+    height: 52px;
+}
+
+.dji-sru-images-container .dji-sru-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+.dji-sru-icon-tooltip {
+    display: none;
+    font-family: Verdana;
+    position: absolute;
+    white-space: nowrap;
+    font-size: 10px;
+    top: -34px;
+    left: 0;
+    color: rgb(66, 64, 64);
+    box-shadow: rgba(0, 0, 0, 0.18) 2px 3px 5px;
+    padding: 4px;
+    background-color: rgb(243, 243, 243);
+    border: 1px solid lightgray;
+}
+
+.dji-visible .dji-sru-icon-tooltip {
+    display: block;
+}
+
+.dji-sru-icon .dji-sru-copy-icon {
+    display: none;
+    position: absolute;
+    right: 0px;
+    bottom: -2px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.dji-visible .dji-sru-copy-icon {
+    display: block;
+}
+
+#dji-sru-define-popup.dji-sru-no-images .dji-sru-images-container,
+#dji-sru-define-popup.dji-sru-no-result .dji-sru-images-container {
+    display: none;
+}
+
+#dji-sru-define-popup.dji-sru-one-result .dji-sru-images-container {
+    margin-bottom: 20px;
+}
+
+.dji-sru-define-word-toolbar {
+    position: relative;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    margin: 0 20px;
+    height: var(--dji-sru-toolbar-height);
+}
+
+#dji-sru-define-popup.dji-sru-no-result .dji-sru-define-word-toolbar,
+#dji-sru-define-popup.dji-sru-one-result .dji-sru-define-word-toolbar {
+    display: none;
+}
+
+.dji-sru-define-word-toolbar .dji-sru-toolbar-button {
+    border: none;
+    background-color: transparent;
+    color: #000000;
+    cursor: pointer;
+}
+
+.dji-sru-define-word-toolbar .dji-sru-toolbar-button:focus {
+    outline: none;
+}
+
+.dji-sru-define-popup-selection {
+    z-index: -1;
+    position: absolute;
+    display: block;
+}
+
+#dji-sru-define-popup-overlay.dji-sru-parent-page-content-scrolled
+    .dji-sru-define-popup-selection {
+    display: none;
+}
+
+dji-sru-templates {
+    display: none;
+}
+
+/* info popup */
+
+.dji-sru-popup-info {
+    display: none;
+    position: fixed;
+    background: url("chrome-extension://__MSG_@@extension_id__/resources/images/wordnet-citation.svg")
+        0% 0% / 130px 48px no-repeat;
+    width: 130px;
+    height: 48px;
+    outline: none;
+    bottom: 10px;
+    right: 40px;
+    z-index: 2147483647;
+    box-shadow:
+        rgba(0, 0, 0, 0.14) 0px 8px 10px 1px,
+        rgba(0, 0, 0, 0.12) 0px 3px 14px 3px,
+        rgba(0, 0, 0, 0.2) 0px 4px 5px 0px;
+}
+
+html.dji-sru-outline-active .dji-sru-popup-info {
+    right: 445px;
+    background-color: red;
+}
+
+.dji-sru-popup-info[active] {
+    display: block;
+}
+
+/* define on double click choice popup */
+
+#dji-sru-doubleclick-choice-popup {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 32px;
+    border-radius: 3px;
+    width: 240px;
+    min-width: 240px;
+    max-width: 240px;
+    background-color: #ffffff;
+    padding: 16px;
+    font-family: "Roboto", "Helvetica Neue", "Segoe UI", Helvetica, sans-serif !important;
+    font-size: 100% !important;
+    box-shadow:
+        0 0 8px rgba(0, 0, 0, 0.12),
+        0 8px 16px rgba(0, 0, 0, 0.24);
+}
+html.dji-sru-outline-active #dji-sru-doubleclick-choice-popup {
+    right: 445px;
+}
+#dji-sru-doubleclick-choice-popup[active] {
+    display: block;
+}
+
+dji-sru-div.dji-sru-title {
+    display: block;
+    margin-bottom: 14px;
+    text-align: left;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+dji-sru-div.dji-sru-message {
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+dji-sru-div.dji-sru-popup-buttons {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+dji-sru-div.dji-sru-popup-button {
+    display: block;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    margin: 8px 0 0 8px;
+    padding: 0 8px;
+    border-radius: 2px;
+    background-color: transparent;
+    color: rgb(66, 133, 244);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    height: 36px;
+    line-height: 36px;
+    min-width: 64px;
+    transition: background-color 0.3s;
+}
+
+dji-sru-div.dji-sru-popup-button:hover {
+    background-color: rgba(66, 133, 244, 0.12);
+}
+
+dji-sru-div.dji-sru-popup-button:active {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+.dji-sru-icons-container {
+    position: absolute;
+    display: none;
+    left: 0;
+    right: 0;
+    bottom: 34px;
+    height: 45px;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+#dji-sru-define-popup.dji-have-icons .dji-sru-icons-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.dji-sru-icons-container .dji-sru-icon {
+    margin: 0 5px;
+    width: 42px;
+    height: 42px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

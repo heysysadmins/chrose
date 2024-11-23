@@ -1,0 +1,36 @@
+html[dji-sru-speak-from-cursor] img.dji-sru-speak-image {
+    transition: all 0.2s;
+}
+
+html[dji-sru-speak-from-cursor] img.dji-sru-speak-image:hover {
+    transform: scale(1.004);
+    filter: brightness(110%) contrast(105%);
+    transition: all 0.5s;
+}
+
+/* for PARCC test - remove their highlighter tool while speaking */
+html.dji-sru-speak-active #highlighterTool {
+    display: none !important;
+}
+
+html[dji-sru-active] body * :not(i) {
+    user-select: initial !important;
+}
+
+html[dji-sru-active] body {
+    user-select: initial !important;
+}
+
+html.dji-sru-speak-active .PSPDFKit-Popover-Text-Markup-Toolbar {
+    display: none;
+}
+
+html.dji-sru-speak-active
+    .PSPDFKit-browser-system-windows
+    .PSPDFKit-4127h8uk4yth7y9a1buxch4nkx {
+    opacity: 1 !important;
+}
+
+html[dji-sru-speak-from-cursor] body div#kix-appview div.docs-bubble {
+    display: none !important;
+}

@@ -1,0 +1,96 @@
+/*********************** Toast ********************************/
+:root {
+    --dji-sru-toolbar-width: 32px;
+    --dji-sru-outlines-width: 442px;
+}
+
+dji-sru-toast {
+    all: initial;
+}
+
+dji-sru-toast::before,
+dji-sru-toast::after,
+dji-sru-toast *::before,
+dji-sru-toast *::after,
+dji-sru-toast * {
+    all: unset;
+}
+
+dji-sru-toast {
+    position: fixed;
+
+    display: block;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 0px;
+    bottom: 0px;
+
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+
+    z-index: 9999999999999999 !important;
+    background-color: transparent;
+}
+
+.dji-sru-active dji-sru-toast {
+    width: calc(100% - var(--dji-sru-toolbar-width));
+}
+
+.dji-sru-outline-active dji-sru-toast {
+    width: calc(100% - var(--dji-sru-outlines-width));
+}
+
+dji-sru-toast > dji-sru-toast-content {
+    position: relative;
+
+    display: block;
+    box-sizing: border-box;
+
+    width: 433px;
+    bottom: 50px;
+
+    margin: 0 auto;
+    padding: 10px 24px;
+    border-radius: 2px;
+
+    line-height: 30px;
+
+    font-family: "Roboto", "sans-serif";
+    font-weight: 400;
+    font-size: 14px;
+
+    color: white;
+    background-color: black;
+
+    user-select: none;
+}
+
+dji-sru-toast > dji-sru-toast-content[dji-sru-toast-error] {
+    background-color: #701010;
+}
+
+dji-sru-toast[dji-sru-mode="action"] > dji-sru-toast-content {
+    display: grid;
+
+    width: 444px;
+
+    grid-template-columns: 300px 49px;
+    grid-column-gap: 48px;
+}
+
+dji-sru-toast > dji-sru-toast-content > dji-sru-toast-content-text {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+dji-sru-toast > dji-sru-toast-content > dji-sru-toast-content-action {
+    position: relative;
+    display: block;
+    width: 100%;
+    font-weight: 500;
+    color: #68efad;
+    cursor: pointer;
+}

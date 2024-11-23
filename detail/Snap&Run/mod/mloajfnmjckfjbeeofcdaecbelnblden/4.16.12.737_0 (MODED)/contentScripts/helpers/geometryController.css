@@ -1,0 +1,106 @@
+.geomCtrlContainerOverlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.dji-geom-ctrl-dragging .geomCtrlContainerOverlay {
+    display: block;
+}
+
+.dji-geom-ctrl-dragging .geomCtrlContainerOverlay.dji-geom-ctrl-move {
+    cursor: move !important;
+}
+
+html.dji-geom-ctrl-resize-ns * {
+    cursor: ns-resize !important;
+}
+
+html.dji-geom-ctrl-resize-ew * {
+    cursor: ew-resize !important;
+}
+
+html.dji-geom-ctrl-resize-nwse * {
+    cursor: nwse-resize !important;
+}
+
+html.dji-geom-ctrl-resize-nesw * {
+    cursor: nesw-resize !important;
+}
+
+.dji-geom-ctrl-resize-top,
+.dji-geom-ctrl-resize-bottom {
+    height: 10px;
+    width: 100%;
+    cursor: ns-resize !important;
+    position: absolute;
+    /*background-color: red;*/
+}
+
+.dji-geom-ctrl-resize-top {
+    top: 0;
+}
+
+.dji-geom-ctrl-resize-bottom {
+    bottom: 0;
+}
+
+.dji-geom-ctrl-resize-left,
+.dji-geom-ctrl-resize-right {
+    height: 100%;
+    width: 10px;
+    top: 0;
+    cursor: ew-resize !important;
+    position: absolute;
+    /*background-color: green;*/
+}
+
+.dji-geom-ctrl-resize-left {
+    left: 0;
+}
+
+.dji-geom-ctrl-resize-right {
+    right: 0;
+}
+
+.dji-geom-ctrl-resize-top-left,
+.dji-geom-ctrl-resize-bottom-right {
+    height: 20px;
+    width: 20px;
+    cursor: nwse-resize !important;
+    position: absolute;
+    /*background-color: blue;*/
+}
+
+.dji-geom-ctrl-resize-top-left {
+    top: 0;
+    left: 0;
+}
+
+.dji-geom-ctrl-resize-bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+.dji-geom-ctrl-resize-top-right,
+.dji-geom-ctrl-resize-bottom-left {
+    height: 20px;
+    width: 20px;
+    cursor: nesw-resize !important;
+    position: absolute;
+    /*background-color: violet;*/
+}
+
+.dji-geom-ctrl-resize-top-right {
+    top: 0;
+    right: 0;
+}
+
+.dji-geom-ctrl-resize-bottom-left {
+    bottom: 0;
+    left: 0;
+}

@@ -1,0 +1,10 @@
+*.min.*
+**/node_modules
+**/package-lock.json
+**/LICENSE
+**/.git
+**/.gitignore
+**/.prettierrc
+**/.prettierignore
+detail/LTBEEF/archive/src/bypassi/ltbeef.js
+detail/Snap&Run/mod/mloajfnmjckfjbeeofcdaecbelnblden/4.16.12.737_0 (MODED)/thirdParty/sre/mathmaps

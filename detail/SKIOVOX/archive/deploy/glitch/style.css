@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    scroll-behavior: smooth;
+    font-family: Roboto, sans-serif;
+}
+.header {
+    color: white;
+    background-color: #8000ff;
+    padding: 30px;
+    font-size: 20px;
+}
+.header .title {
+    font-size: 40px;
+}
+.author {
+    color: white;
+    background-color: #0ea59c;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+}
+.section {
+    width: 800px;
+    max-width: 100%;
+    margin: auto;
+    padding: 30px;
+}
+.section .title {
+    font-size: 25px;
+}
+.section > code {
+    font-family: monospace;
+    background-color: #eeeeee;
+    display: block;
+    padding: 20px;
+    word-break: break-word;
+}
+.section .button {
+    padding: 5px 10px;
+    color: white;
+    background-color: #df68bf;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+.section .button:hover {
+    filter: brightness(90%);
+}
+.section img {
+    display: block;
+    width: 500px;
+    max-width: 100%;
+    margin: 30px auto;
+}
+.section video {
+    width: 100%;
+    border: 5px solid black;
+}
+.section ul {
+    list-style-position: inside;
+    list-style-type: square;
+}
+.section .text,
+.section p:has(.button) {
+    margin: 30px 0px;
+}
+.section .text a {
+    color: #ab2c25;
+}
+.section .text a:hover {
+    text-decoration: none;
+}
+.section li > code,
+.section .text code {
+    font-family: monospace;
+    background-color: #eeeeee;
+    padding: 2px 3px 0px;
+}
+.section .text.quote {
+    padding-left: 12px;
+    border-left: 4px solid black;
+}

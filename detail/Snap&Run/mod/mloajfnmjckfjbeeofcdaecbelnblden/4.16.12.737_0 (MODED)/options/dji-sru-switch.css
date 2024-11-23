@@ -1,0 +1,69 @@
+:root {
+    --dji-sru-switch-padding-x: 5px;
+    --dji-sru-switch-padding-y: 10px;
+    --dji-sru-switch-width: 30px;
+    --dji-sru-switch-track-bar-height: 12px;
+    --dji-sru-switch-track-bar-border-radius: calc(
+        var(--dji-sru-switch-track-bar-height) / 2
+    );
+    --dji-sru-switch-track-bar-background-color: #c6c5c5;
+    --dji-sru-switch-on-track-bar-background-color: #97d2ee;
+    --dji-sru-switch-button-offset: 4px;
+    --dji-sru-switch-button-size: 18px;
+    --dji-sru-switch-button-border-radius: 50%;
+    --dji-sru-switch-button-top: calc(
+        (
+                var(--dji-sru-switch-track-bar-height) + 2 *
+                    var(--dji-sru-switch-padding-y) -
+                    var(--dji-sru-switch-button-size)
+            ) / 2
+    );
+    --dji-sru-switch-button-background-color: #f1f1f1;
+    --dji-sru-switch-on-button-background-color: #2047db;
+    --dji-sru-switch-button-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14),
+        0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dji-sru-switch-container {
+    position: relative;
+    padding: var(--dji-sru-switch-padding-y) var(--dji-sru-switch-padding-x);
+    width: var(--dji-sru-switch-width);
+    cursor: pointer;
+}
+
+.dji-sru-switch-container .dji-sru-switch-track-bar {
+    border-radius: var(--dji-sru-switch-track-bar-border-radius);
+    height: var(--dji-sru-switch-track-bar-height);
+    background-color: var(--dji-sru-switch-track-bar-background-color);
+    transition: background-color 0.3s;
+}
+
+.dji-sru-switch-container .dji-sru-switch-button {
+    position: absolute;
+    top: var(--dji-sru-switch-button-top);
+    width: var(--dji-sru-switch-button-size);
+    height: var(--dji-sru-switch-button-size);
+    border-radius: var(--dji-sru-switch-button-border-radius);
+    background-color: var(--dji-sru-switch-button-background-color);
+    box-shadow: var(--dji-sru-switch-button-shadow);
+    transition:
+        background-color 0.3s,
+        left 0.3s;
+}
+
+.dji-sru-switch-container.dji-sru-on .dji-sru-switch-track-bar {
+    background-color: var(--dji-sru-switch-on-track-bar-background-color);
+}
+
+.dji-sru-switch-container:not(.dji-sru-on) .dji-sru-switch-button {
+    left: var(--dji-sru-switch-button-offset);
+}
+
+.dji-sru-switch-container.dji-sru-on .dji-sru-switch-button {
+    left: calc(
+        2 * var(--dji-sru-switch-padding-x) + var(--dji-sru-switch-width) -
+            var(--dji-sru-switch-button-size) -
+            var(--dji-sru-switch-button-offset)
+    );
+    background-color: var(--dji-sru-switch-on-button-background-color);
+}

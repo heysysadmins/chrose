@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <script
+            src="/WebExtensions/thirdParty/cryptojs/aes.js"
+            type="text/javascript"></script>
+        <script
+            src="/WebExtensions/thirdParty/cryptojs/md5.js"
+            type="text/javascript"></script>
+        <script
+            src="/thirdParty/parse-english/parse-english.min.js"
+            type="text/javascript"></script>
+
+        <script
+            src="/jsdapi/jsdapi.js"
+            type="text/javascript"></script>
+        <script
+            src="/jsdapi/jsdapi-utf8.js"
+            type="text/javascript"></script>
+        <script
+            src="/jsdapi/jsdapi-resources.js"
+            type="text/javascript"></script>
+        <script
+            src="/jsdapi/jsdapi-resources-sru.js"
+            type="text/javascript"></script>
+        <script
+            src="/jsdapi/jsdapi-http.js"
+            type="text/javascript"></script>
+        <script
+            src="/jsdapi/jsdapi-account.js"
+            type="text/javascript"></script>
+        <script
+            src="/jsdapi/jsdapi-sru.js"
+            type="text/javascript"></script>
+        <script
+            src="/jsdapi/jsdapi-translate.js"
+            type="text/javascript"></script>
+        <script
+            src="/jsdapi/jsdapi-citations.js"
+            type="text/javascript"></script>
+
+        <script
+            src="/WebExtensions/polyfills/array.js"
+            type="text/javascript"></script>
+        <script
+            src="/libs/core-lib-utils.umd.js"
+            type="text/javascript"></script>
+        <script
+            src="/libs/chrome-analytics.bundle.umd.js"
+            type="text/javascript"></script>
+        <script
+            src="/common/core-lib-utils-adapter.js"
+            type="text/javascript"></script>
+        <script
+            src="/common/config.js"
+            type="text/javascript"></script>
+        <script
+            src="/common/languages.js"
+            type="text/javascript"></script>
+        <script
+            src="/common/crypt/base64.js"
+            type="text/javascript"></script>
+        <script
+            src="/common/fileSystem.js"
+            type="text/javascript"></script>
+
+        <script
+            src="sreWorkerProxy.js"
+            type="text/javascript"></script>
+        <script
+            src="/libs/rewordify-api.umd.js"
+            type="text/javascript"></script>
+
+        <script
+            src="notifications.js"
+            type="text/javascript"></script>
+        <script
+            src="login.js"
+            type="text/javascript"></script>
+        <script
+            src="screenshot.js"
+            type="text/javascript"></script>
+        <script
+            src="/WebExtensions/tts/tts.js"
+            type="text/javascript"></script>
+        <script
+            src="/WebExtensions/tts/ttsService.js"
+            type="text/javascript"></script>
+        <script
+            src="native.js"
+            type="text/javascript"></script>
+        <script
+            src="measurements.js"
+            type="text/javascript"></script>
+        <script
+            src="userData.js"
+            type="text/javascript"></script>
+        <script
+            src="helpers/userDataSync.js"
+            type="text/javascript"></script>
+        <script
+            src="tabsManager.js"
+            type="text/javascript"></script>
+        <script
+            src="syncManager.js"
+            type="text/javascript"></script>
+
+        <script
+            src="dji-pdf-anno-background.js"
+            type="text/javascript"></script>
+
+        <script
+            src="google-analytics.js"
+            type="text/javascript"></script>
+
+        <script
+            src="backgroundManager.js"
+            type="text/javascript"></script>
+        <script
+            src="background.js"
+            type="text/javascript"></script>
+        <script
+            src="pwa-proxy.js"
+            type="text/javascript"></script>
+
+        <!-- https://github.com/zorkow/speech-rule-engine/tree/master#browser-library -->
+        <script type="text/x-sre-config">
+            {
+                "json": "/thirdParty/sre/mathmaps",
+                "domain": "clearspeak",
+                "modality": "speech",
+                "locale": "en",
+                "style": "AbsoluteValue_Auto:Bar_Auto:Caps_Auto:CombinationPermutation_Auto:Currency_Auto:Ellipses_Auto:Enclosed_Auto:Exponent_Auto:Fraction_Auto:Functions_Auto:ImpliedTimes_Auto:Log_Auto:Matrix_Auto:MultsymbolDot_Auto:MultsymbolX_Auto:Paren_Auto:Prime_Auto:Roots_Auto:SetMemberSymbol_Auto:Sets_Auto:TriangleSymbol_Delta:Trig_Auto:VerticalLine_Auto:MultiLineLabel_Auto:MultiLineOverview_Auto:MultiLinePausesBetweenColumns_Auto",
+                "speech": "deep"
+            }
+        </script>
+
+        <script
+            src="/thirdParty/sre/sre_browser.js"
+            async
+            type="text/javascript"></script>
+        <script
+            src="/thirdParty/sre/sre-adapter.es6.min.js"
+            type="text/javascript"></script>
+    </head>
+
+    <body>
+        <h1>Snap&amp;Read Universal Extension</h1>
+        <div>
+            <audio
+                id="dji-tts-service-audio"
+                src="">
+                No luck, get a better browser!
+            </audio>
+        </div>
+    </body>
+</html>

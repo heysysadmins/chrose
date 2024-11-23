@@ -1,0 +1,73 @@
+:root {
+    --dji-light: 0%;
+    --dji-sign: 1;
+    --dji-adjusted-light: calc(var(--dji-light) + (var(--dji-sign) * 10%));
+    --dji-textcolor: hsl(0, 0%, var(--dji-adjusted-light));
+    --dji-parcolor: 0;
+}
+
+#__dji_pdf_paragraph {
+    position: absolute !important;
+}
+
+.PSPDFKit-Page #__dji_pdf_paragraph {
+    opacity: 0.3 !important;
+}
+
+.dji-sru-overlay-paragraph:not(.dji-sru-ocr-para),
+.dji-sru-kindle-word {
+    color: var(--dji-textcolor) !important;
+}
+
+.dji-sru-overlay-paragraph:not(.dji-sru-ocr-content) {
+    color: var(--dji-textcolor) !important;
+}
+
+.dji-sru-overlay-paragraph:not(.dji-sru-ocr-para):not(.dji-sru-pdf-textLayer)
+    * {
+    color: inherit !important;
+    background-color: transparent !important;
+}
+
+.dji-sru-overlay-paragraph:not(.dji-sru-ocr-para) a {
+    --dji-link-light: calc(var(--dji-light) + (var(--dji-sign) * 35%));
+    color: hsl(0, 0%, var(--dji-link-light)) !important;
+}
+
+.dji-sru-overlay-paragraph[dji-sru-no-cursor],
+.dji-sru-overlay-paragraph[dji-sru-no-cursor] * {
+    cursor: none !important;
+}
+
+.dji-sru-overlay-paragraph::selection,
+.dji-sru-overlay-paragraph *::selection {
+    color: var(--dji-parcolor) !important;
+    background-color: rgba(
+        var(--dji-adjusted-light),
+        var(--dji-adjusted-light),
+        var(--dji-adjusted-light),
+        0.99
+    ) !important;
+}
+
+.amazon-selection.dji-sru-overlay-selection {
+    color: var(--dji-parcolor) !important;
+    background-color: rgba(
+        var(--dji-adjusted-light),
+        var(--dji-adjusted-light),
+        var(--dji-adjusted-light),
+        0.5
+    ) !important;
+    z-index: 2;
+}
+
+.dji-sru-overlay-amazon-kindle {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+}
+
+.dji-sru-overlay-amazon-kindle-inner {
+    position: sticky;
+    z-index: -1;
+}
