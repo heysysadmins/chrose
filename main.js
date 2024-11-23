@@ -172,6 +172,7 @@
             )
             .setAttribute("selected", "true");
     }
+    globalThis.filterOptions = filterOptions;
     function message(messages) {
         let new_message = document.createElement("div");
         new_message.classList.add("details");
@@ -226,6 +227,7 @@
                 localStorage.setItem("cloak", cloak);
         }
     }
+    globalThis.tabCloak = tabCloak;
     function thumbnailHide(hide) {
         const thumbnails = document.getElementsByClassName("thumbnail");
         for (let i = 0; i < thumbnails.length; i++) {
@@ -236,6 +238,7 @@
         }
         localStorage.setItem("thumbnailHide", hide);
     }
+    globalThis.thumbnailHide = thumbnailHide;
     function close() {
         document.getElementById("details").hidden = true;
         document.getElementById("message").hidden = true;
