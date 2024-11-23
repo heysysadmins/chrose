@@ -31,7 +31,7 @@ fs.watch(
         recursive: true,
     },
     function (event, filename) {
-        console.log("add")
+        console.log("add");
         queue.push({
             filename: filename,
             callback: format,
@@ -41,9 +41,11 @@ fs.watch(
 );
 
 while (true) {
-    console.log(queue.length)
-    if(queue.length>0) {
-        console.log("proces")
-        queue.forEach((...args)=>{process_entry(...args)})
+    console.log(queue.length);
+    if (queue.length > 0) {
+        console.log("proces");
+        queue.forEach((...args) => {
+            process_entry(...args);
+        });
     }
 }
