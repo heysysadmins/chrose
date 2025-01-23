@@ -1,114 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Provide Feedback - EXT-REMOVER</title>
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="icon"
-            href="assets/icon.png" />
-        <link
-            rel="preconnect"
-            href="https://fonts.googleapis.com" />
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Google+Sans" />
-        <link
-            rel="stylesheet"
-            href="main.css" />
-        <link
-            rel="stylesheet"
-            href="detail/detail.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="assets/icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="detail/detail.css">
         <script src="detail/addheader.js"></script>
     </head>
     <body>
-        <div
-            id="main-content"
-            style="width: fit-content; margin: auto">
+        <div id="main-content" style="width: fit-content; margin: auto;">
             <h2>Feedback</h2>
-            Report problems or provide suggestions. This can include bug fixes,
-            legal claims, or offers. <b>Don't use this page yet, it's WIP.</b>
-            <p></p>
-            <form
-                netlify
-                id="feedback"
-                name="feedback">
-                <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="Name (optional)" />
+            Report problems or provide suggestions. This can include bug fixes, legal claims, or offers. <b>Don't use this page yet, it's WIP.</b>
+            <p>
+            <form netlify id="feedback" name="feedback">
+                <input id="name" name="name" type="text" placeholder="Name (optional)" />
                 <p>
-                    <small>Describe the issue:</small>
-                    <br />
-                    <textarea
-                        id="message"
-                        name="message"
-                        placeholder="Enter message..."></textarea>
-                </p>
-
+                <small>Describe the issue:</small>
+                <br>
+                <textarea id="message" name="message" placeholder="Enter message..."></textarea>
                 <p>
-                    <button
-                        style="
-                            padding: 6px 8px;
-                            color: var(--foregroundColor);
-                            background-color: var(--backgroundColor);
-                            border: 1px solid var(--foregroundColor);
-                        "
-                        id="submitForm"
-                        type="button">
-                        Submit
-                    </button>
-                    <script async>
-                        document
-                            .getElementById("submitForm")
-                            .addEventListener("click", () => {
-                                let feedbackUrl = new URL(
-                                    "https://chrose.netlify.app/feedback",
-                                );
-                                feedbackUrl.searchParams.append(
-                                    "name",
-                                    document.getElementById("name").value,
-                                );
-                                feedbackUrl.searchParams.append(
-                                    "message",
-                                    document.getElementById("message").value,
-                                );
-                                document.getElementById("name").disabled = true;
-                                document.getElementById("message").disabled =
-                                    true;
-                                document.getElementById("submitForm").disabled =
-                                    true;
-                                const connect =
-                                    document.createElement("iframe");
-                                connect.style.width = "0px";
-                                connect.style.height = "0px";
-                                connect.src = feedbackUrl;
-                                document
-                                    .getElementById("main-content")
-                                    .appendChild(connect);
-                            });
-                        const search = new URLSearchParams(location.search);
-                        if (search.get("message")) {
-                            if (search.get("name")) {
-                                document.getElementById("name").value =
-                                    search.get("name");
-                            }
-                            document.getElementById("message").value =
-                                search.get("message");
-                            if (search.get("formSubmit")) {
-                                location.search += "&&formSubmit";
-                                document.getElementById("feedback").submit();
-                            } else {
-                                document.getElementById(
-                                    "main-content",
-                                ).innerHTML =
-                                    "<div style='margin-top: 20%;'>Feedback has been submitted.</div>";
-                            }
+                <button style="padding: 6px 8px; color: var(--foregroundColor); background-color: var(--backgroundColor); border: 1px solid var(--foregroundColor);" id="submitForm" type="button">Submit</button>
+                <script async>
+                    document.getElementById("submitForm").addEventListener("click", () => {
+                        let feedbackUrl = new URL("https://chrose.netlify.app/feedback");
+                        feedbackUrl.searchParams.append("name", document.getElementById("name").value);
+                        feedbackUrl.searchParams.append("message", document.getElementById("message").value);
+                        document.getElementById("name").disabled = true;
+                        document.getElementById("message").disabled = true;
+                        document.getElementById("submitForm").disabled = true;
+                        const connect = document.createElement("iframe");
+                        connect.style.width = "0px";
+                        connect.style.height = "0px";
+                        connect.src = feedbackUrl;
+                        document.getElementById("main-content").appendChild(connect);
+                    });
+                    const search = new URLSearchParams(location.search);
+                    if (search.get("message")) {
+                        if (search.get("name")) {
+                            document.getElementById("name").value = search.get("name");
                         }
-                    </script>
-                </p>
+                        document.getElementById("message").value = search.get("message");
+                        if (search.get("formSubmit")) {
+                            location.search += "&&formSubmit";
+                            document.getElementById("feedback").submit();
+                        } else {
+                            document.getElementById("main-content").innerHTML = "<div style='margin-top: 20%;'>Feedback has been submitted.</div>";
+                        }
+                    }
+                </script>
             </form>
         </div>
     </body>

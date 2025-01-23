@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@500&display=swap");
-@media (prefers-color-scheme: none) {
-    /* Light scheme is very ugly */
+@media (prefers-color-scheme: none) { /* Light scheme is very ugly */
     :root {
         --backgroundColor: white !important;
         --foregroundColor: black !important;
         --accentColor: #eff2ef !important;
-        --linkColor: #0b9be4 !important;
+        --linkColor: #0B9BE4 !important;
         --linkVisitedColor: #673ab7 !important;
         --headerColor: rgba(255, 255, 255, 0.8) !important;
         --tabCurrentColor: #0b57d0 !important;
@@ -67,8 +66,7 @@ body {
     background-size: cover;
     filter: brightness(0.8);
 }
-#main-content,
-#blog-content {
+#main-content, #blog-content {
     max-width: 1100px;
     margin: 10px auto;
     padding: 20px;
@@ -85,9 +83,7 @@ body {
     filter: opacity(0.8);
     font-size: x-small;
 }
-#blog-content h1,
-#blog-content h2,
-#blog-content h3 {
+#blog-content h1, #blog-content h2, #blog-content h3 {
     text-align: left;
 }
 header {
@@ -117,8 +113,7 @@ a:hover {
 a:active {
     filter: brightness(85%);
 }
-#main-content a[href^="http"]::after, #main-content a[href^="https://"]::after
-{
+#main-content a[href^="http"]::after, #main-content a[href^="https://"]::after {
     content: url("assets/link.png");
     margin-left: 1px;
     background-color: var(--linkColor);
@@ -159,8 +154,7 @@ h3 img {
 .details img {
     max-width: 95%;
 }
-svg,
-.nocolor {
+svg, .nocolor {
     filter: invert();
 }
 ol {
@@ -221,11 +215,10 @@ iframe {
 details[open] {
     padding-bottom: 0.875rem;
 }
-summary,
-.summary {
+summary, .summary {
     width: calc(100% - 35px);
     height: 1.375rem;
-    padding: 0.875rem 2.125rem 0.875rem 0rem;
+    padding: .875rem 2.125rem .875rem 0rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     line-height: 1.5rem;
@@ -308,9 +301,7 @@ textarea:focus {
     line-height: 55px;
     text-align: center;
     align-content: baseline;
-    transition:
-        filter 200ms,
-        text-shadow 200ms;
+    transition: filter 200ms, text-shadow 200ms;
 }
 .tab:hover {
     text-shadow: 0px 0px 5px white;
@@ -377,8 +368,7 @@ textarea:focus {
 .copy::selection {
     pointer-events: none;
 }
-input[type="text"],
-input[type="number"] {
+input[type="text"], input[type="number"] {
     padding: 2px;
     color: var(--foregroundColor);
     background-color: transparent;
@@ -389,9 +379,8 @@ input[type="number"] {
     text-align: center;
     outline: none;
 }
-input[type="text"]:focus,
-input[type="number"]:focus {
-    border-bottom-color: rgb(138, 180, 248);
+input[type="text"]:focus, input[type="number"]:focus {
+    border-bottom-color: rgb(138,180,248);
 }
 input[type="checkbox"] {
     cursor: pointer;
@@ -444,20 +433,17 @@ input:checked + .radioLbl {
     border-radius: 100%;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
     content: "";
-    transition:
-        transform 80ms,
-        background-color 80ms,
-        outline 80ms;
+    transition: transform 80ms, background-color 80ms, outline 80ms;
 }
 .slider:active:before {
     outline: 10px solid rgba(218, 220, 224, 0.4);
 }
 input:checked + .slider {
-    background-color: rgba(138, 180, 248, 0.5);
+    background-color: rgba(138,180,248,0.5);
 }
 input:checked + .slider:before {
     transform: translateX(22px);
-    background-color: rgb(138, 180, 248);
+    background-color: rgb(138,180,248);
 }
 #settingsBtn {
     position: absolute;
@@ -649,7 +635,7 @@ input:checked + .slider:before {
     margin: 5px;
     padding: 10px;
     gap: 10px;
-    background-color: #2b2d31;
+    background-color: #2B2D31;
     border-radius: 10px;
     align-items: center;
     justify-content: space-between;
@@ -677,7 +663,7 @@ input:checked + .slider:before {
     transition: background-color 170ms;
 }
 .discord-invite-btn:hover {
-    background-color: #1a6334;
+    background-color: #1A6334;
 }
 #icon {
     border-radius: 100px;
