@@ -10,7 +10,7 @@
     const minVersion = 102;
 
     let patches = document.getElementsByClassName("patch");
-    let maxVersion = 130;
+    let maxVersion = 132;
     /* I suck at storing such data in objects honestly
     for(i = 0; i < patches.length; i++) {
         if (patches[i].innerText > maxVersion) {
