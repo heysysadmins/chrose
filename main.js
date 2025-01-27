@@ -2,55 +2,57 @@
     if (window.chrome) {
         chromeVersion = navigator.userAgent.substring(navigator.userAgent.lastIndexOf("Chrome/"), navigator.userAgent.lastIndexOf(" "));
         chromeVersion = chromeVersion.substring(chromeVersion.indexOf("/"), chromeVersion.indexOf(".")).replaceAll("/", "");
-        console.log(`Chrome ${chromeVersion}`);
     } else {
         chromeVersion = "0";
     }
-    const securlyVersion = document.getElementById("securly-version").innerText;
+    const securlyVersion = document.getElementById("securly-version").textContent;
     const minVersion = 102;
-
     let patches = document.getElementsByClassName("patch");
     let maxVersion = 132;
-    /* I suck at storing such data in objects honestly
-    for(i = 0; i < patches.length; i++) {
-        if (patches[i].innerText > maxVersion) {
-            maxVersion = patches[i].innerText;
+    /* I suck at storing numerical data in objects honestly
+    for(let i = 0; i < patches.length; i++) {
+        if (patches[i].textContent > maxVersion) {
+            maxVersion = patches[i].textContent;
         }
     }
     */
-    for(i = maxVersion; i >= minVersion; i--) {
-        button = document.createElement("button");
+    for(let i = maxVersion; i >= minVersion; i--) {
+        let button = document.createElement("button");
         button.className = "versionBtn";
         button.id = `versionBtn-${i}`;
         button.value = i;
         button.textContent = i;
-        button.addEventListener("click", () => {filterOptions("129");});
+        button.addEventListener("click", filterThis);
         document.getElementById("os-versions").appendChild(button);
     }
-    if (sessionStorage.getItem("version") == undefined) {
+    function filterThis() {
+        filterOptions(this.value);
+    }
+    let ver = sessionStorage.getItem("version");
+    let ver_elem = document.getElementById("version");
+    if (ver == null || ver == undefined) {
         if (chromeVersion > maxVersion) {
-            document.getElementById("nopatches").hidden = false;
-            document.getElementById("version").innerText = document.getElementsByClassName("versionBtn")[1].innerText;
-        } else {
+            document.getElementById("nopatches").style.display = "none";
+            ver_elem.textContent = document.getElementsByClassName("versionBtn")[1].textContent;
+        } else  {
             if (chromeVersion < minVersion) {
-                if (chromeVersion > 0) /* Checks if it's Chrome instance */ {
-                    document.getElementById("version").innerText = document.getElementsByClassName("versionBtn")[-1].innerText;
+                if (chromeVersion > 0) /* Chrome instance */ {
+                    ver_elem.textContent = document.getElementsByClassName("versionBtn").at(-1).textContent;
                 } else {
-                    document.getElementById("version").innerText = "All";
+                    ver_elem.textContent = "All";
                 }
             } else {
-                document.getElementById("version").innerText = chromeVersion;
+                ver_elem.textContent = chromeVersion;
             }
             if (chromeVersion > 0) {
-                document.getElementById(`versionBtn-${chromeVersion}`).innerHTML += " <small>*</small>";
                 document.getElementById(`versionBtn-${chromeVersion}`).style.fontWeight = "bold";
             }
         }
     } else {
-        document.getElementById("version").innerText = sessionStorage.getItem("version");
+        ver_elem.textContent = ver;
     }
-    if (localStorage.getItem("welcome")) {
-        let logo, summary, disclaimer1, disclaimer2, continue_button, actual_logo;
+    if (!localStorage.getItem("welcome")) {
+        let logo, summary, note, disclaimer, continue_button, actual_logo;
         logo = document.createElement("div");
         logo.id = "logo"
         actual_logo = document.createElement("img");
@@ -65,17 +67,17 @@
         summary = Object.assign(
             document.createElement("p"),
             {
-                textContent: "EXT-REMOVER contains a collection of exploits discovered by various users to expand the capability of managed Chromebooks, making it easy to find the information you need."
+                textContent: "EXT-REMOVER contains a collection of exploits discovered by various users to expand the capability of managed Chromebooks, making it easy to find the information and tools needed."
             }
         );
-        disclaimer1 = Object.assign(
+        note = Object.assign(
             document.createElement("p"),
             {
                 textContent: "Exploit details, code, and styles have been modified for a better user experience."
             }
         );
-        disclaimer2 = document.createElement("u");
-        disclaimer2.appendChild(
+        disclaimer = document.createElement("u");
+        disclaimer.appendChild(
             Object.assign(
                 document.createElement("b"),
                 {
@@ -83,9 +85,9 @@
                 }
             )
         );
-        disclaimer2.appendChild(
+        disclaimer.appendChild(
             document.createTextNode(
-                " This service is not designed to encourage time wasting. Use these only in your free time, and do not let them lead to distraction. Property of your organization should always be returned in its proper condition."
+                " This site is not designed to encourage time wasting. Use these only in your free time, and do not let them lead to distraction. Property of your organization should always be returned in its proper condition."
             )
         );
         continue_button = Object.assign(
@@ -96,11 +98,17 @@
             }
         );
         continue_button.addEventListener("click", close)
-        message([logo, summary, disclaimer1, disclaimer2, continue_button]);
+        message([logo, summary, note, disclaimer, continue_button]);
         document.getElementById('filterMsg').hidden = false;
     }
-    filterOptions(document.getElementById("version").innerText);
-    thumbnailHide(localStorage.getItem("thumbnailHide"));
+    filterOptions(document.getElementById("version").textContent);
+    document.getElementById("versionBtn-none").addEventListener("click", filterThis);
+    if (localStorage.getItem("cloak")) {
+        tabCloak(localStorage.getItem("cloak"));
+    }
+    if (localStorage.getItem("thumbnailHide")) {
+        thumbnailHide(localStorage.getItem("thumbnailHide"));
+    }
     document.getElementById("version").addEventListener("mousedown", selectVersion);
     document.getElementById("settingsBtn").addEventListener("click", settings);
     const logoImg = document.getElementById("logo").getElementsByTagName("img")[0];
@@ -112,12 +120,13 @@
         loop = setInterval(function() {
             logoImg.style.filter = `hue-rotate(${hue}deg)`;
             hue = (hue + 100) % 300;
-        }, 1000); // 1 second
+        }, 1000);
         logoImg.removeEventListener("click", startHueLoop);
         logoImg.addEventListener("click", () => {
             clearInterval(loop);
             this.style.padding = 0;
             logoImg.style.backgroundColor = "transparent";
+            logoImg.style.filter = "none";
             logoImg.addEventListener("click", startHueLoop);
         });
     });
@@ -126,19 +135,13 @@
     });
     function filterOptions(version) {
         sessionStorage.setItem("version", version);
-        if (localStorage.getItem("cloak") !== null && localStorage.getItem("cloak") !== undefined) {
-            tabCloak(localStorage.getItem("cloak"));
-        } else {
-            document.title =  "Exploits - EXT-REMOVER";
-        }
         const options = document.getElementsByClassName("optionButton");
         for (let i = 0; i < options.length; i++) {
-            let patch_securly, patch, patch_securly_elem;
-            patch = document.getElementsByClassName("patch")[0].innerText;
-            if ((patch_securly_elem = options[i].getElementsByClassName("patch-securly"))[0]) {
-                patch_securly = patch_securly_elem.innerText;
+            let patch = document.getElementsByClassName("patch")[i].textContent, patch_securly, patch_securly_elem;
+            if ((patch_securly_elem == options[i].getElementsByClassName("patch-securly"))[0]) {
+                patch_securly = patch_securly_elem.textContent;
             }
-            if ((version >= patch || securlyVersion >= patch_securly) && version !== "All" || patch == "Hidden") {
+            if ((version >= patch || securlyVersion >= patch_securly) && version !== "none" || patch == "Hidden") {
                 options[i].parentElement.style.display = "none";
             } else {
                 options[i].parentElement.style.display = "inline-block";
@@ -146,11 +149,14 @@
         }
         const versionBtns = document.getElementsByClassName("versionBtn");
         for (let i = 0; i < versionBtns.length; i++) {
-            document.getElementById(`versionBtn-${versionBtns[i].id.substring(versionBtns[i].id.indexOf("-") + 1)}`).setAttribute("selected", "false");
+            versionBtns[i].setAttribute("selected", "false");
         }
-        document.getElementById("version").innerText = version;
-        document.getElementById("version").innerText = version;
-        document.getElementById(`versionBtn-${version}`).setAttribute("selected", "true");
+        if (version == "none") {
+            document.getElementById("version").textContent = "All";
+        } else {
+            document.getElementById("version").textContent = version;
+        }
+        document.getElementById(`versionBtn-${parseInt(version)?version:"none"}`).setAttribute("selected", "true");
     }
     function message(messages) {
         let new_message = document.createElement("div");
@@ -167,7 +173,7 @@
     }
     function selectVersion() {
         document.body.style.overflow = "hidden";
-        document.getElementById("divHeader").innerText = "Filters";
+        document.getElementById("divHeader").textContent = "Filters";
         document.getElementById("versionsContent").hidden = false;
         document.getElementById("details").hidden = false;
         document.getElementById("noclick").hidden = false;
@@ -177,18 +183,13 @@
     }
     function settings() {
         document.body.style.overflow = "hidden";
-        document.getElementById("divHeader").innerText = "Settings";
+        document.getElementById("divHeader").textContent = "Settings";
         document.getElementById("settingsContent").hidden = false;
         document.getElementById("details").hidden = false;
         document.getElementById("noclick").hidden = false;
         document.getElementById("noclick").style.animationPlayState = "running";
         document.getElementById("details").style.animationPlayState = "running";
         document.getElementById("close").addEventListener("click", close);
-        document.getElementById("lightOptn").addEventListener("change",
-            function() {
-                alert(this.checked);
-            }
-        );
     }
     function tabCloak(cloak) {
         let link = document.querySelector("link[rel~='icon']");
@@ -197,25 +198,25 @@
             link.rel = 'icon';
             document.head.appendChild(link);
         }
-        if (cloak == "none") {
-            localStorage.removeItem("cloak");
-            filterOptions(document.getElementById("version").value);
-            link.href = "assets/icon.png";
-        } else {
-            document.title = cloak;
-            link.href = `assets/cloak/${cloak}.png`;
-            localStorage.setItem("cloak", cloak);
+        switch (cloak) {
+            case "none":
+                localStorage.removeItem("cloak");
+                document.title =  "Exploits - EXT-REMOVER";
+                link.href = "assets/icon.png";
+            case "empty":
+                link.remove();
+                document.title = "";
+            default:
+                document.title = cloak;
+                link.href = `assets/cloak/${cloak}.png`;
+                localStorage.setItem("cloak", cloak);
         }
     }
     function thumbnailHide(hide) {
         const thumbnails = document.getElementsByClassName("thumbnail");
         for (let i = 0; i < thumbnails.length; i++) {
             thumbnails[i].hidden = hide;
-            if (hide == true) {
-                thumbnails[i].parentElement.style.height = "100px";
-            } else {
-                thumbnails[i].parentElement.style.height = thumbnails[i].parentElement.style.maxHeight;
-            }
+            thumbnails[i].parentElement.style.height = hide?"100px":thumbnails[i].parentElement.style.maxHeight;
         }
         localStorage.setItem("thumbnailHide", hide);
     }

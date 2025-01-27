@@ -1,11 +1,7 @@
-<!--
-    This site has been approved to be merged into the ext-remover repository on GitHub since June 2024.
-    Any prior clones may be taken down.
-    Support will have ended by sometime during 2025, but repository contributors are welcome to make changes.
--->
 <!DOCTYPE html>
 <html>
-    <head>
+    
+<head>
         <title>EXT-REMOVER</title>
         <meta property="og:title" content="EXT-REMOVER">
         <meta name="description" content="Collection of exploits for Chrome OS.">
@@ -13,10 +9,10 @@
         <meta name="google-site-verification" content="GO1Hg4RaaWS5e6glGz85VfK_r_UflKBPw8aXRIG22WA" />
         <meta name="view-transition" content="same-origin">
         <link rel="icon" href="assets/icon.png">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com/">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
         <link rel="stylesheet" href="main.css">
-        <link rel="canonical" href="https://ext-remover.net">
+        <link rel="canonical" href="index.html">
         <script defer src="main.js"></script>
         <script src="detail/addheader.js"></script>
         <script async src='https://www.google-analytics.com/analytics.js'></script>
@@ -25,12 +21,17 @@
             ga('create', 'UA-XXXXX-Y', 'auto');
             ga('send', 'pageview');
         </script>
+        <style>
+            #main-content h3 {
+                color: rgb(220, 246, 255);
+            }
+        </style>
     </head>
     <body>
         <div id="bg-container"></div>
         <noscript>
             <div id="noscript">
-                JavaScript is not enabled in this browser.
+                JavaScript is not enabled in this browser. (This is to track you ofc)
                 <p>
                 <a href="https://support.google.com/adsense/answer/12654" target="_blank">More Information</a>
             </div>
@@ -79,12 +80,12 @@
                     Disable extensions with service workers
                 </div>
             </a>
-            <a class="optionLink" href="detail/Ingot for iboss/index.html">
+            <a class="optionLink" href="detail/Ingot%20for%20iboss/index.html">
                 <div class="optionButton" id="Ingot for iboss" style="border-color: rgb(101, 233, 83);">
                     <div hidden class="patch">115</div>
-                    <div class="thumbnail" style="background-image: url('detail/Ingot for iboss/assets/capture.png');"></div>
+                    <div class="thumbnail" style="background-image: url('detail/Ingot%20for%20iboss/assets/capture.png');"></div>
                     <h3>
-                        <image height="40px" src="detail/Ingot for iboss/assets/icon.png"></image>
+                        <image height="40px" src="detail/Ingot%20for%20iboss/assets/icon.png"></image>
                         <span class="title">Ingot [iboss]</span>
                     </h3>
                     Disable extensions with the iboss extension
@@ -101,9 +102,9 @@
                     Disable extensions with locked mode
                 </div>
             </a>
-            <a class="optionLink" href="detail/Crosh & VMC Disable Extensions/index.html">
+            <a class="optionLink" href="detail/Crosh%20%26%20VMC%20Disable%20Extensions/index.html">
                 <div class="optionButton" id="Crosh & VMC Disable Extensions" style="border-color: #F5E366;">
-                    <div hidden class="patch">none</div>
+                    <div hidden class="patch">123</div>
                     <div class="thumbnail"></div>
                     <h3>
                         <span class="title">Crosh & VMC Disable Extensions</span>
@@ -120,26 +121,6 @@
                         <span class="title">LTMEAT</span>
                     </h3>
                     Freeze extensions with debug URLs
-                </div>
-            </a>
-            <a class="optionLink" href="detail/LTMEAT Flood/index.html">
-                <div class="optionButton" id="LTMEAT Flood" style="border-color: #df68bf;">
-                    <div hidden class="patch">none</div>
-                    <div class="thumbnail" style="background-image: url('detail/LTMEAT Flood/assets/thumbnail.png');"></div>
-                    <h3>
-                        <span class="title">LTMEAT <small>[Flood]</small></span>
-                    </h3>
-                    Freeze extensions naturally by flooding extension pages
-                </div>
-            </a>
-            <a class="optionLink" href="detail/LTMEAT Print/index.html">
-                <div class="optionButton" id="LTMEAT [Print]" style="border-color: #df68bf;">
-                    <div hidden class="patch">none</div>
-                    <div class="thumbnail"></div>
-                    <h3>
-                        <span class="title">LTMEAT <small>[Print]</small></span>
-                    </h3>
-                    Freeze extensions temporarily with the print dialog
                 </div>
             </a>
             <a class="optionLink" href="detail/Dextensify/index.html">
@@ -160,6 +141,26 @@
                         <span class="title">ExtHang3r</span>
                     </h3>
                     Freeze extensions by flooding iframes in a window
+                </div>
+            </a>
+            <a class="optionLink" href="detail/LTMEAT%20Flood/index.html">
+                <div class="optionButton" id="LTMEAT Flood" style="border-color: #df68bf;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/LTMEAT%20Flood/assets/thumbnail.png');"></div>
+                    <h3>
+                        <span class="title">LTMEAT <small>[Flood]</small></span>
+                    </h3>
+                    Freeze extensions naturally by flooding extension pages
+                </div>
+            </a>
+            <a class="optionLink" href="detail/LTMEAT%20Print/index.html">
+                <div class="optionButton" id="LTMEAT [Print]" style="border-color: #df68bf;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <span class="title">LTMEAT <small>[Print]</small></span>
+                    </h3>
+                    Freeze extensions temporarily with the print dialog
                 </div>
             </a>
             <a class="optionLink" href="detail/Blank3r/index.html">
@@ -205,10 +206,10 @@
                     Run scripts with privileges from forced extensions
                 </div>
             </a>
-            <a class="optionLink" href="detail/Swamp for iboss/index.html">
+            <a class="optionLink" href="detail/Swamp%20for%20iboss/index.html">
                 <div class="optionButton" id="Swamp for iboss" style="border-color: #99edc3;">
                     <div hidden class="patch">115</div>
-                    <div class="thumbnail" style="background-image: url('detail/Swamp for iboss/assets/thumbnail.png');"></div>
+                    <div class="thumbnail" style="background-image: url('detail/Swamp%20for%20iboss/assets/thumbnail.png');"></div>
                     <h3>
                         <span class="title">Swamp [iboss]</span>
                     </h3>
@@ -236,10 +237,10 @@
                     Bypass Hapara Highlights & Hapara Filter
                 </div>
             </a>
-            <a class="optionLink" href="detail/Extension Installer/index.html">
+            <a class="optionLink" href="detail/Extension%20Installer/index.html">
                 <div class="optionButton" id="Extension Installer" style="border-color: #2e2e31;">
                     <div hidden class="patch">115</div>
-                    <div class="thumbnail" style="background-image: url('detail/Extension Installer/assets/capture.png');"></div>
+                    <div class="thumbnail" style="background-image: url('detail/Extension%20Installer/assets/capture.png');"></div>
                     <h3>
                         <image src="https://ssl.gstatic.com/chrome/webstore/images/icon_48px.png"></image>
                         <span class="title">Extension Installer</span>
@@ -278,10 +279,10 @@
                     Execute scripts with the "uBlock Origin" extension
                 </div>
             </a>
-            <a class="optionLink" href="detail/Snap&Run/index.html">
+            <a class="optionLink" href="detail/Snap%26Run/index.html">
                 <div class="optionButton" id="Snap&Run" style="border-color: #2047DB;">
                     <div hidden class="patch">none</div>
-                    <div class="thumbnail" style="background-image: url('detail/Snap&Run/assets/thumbnail.png');"></div>
+                    <div class="thumbnail" style="background-image: url('detail/Snap%26Run/assets/thumbnail.png');"></div>
                     <h3>
                         <span class="title">Snap&Run</span>
                     </h3>
@@ -289,7 +290,7 @@
                 </div>
             </a>
             <h2>Webview</h2>
-            <a class="optionLink" href="detail/Incognito [Legacy]/index.html">
+            <a class="optionLink" href="detail/Incognito%20%5bLegacy%5d/index.html">
                 <div class="optionButton" id="Incognito [Legacy]" style="border-color: red;">
                     <div hidden class="patch">82</div>
                     <div class="thumbnail"></div>
@@ -299,11 +300,11 @@
                     Open an Incognito window with a sign-in bug
                 </div>
             </a>
-            <a class="optionLink" href="detail/Incognito [DNS]/index.html">
+            <a class="optionLink" href="detail/Incognito%20%5bDNS%5d/index.html">
                 <div class="optionButton" id="Incognito [DNS]" style="border-color: red;">
                     <div hidden class="add">105</div>
                     <div hidden class="patch">115</div>
-                    <div class="thumbnail" style="background-image: url('detail/Incognito [DNS]/assets/capture.png');"></div>
+                    <div class="thumbnail" style="background-image: url('detail/Incognito%20%5bDNS%5d/assets/capture.png');"></div>
                     <h3>
                         <span class="title">Incognito [DNS]</span>
                     </h3>
@@ -373,6 +374,26 @@
                     Unenroll with stateful files
                 </div>
             </a>
+            <a class="optionLink" href="detail/BadRecovery/index.html">
+                <div class="optionButton" id="BadRecovery" style="border-color: gray;">
+                    <div hidden class="patch">125</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <span class="title">BadRecovery</span>
+                    </h3>
+                    Unenroll with a recovery image
+                </div>
+            </a>
+            <a class="optionLink" href="detail/BR1CK/index.html">
+                <div class="optionButton" id="BR1CK" style="border-color: #D99E82;">
+                    <div hidden class="patch">132</div>
+                    <div class="thumbnail" style="background-image: url('detail/BR1CK/assets/br1ck.png');"></div>
+                    <h3>
+                        <span class="title">BR1CK</span>
+                    </h3>
+                    Unenroll without platform FWMP
+                </div>
+            </a>
             <a class="optionLink" href="detail/E-Halcyon/index.html">
                 <div class="optionButton" id="E-Halcyon" style="border-color: #C6D0F5;">
                     <div hidden class="patch">111</div>
@@ -386,7 +407,7 @@
             <h3>Booting</h3>
             <a class="optionLink" href="detail/Shimboot/index.html">
                 <div class="optionButton" id="Shimboot" style="border-color: black;">
-                    <div hidden class="patch">111</div>
+                    <div hidden class="patch">none</div>
                     <div class="thumbnail"></div>
                     <h3>
                         <span class="title">Shimboot</span>
@@ -436,11 +457,11 @@
                     Re-enroll with Developer Mode & enable USB boot in verified mode
                 </div>
             </a>
-            <a class="optionLink" href="detail/Enterprise Enrollment Glitch/index.html">
+            <a class="optionLink" href="detail/Enterprise%20Enrollment%20Glitch/index.html">
                 <div class="optionButton" id="Enterprise Enrollment Glitch" style="border-color: darkturquoise;">
                     <div hidden class="add">115</div>
                     <div hidden class="patch">118</div>
-                    <div class="thumbnail" style="background-image: url('detail/Enterprise Enrollment Glitch/assets/devicesetup.jpg');"></div>
+                    <div class="thumbnail" style="background-image: url('detail/Enterprise%20Enrollment%20Glitch/assets/devicesetup.jpg');"></div>
                     <h3>
                         <span class="title">Enterprise Enrollment Glitch</span>
                     </h3>
@@ -480,10 +501,10 @@
             </a>
             <h2>Hardware</h2>
             <h3>Unenrollment</h3>
-            <a class="optionLink" href="detail/Pencil Method/index.html">
+            <a class="optionLink" href="detail/Pencil%20Method/index.html">
                 <div class="optionButton" id="Pencil Method" style="border-color: green;">
                     <div hidden class="patch">none</div>
-                    <div class="thumbnail" style="background-image: url('detail/Pencil Method/assets/thumbnail.png');"></div>
+                    <div class="thumbnail" style="background-image: url('detail/Pencil%20Method/assets/thumbnail.png');"></div>
                     <h3>
                         <span class="title">Pencil Method</span>
                     </h3>
@@ -491,10 +512,10 @@
                 </div>
             </a>
             <h3>Repair</h3>
-            <a class="optionLink" style="pointer-events: none;" href="detail/Unbrick/index.html">
+            <a class="optionLink" href="detail/Unbrick/index.html">
                 <div class="optionButton" id="Unbrick" style="border-color: #FFC439;">
                     <div hidden class="patch">none</div>
-                    <div class="thumbnail" style="background-image: url('detail/Pencil Method/assets/thumbnail.png');"></div>
+                    <div class="thumbnail" style="background-image: url('detail/Pencil%20Method/assets/thumbnail.png');"></div>
                     <h3>
                         <span class="title">Unbrick</span>
                     </h3>
@@ -565,10 +586,10 @@
                     <header id="divHeader">Details</header>
                 </center>
                 <div hidden class="divContent" id="versionsContent">
-                    <button class="versionBtn" id="versionBtn-All" onclick="filterOptions('All');">No Filters</button>
+                    <button class="versionBtn" id="versionBtn-none" value="none">No Filters</button>
                     <h3>Chrome OS Version</h3>
-                    <div id="os-versions"></div>
                     <small hidden id="nopatches">No new OS patches were found here for your current version.</small>
+                    <div id="os-versions"></div>
                     <h3>
                         <image class="nocolor" style="width: 28px; height: 28px; translate: 0px -12%;" src="assets/extension.svg"></image>
                         Extension Versions
@@ -626,7 +647,7 @@
                         <span class="setting" onload="this.checked = localStorage.getItem('thumbnailHide');" onclick="checked = this.querySelector('input').checked ^= 1; thumbnailHide(checked);">
                             Hide thumbnails
                             <label class="switch">
-                                <input type="checkbox"></input>
+                                <input type="checkbox">
                                 <span class="slider"></span>
                             </label>
                         </span>
@@ -640,6 +661,6 @@
             </div>
             <div hidden class="details" id="message"></div>
         </div>
-        </div>
-    </body>
+    </div>
+        </body>
 </html>
