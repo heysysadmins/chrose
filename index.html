@@ -1,3 +1,8 @@
+<!--
+    This site has been approved to be merged into the ext-remover repository on GitHub since June 2024.
+    Any prior clones may be taken down.
+    Support will have ended by sometime during 2025, but repository contributors are welcome to make changes.
+-->
 <!DOCTYPE html>
 <html>
     
@@ -21,11 +26,6 @@
             ga('create', 'UA-XXXXX-Y', 'auto');
             ga('send', 'pageview');
         </script>
-        <style>
-            #main-content h3 {
-                color: rgb(220, 246, 255);
-            }
-        </style>
     </head>
     <body>
         <div id="bg-container"></div>
@@ -363,6 +363,16 @@
                     Browse within the captive portal window on the sign-in screen
                 </div>
             </a>
+            <a class="optionLink" href="detail/Testnav/index.html">
+                <div class="optionButton" id="Testnav" style="border-color: gray;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/Testnav/assets/thumbnail.png');"></div>
+                    <h3>
+                        <span class="title">Testnav</span>
+                    </h3>
+                    Browse within Testnav
+                </div>
+            </a>
             <h2>System</h2>
             <h3>Unenrollment</h3>
             <a class="optionLink" href="detail/SH1MMER/index.html">
@@ -684,5 +694,10 @@
             <div hidden class="details" id="message"></div>
         </div>
     </div>
+    <script>
+        //eruda
+            (function(){var script=document.createElement("script");script.src="https://cdn.jsdelivr.net/npm/eruda";document.body.append(script);script.onload=function(){eruda.init();console.log("Script Loaded: Thank you for using ext-remover!")}})();
+
+    </script>
         </body>
 </html>

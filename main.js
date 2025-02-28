@@ -8,7 +8,7 @@
     const securlyVersion = document.getElementById("securly-version").textContent;
     const minVersion = 102;
     let patches = document.getElementsByClassName("patch");
-    let maxVersion = 132;
+    let maxVersion = 133;
     /* I suck at storing numerical data in objects honestly
     for(let i = 0; i < patches.length; i++) {
         if (patches[i].textContent > maxVersion) {
@@ -216,7 +216,11 @@
         const thumbnails = document.getElementsByClassName("thumbnail");
         for (let i = 0; i < thumbnails.length; i++) {
             thumbnails[i].hidden = hide;
-            thumbnails[i].parentElement.style.height = hide?"100px":thumbnails[i].parentElement.style.maxHeight;
+            if (hide == true) {
+                thumbnails[i].parentElement.style.height = "100px";
+            } else {
+                thumbnails[i].parentElement.style.height = thumbnails[i].parentElement.style.maxHeight;
+            }
         }
         localStorage.setItem("thumbnailHide", hide);
     }
