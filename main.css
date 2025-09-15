@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@500&display=swap");
 @media (prefers-color-scheme: none) { /* Light scheme is very ugly */
     :root {
-        --backgroundColor: white !important;
-        --foregroundColor: black !important;
+        --backgroundColor: white;
+        /*--foregroundColor: black;*/
         --accentColor: #eff2ef !important;
         --linkColor: #0B9BE4 !important;
         --linkVisitedColor: #673ab7 !important;
@@ -15,7 +15,7 @@
         border-radius: 10px;
     }
     #bg-container {
-        background-image: url("assets/bg/background-light.webp") !important;
+    /*    background-image: url("assets/bg/background-light.webp") !important; */
     }
     svg {
         filter: none !important;
@@ -28,7 +28,7 @@
         text-shadow: none !important;
     }
     .optionButton {
-        background-color: rgba(239, 242, 239, 0.5) !important;
+        background-color: #1e2030;
     }
     .optionButton:hover {
         backdrop-filter: brightness(0.5) !important;
@@ -38,12 +38,12 @@
     }
 }
 :root {
-    --backgroundColor: #202124;
-    --foregroundColor: white;
-    --accentColor: #28292a;
+    --backgroundColor: #24273a;
+    --foregroundColor: #b7bdf8;
+    --accentColor: #1e2030;
     --linkColor: #a8c7fa;
     --linkVisitedColor: #b39ddb;
-    --headerColor: rgba(32, 33, 36, 0.85);
+    --headerColor: #1e2030;
     --tabCurrentColor: #a8c7fa;
     --integrationColor: #353535;
 }
@@ -62,7 +62,7 @@ body {
     position: fixed;
     left: 0px;
     top: 0px;
-    background-image: url("assets/bg/darkBG.jpg");
+   /* background-image: url("assets/bg/darkBG.jpg"); */
     background-size: cover;
     filter: brightness(0.8);
 }
@@ -243,7 +243,7 @@ code {
     display: inline-flex;
     max-width: calc(100% - 20px);
     padding: 0px 5px;
-    background-color: rgba(110, 118, 129, 0.4);
+    background-color: #181926;
     border-radius: 5px;
     overflow: auto;
 }
@@ -254,7 +254,7 @@ textarea {
     max-width: 90%;
     resize: vertical;
     color: white;
-    background-color: black;
+    background-color: #1e2030; 
     border-radius: 5px;
     outline: none;
     text-wrap: nowrap;
@@ -473,7 +473,7 @@ input:checked + .slider:before {
     padding: 15px 15px;
     overflow: hidden;
     color: var(--foregroundColor);
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #1e2030;
     border: 3px solid;
     border-radius: 20px;
     font-size: smaller;
@@ -597,7 +597,7 @@ input:checked + .slider:before {
 }
 #version {
     margin: 0px 5px;
-    color: lightyellow;
+    color: #b7bdf8;
     font-size: 30px;
     cursor: pointer;
 }
