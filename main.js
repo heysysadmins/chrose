@@ -8,7 +8,8 @@
     const securlyVersion = document.getElementById("securly-version").textContent;
     const minVersion = 102;
     let patches = document.getElementsByClassName("patch");
-    let maxVersion = 133;
+    let minimum = document.getElementsByClassName("add");
+    let maxVersion = 139;
     /* I suck at storing numerical data in objects honestly
     for(let i = 0; i < patches.length; i++) {
         if (patches[i].textContent > maxVersion) {
