@@ -9,7 +9,7 @@
     const minVersion = 102;
     let patches = document.getElementsByClassName("patch");
     let minimum = document.getElementsByClassName("add");
-    let maxVersion = 140;
+    let maxVersion = 141;
     /* I suck at storing numerical data in objects honestly
     for(let i = 0; i < patches.length; i++) {
         if (patches[i].textContent > maxVersion) {
