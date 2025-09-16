@@ -28,13 +28,13 @@
         text-shadow: none !important;
     }
     .optionButton {
-        background-color: #1e2030;
+        background-color: #181926;
     }
     .optionButton:hover {
-        backdrop-filter: brightness(0.5) !important;
+    /*    backdrop-filter: brightness(0.5) !important; */
     }
     .thumbnail {
-        background-color: lightgray !important;
+        background-color: #181926;
     }
 }
 :root {
@@ -481,7 +481,7 @@ input:checked + .slider:before {
     animation: grow 1s both;
 }
 .optionButton:hover {
-    background-color: #292a2d;
+    background-color: #181926;
     cursor: pointer;
 }
 .optionButton:active {
@@ -678,7 +678,7 @@ input:checked + .slider:before {
     overflow-y: auto;
 }
 #filterMsg {
-    color: yellow;
+    color: #eed49f;
     font-size: small;
 }
 ::-webkit-scrollbar {

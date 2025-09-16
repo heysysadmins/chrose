@@ -9,7 +9,7 @@
     const minVersion = 102;
     let patches = document.getElementsByClassName("patch");
     let minimum = document.getElementsByClassName("add");
-    let maxVersion = 141;
+    let maxVersion = 140;
     /* I suck at storing numerical data in objects honestly
     for(let i = 0; i < patches.length; i++) {
         if (patches[i].textContent > maxVersion) {
@@ -88,7 +88,7 @@
         );
         disclaimer.appendChild(
             document.createTextNode(
-                " This site is not designed to encourage time wasting. Use these only in your free time, and do not let them lead to distraction. Property of your organization should always be returned in its proper condition."
+                " This site is not designed to encourage time wasting. Use these only in your free time, and do not let them lead to distraction. Property of your organization should always be returned in its proper condition. We are not liable for any damages or consequences caused by anything on this website."
             )
         );
         continue_button = Object.assign(

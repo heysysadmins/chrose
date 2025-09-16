@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/3kh0/ext-remover.git"
+        "url": "git+https://github.com/heysysadmins/ext-remover.git"
     },
     "author": {
         "name": "Ashton Davies",
@@ -28,9 +28,9 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/3kh0/ext-remover/issues"
+        "url": "https://github.com/heysysadmins/ext-remover/issues"
     },
-    "homepage": "https://ext-remover.net/",
+    "homepage": "https://ext-remover-net.vercel.app/",
     "devDependencies": {
         "prettier": "^3.3.3"
     },
