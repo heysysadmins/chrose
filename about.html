@@ -26,11 +26,11 @@
                 <h2>Main Credits</h2>
                 <tr>
                     <td><a href="https://github.com/3kh0">3kh0</a></td>
-                    <td>GitHub repository creator</td>
+                    <td>Original ext-remover repo creator</td>
                 </tr>
                 <tr>
                     <td><a href="https://github.com/AshtonDavies">Ashton Davies</a></td>
-                    <td>Site creator</td>
+                    <td>Original site creator</td>
                 </tr>
                 <tr>
                     <td><a href="https://discord.gg/unblock">Titanium Network</a> - <a href="https://discord.com/channels/419123358698045453/1019643248609865728">kajigs</a></td>
@@ -39,6 +39,10 @@
                 <tr>
                     <td><a href="https://github.com/s0urce-c0de">s0urce c0de</a></td>
                     <td>Helpful tips and improvements</td>
+                </tr>
+                <tr>
+                    <td><a href="https://github.com/heysysadmins">Survivor</a></td>
+                    <td>Continuation of ext-remover</td>
                 </tr>
 
                 <!-- Add here ^. Do not replace site contributors and miscredit. -->
@@ -137,16 +141,16 @@
             </div>
             <h2>To Do</h2> <!-- Rough list - Help is appreciated! -->
             (rough list)
-            <li>Finish exploit details: SWAB</li>
             <li>Finish exploit details: Baghdad</li>
             <li>Finish exploit details - CryptoSmite</li>
+            <li>Finish exploit details - BadBr0ker</li>
+            <li>Finish exploit details - Sh1ttyOobe</li>
+            <li>Add cros.download to downgrading</li>
             <li>Finish details - Unbrick</li>
             <li>Clean up exploit details - Fakemurk</li>
-            <li>Add proxy: AnuraOS</li>
             <li>Wi-Fi Password Extractor - Add details & integrations</li>
             <li>Buypass - Fix integration</li>
             <li>INSECURLY - Fix or remove script console</li>
-            <li>Add dark/light theme toggle accessible from header</li>
             <li>Add author detail pages & automated links to them in mentions</li>
             <li>Add introduction versions to exploit cards</li>
             <li>Add patch information to exploit details</li>
@@ -163,7 +167,7 @@
         getContributors();
         async function getContributors() {
             document.getElementById("contributors").innerHTML = "<center><image height='100px' src='assets/loadingdots.gif'></image>";
-            let request = await fetch("https://api.github.com/repos/3kh0/ext-remover/contributors?per_page=100&page=1", {
+            let request = await fetch("https://api.github.com/repos/heysysadmins/chrose/contributors?per_page=100&page=1", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

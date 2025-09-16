@@ -14,9 +14,6 @@
         background-color: rgba(0, 0, 0, 0.2);
         border-radius: 10px;
     }
-    #bg-container {
-    /*    background-image: url("assets/bg/background-light.webp") !important; */
-    }
     svg {
         filter: none !important;
     }
@@ -29,9 +26,6 @@
     }
     .optionButton {
         background-color: #181926;
-    }
-    .optionButton:hover {
-    /*    backdrop-filter: brightness(0.5) !important; */
     }
     .thumbnail {
         background-color: #181926;

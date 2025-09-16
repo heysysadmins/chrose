@@ -53,8 +53,8 @@ a.versionBtn {
     display: table;
     margin: auto;
     padding: 5px;
-    background-color: rgb(255, 191, 0, 0.5);
-    border: 1px solid var(--foregroundColor);
+    background-color: #1e2030; 
+   /* border: 1px solid var(--foregroundColor); */
     border-radius: 5px;
     font-style: italic;
 }
